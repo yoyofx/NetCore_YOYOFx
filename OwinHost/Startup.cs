@@ -7,17 +7,26 @@ using Owin;
 
 namespace OwinHost
 {
+    using Env = IDictionary<string, object>;
+    using AppFun = Func<IDictionary<String, object>, Task>;
+    using MiddlewareFunc = Func< //
+       IDictionary<string, object>, // owin request environment
+       Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
+       Task // completion signal
+       >;
     public class Startup
     {
 
-        public void Configuration(IAppBuilder builder)
+
+
+        public void Configuration(IAppBuilder app)
         {
-            builder.Run(context =>
-            {
-                context.Response.ContentType = "text/plain";
-                return context.Response.WriteAsync("Hello, world.");
-            });
+
+            app.Use<MyMiddleWareComponent>();
+
         }
+
+       
 
 
 
