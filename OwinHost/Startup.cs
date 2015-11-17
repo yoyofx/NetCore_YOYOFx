@@ -14,6 +14,9 @@ namespace OwinHost
        Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
        Task // completion signal
        >;
+    using YOYO.Owin;
+    using System.IO;
+
     public class Startup
     {
 
@@ -21,8 +24,15 @@ namespace OwinHost
 
         public void Configuration(IAppBuilder app)
         {
+        
+            app.UsePipeline(p => p.Use(new MyMiddleWareComponent()).Use(async(env,next)=> {
+                var response = env["owin.ResponseBody"] as Stream;
+                using (var writer = new StreamWriter(response))
+                {
+                    await writer.WriteAsync("<h1>Hello from My second Middleware</h1>");
+                }
 
-            app.Use<MyMiddleWareComponent>();
+            }));
 
         }
 

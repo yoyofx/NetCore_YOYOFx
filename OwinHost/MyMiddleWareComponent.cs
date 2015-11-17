@@ -6,34 +6,19 @@ using System.Threading.Tasks;
 
 namespace OwinHost
 {
-    using Env = IDictionary<string, object>;
-    using AppFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Task // completion signal
-        >;
-    using MiddlewareFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
-        Task // completion signal
-        >;
+
     using System.IO;
+    using YOYO.Owin;
 
-    public class MyMiddleWareComponent
+    public class MyMiddleWareComponent : PipelineComponent
     {
-        AppFunc _next;
-        public MyMiddleWareComponent(AppFunc next)
+        public override async Task Do(IDictionary<string, object> requestEnvironment)
         {
-            _next = next;
-        }
-
-        public async Task Invoke(Env environment)
-        {
-            var response = environment["owin.ResponseBody"] as Stream;
+            var response = requestEnvironment["owin.ResponseBody"] as Stream;
             using (var writer = new StreamWriter(response))
             {
                 await writer.WriteAsync("<h1>Hello from My First Middleware</h1>");
             }
-            await _next(environment);
         }
 
     }

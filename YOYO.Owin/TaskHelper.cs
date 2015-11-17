@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OwinHost
+namespace YOYO.Owin
 {
     internal static class TaskHelper
     {

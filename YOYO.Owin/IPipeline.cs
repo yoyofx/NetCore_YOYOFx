@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OwinHost
+namespace YOYO.Owin
 {
     using Env = IDictionary<string, object>;
     using AppFunc = Func< //
@@ -16,17 +16,19 @@ namespace OwinHost
         Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
         Task // completion signal
         >;
+    using SetupAction = Action< //
+        IDictionary<string, object> // owin host environment
+        >;
 
-
-    internal interface IPipeline
+    public interface IPipeline
     {
         AppFunc Build();
 
         void Setup(Env hostEnvironment);
 
-        void Use(AppFunc app);
+        void Use(AppFunc app, SetupAction setup = null);
 
-        IPipeline Use(MiddlewareFunc middleware);
+        IPipeline Use(MiddlewareFunc middleware, SetupAction setup = null);
 
         IPipeline Use(IPipelineComponent component);
     }

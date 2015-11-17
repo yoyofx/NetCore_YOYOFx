@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OwinHost
+namespace YOYO.Owin
 {
     using Env = IDictionary<string, object>;
     using AppFunc = Func< //
@@ -12,7 +12,7 @@ namespace OwinHost
         Task // completion signal
         >;
 
-    internal interface IPipelineComponent
+    public interface IPipelineComponent
     {
         void Connect(AppFunc next);
 
