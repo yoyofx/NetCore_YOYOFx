@@ -44,11 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\DictionaryExtensions.cs" />
     <Compile Include="IOwinContext.cs" />
     <Compile Include="IPipeline.cs" />
     <Compile Include="IPipelineComponent.cs" />
     <Compile Include="MiddleWareDelegateComponent.cs" />
     <Compile Include="OwinContext.cs" />
+    <Compile Include="OwinKeys.cs" />
     <Compile Include="OwinPipelineExtensions.cs" />
     <Compile Include="Pipeline.cs" />
     <Compile Include="PipelineComponent.cs" />
