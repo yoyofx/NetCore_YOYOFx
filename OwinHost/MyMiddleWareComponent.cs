@@ -12,14 +12,33 @@ namespace OwinHost
 
     public class MyMiddleWareComponent : PipelineComponent
     {
-        public override async Task Do(IDictionary<string, object> requestEnvironment)
+
+        public override async Task Invoke(IDictionary<string, object> requestEnvironment, Func<IDictionary<string, object>, Task> next)
         {
-            var response = requestEnvironment["owin.ResponseBody"] as Stream;
-            using (var writer = new StreamWriter(response))
+            if (requestEnvironment[OwinConstants.Request.Path].ToString() == "/")
             {
-                await writer.WriteAsync("<h1>Hello from My First Middleware</h1>");
+                
+
+                var response = requestEnvironment["owin.ResponseBody"] as Stream;
+                var writer = new StreamWriter(response);
+                
+                    await writer.WriteAsync("<h1>Hello from My First Middleware</h1>");
+
+                    await writer.WriteAsync("<h1>log before</h1>");
+
+
+
+                    await next(requestEnvironment);
+
+
+
+                    await writer.WriteAsync("<h1>log after</h1>");
+
+                writer.Dispose();
             }
         }
+
+
 
     }
 }

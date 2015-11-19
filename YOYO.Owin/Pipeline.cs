@@ -20,6 +20,7 @@ namespace YOYO.Owin
     using SetupAction = Action< //
         IDictionary<string, object> // owin host environment
         >;
+    
 
     public class Pipeline : IPipeline
     {
@@ -28,7 +29,7 @@ namespace YOYO.Owin
 
         public static AppFunc ReturnDone
         {
-            get { return environment => TaskHelper.Completed(); }
+            get { return environment => OwinConstants.TaskHelper.Completed(); }
         }
 
         public AppFunc Build()

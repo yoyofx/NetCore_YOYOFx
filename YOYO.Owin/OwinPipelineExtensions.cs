@@ -19,7 +19,7 @@ namespace YOYO.Owin
             var pipeline = new Pipeline();
             setup(pipeline);
             var appfunc = pipeline.Build();
-            app.Use(new Func<object, AppFunc>(ignored => appfunc));
+            app.Use(new Func<AppFunc, AppFunc>(ignored => appfunc));
         }
 
 

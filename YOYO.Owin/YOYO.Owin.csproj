@@ -50,12 +50,11 @@
     <Compile Include="IPipelineComponent.cs" />
     <Compile Include="MiddleWareDelegateComponent.cs" />
     <Compile Include="OwinContext.cs" />
-    <Compile Include="OwinKeys.cs" />
+    <Compile Include="OwinConstants.cs" />
     <Compile Include="OwinPipelineExtensions.cs" />
     <Compile Include="Pipeline.cs" />
     <Compile Include="PipelineComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
