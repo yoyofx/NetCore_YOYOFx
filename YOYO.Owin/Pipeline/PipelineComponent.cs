@@ -4,44 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin
+namespace YOYO.Owin.Pipeline
 {
     using Env = IDictionary<string, object>;
     using AppFunc = Func< //
         IDictionary<string, object>, // owin request environment
         Task // completion signal
         >;
-    using MiddlewareFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
-        Task // completion signal
-        >;
-
+   
     using SetupAction = Action< //
        IDictionary<string, object> // owin host environment
        >;
 
 
-    internal class MiddleWareDelegateComponent : IPipelineComponent
+    public abstract class PipelineComponent : IPipelineComponent
     {
-        private readonly MiddlewareFunc _middleware;
         private readonly SetupAction _setup;
         private AppFunc _next;
-
-        public MiddleWareDelegateComponent(MiddlewareFunc middleware, SetupAction setup = null)
-        {
-            _middleware = middleware;
-            _setup = setup;
-        }
 
         public void Connect(AppFunc next)
         {
             _next = next;
         }
 
-        public Task Execute(Env requestEnvironment)
+        public async Task Execute(Env requestEnvironment)
         {
-            return _middleware(requestEnvironment,_next);
+            await Invoke(requestEnvironment,_next);
+            //await _next(requestEnvironment);
         }
 
         public void Setup(Env hostEnvironment)
@@ -49,5 +38,11 @@ namespace YOYO.Owin
             if (_setup != null)
                 _setup(hostEnvironment);
         }
+
+
+        public abstract Task Invoke(Env requestEnvironment,AppFunc next);
+
+
+
     }
 }

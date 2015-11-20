@@ -9,6 +9,7 @@ namespace OwinHost
 
     using System.IO;
     using YOYO.Owin;
+    using YOYO.Owin.Pipeline;
 
     public class MyMiddleWareComponent : PipelineComponent
     {
@@ -22,20 +23,11 @@ namespace OwinHost
                 var response = requestEnvironment["owin.ResponseBody"] as Stream;
                 var writer = new StreamWriter(response);
                 
-                    await writer.WriteAsync("<h1>Hello from My First Middleware</h1>");
-
-                    await writer.WriteAsync("<h1>log before</h1>");
-
-
-
-                    await next(requestEnvironment);
-
-
-
-                    await writer.WriteAsync("<h1>log after</h1>");
+                await writer.WriteAsync("<h1>Hello from My First Middleware</h1>");
 
                 writer.Dispose();
             }
+            await next(requestEnvironment);
         }
 
 

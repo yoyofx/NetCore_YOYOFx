@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Owin;
 
-namespace YOYO.Owin
+namespace YOYO.Owin.Pipeline
 {
 
     using AppFunc = Func< //

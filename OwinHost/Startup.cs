@@ -25,20 +25,25 @@ namespace OwinHost
         public void Configuration(IAppBuilder app)
         {
 
-            app.UsePipeline(p => p.Use(async (env, next) =>
-            {
-                if (env[OwinConstants.Request.Path].ToString() == "/")
-                {
-                    await next(env);
-                    var response = env["owin.ResponseBody"] as Stream;
-                    using (var writer = new StreamWriter(response))
-                    {
-                        await writer.WriteAsync("<h1>Hello from My second Middleware</h1>");
-                    }
-                    
-                }
+            //app.UsePipeline(p => p.Use(async (env, next) =>
+            //{
+            //    if (env[OwinConstants.Request.Path].ToString() == "/")
+            //    {
+                   
+            //        var response = env["owin.ResponseBody"] as Stream;
+            //        using (var writer = new StreamWriter(response))
+            //        {
+            //            await writer.WriteAsync("<h1>Hello from My log Middleware</h1>");
+            //            await writer.WriteAsync("<h1>log Middleware first before</h1>");
+            //            await next(env);
+            //            await writer.WriteAsync("<h1>log Middleware first after</h1>");
+            //        }
 
-            }).Use(new MyMiddleWareComponent()));
+
+                    
+            //    }
+
+            //}).Use(new MyMiddleWareComponent()));
 
 
 

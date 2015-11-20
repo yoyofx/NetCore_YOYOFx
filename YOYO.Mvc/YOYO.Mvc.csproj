@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2026151-9E62-4F53-B80C-CA9585118C18}</ProjectGuid>
+    <ProjectGuid>{69105277-8BD6-404D-B81D-A8B22B08CD5E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YOYO.Owin</RootNamespace>
-    <AssemblyName>YOYO.Owin</AssemblyName>
+    <RootNamespace>YOYO.Mvc</RootNamespace>
+    <AssemblyName>YOYO.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -29,11 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,42 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormData.cs" />
-    <Compile Include="FormsMiddleware.cs" />
-    <Compile Include="Helper\DictionaryExtensions.cs" />
-    <Compile Include="Helper\HeaderExtensions.cs" />
-    <Compile Include="Helper\StreamExtensions.cs" />
-    <Compile Include="Helper\StreamExtensions.F40.cs" />
-    <Compile Include="Helper\UrlHelper.cs" />
-    <Compile Include="HttpHeaderKeys.cs" />
-    <Compile Include="HttpHeaders.cs" />
-    <Compile Include="IFormData.cs" />
-    <Compile Include="IHttpHeaders.cs" />
-    <Compile Include="IOwinContext.cs" />
-    <Compile Include="IOwinRequest.cs" />
-    <Compile Include="IOwinResponse.cs" />
-    <Compile Include="IPostedFile.cs" />
-    <Compile Include="IResponseHeaders.cs" />
-    <Compile Include="OwinRequest.cs" />
-    <Compile Include="OwinRequestHeaders.cs" />
-    <Compile Include="OwinResponse.cs" />
-    <Compile Include="OwinResponseHeaders.cs" />
-    <Compile Include="Pipeline\IPipeline.cs" />
-    <Compile Include="Pipeline\IPipelineComponent.cs" />
-    <Compile Include="IRequestHeaders.cs" />
-    <Compile Include="Pipeline\MiddleWareDelegateComponent.cs" />
-    <Compile Include="OwinContext.cs" />
-    <Compile Include="OwinConstants.cs" />
-    <Compile Include="OwinMiddleware.cs" />
-    <Compile Include="Pipeline\OwinPipelineExtensions.cs" />
-    <Compile Include="Pipeline\Pipeline.cs" />
-    <Compile Include="Pipeline\PipelineComponent.cs" />
+    <Compile Include="Owin\OwinMiddleware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryString.cs" />
-    <Compile Include="Status.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">
+      <Project>{c2026151-9e62-4f53-b80c-ca9585118c18}</Project>
+      <Name>YOYO.Owin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
