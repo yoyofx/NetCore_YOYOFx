@@ -6,7 +6,7 @@ namespace YOYO.Owin
     /// <summary>
     /// Abstraction for an HTTP response, to be implemented by hosting.
     /// </summary>
-    internal interface IOwinResponse
+    public interface IOwinResponse
     {
         Stream Body { get; }
 

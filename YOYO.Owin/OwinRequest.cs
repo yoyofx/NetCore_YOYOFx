@@ -16,6 +16,10 @@ namespace YOYO.Owin
         private readonly OwinRequestHeaders _headers;
         private QueryString _queryString;
 
+     
+
+
+
         public OwinRequest(IDictionary<string, object> environment)
         {
             if (environment == null)
@@ -23,7 +27,7 @@ namespace YOYO.Owin
                 throw new ArgumentNullException("environment");
             }
             _environment = environment;
-            var headers = _environment.GetValueOrCreate(OwinConstants.Request.Headers, ()=> new ConcurrentDictionary<string,string[]>() );
+            var headers = _environment.GetValueOrCreate(OwinConstants.Request.Headers, DictionaryExtensions.createHeadersFunc);
             _headers = new OwinRequestHeaders(headers);
         }
 

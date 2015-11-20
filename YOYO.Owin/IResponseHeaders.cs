@@ -1,6 +1,6 @@
 ﻿namespace YOYO.Owin
 {
-    internal interface IResponseHeaders : IHttpHeaders
+    public interface IResponseHeaders : IHttpHeaders
     {
         string AcceptRanges { get; set; }
 

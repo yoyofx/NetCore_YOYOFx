@@ -5,7 +5,7 @@ using YOYO.Owin.Helper;
 
 namespace YOYO.Owin
 {
-    internal class QueryString
+    public class QueryString
     {
         private readonly IDictionary<string, string[]> _parts;
 

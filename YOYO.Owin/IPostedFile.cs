@@ -5,7 +5,7 @@ namespace YOYO.Owin
     /// <summary>
     /// Represents a file uploaded over HTTP.
     /// </summary>
-    internal interface IPostedFile
+    public interface IPostedFile
     {
         /// <summary>
         /// Gets the size of an uploaded file, in bytes.

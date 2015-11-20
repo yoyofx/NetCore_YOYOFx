@@ -11,8 +11,8 @@ namespace YOYO.Owin
 
         string OwinVersion { get; }
 
-        //IRequest Request { get; }
+        IOwinRequest Request { get; }
 
-        //IResponse Response { get; }
+        IOwinResponse Response { get; }
     }
 }

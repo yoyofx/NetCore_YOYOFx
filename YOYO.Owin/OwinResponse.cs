@@ -12,12 +12,14 @@ namespace YOYO.Owin
         private readonly IDictionary<string, object> _environment;
         private readonly OwinResponseHeaders _headers;
 
+
+
         public OwinResponse(IDictionary<string, object> environment) {
             if (environment == null) {
                 throw new ArgumentNullException("environment");
             }
             _environment = environment;
-            var headers = _environment.GetValueOrCreate(OwinConstants.Response.Headers, ()=> new  ConcurrentDictionary<string,string[]>());
+            var headers = _environment.GetValueOrCreate(OwinConstants.Response.Headers, DictionaryExtensions.createHeadersFunc );
             _headers = new OwinResponseHeaders(headers);
         }
 

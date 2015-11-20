@@ -1,6 +1,6 @@
 ﻿namespace YOYO.Owin
 {
-    interface IRequestHeaders : IHttpHeaders
+    public interface IRequestHeaders : IHttpHeaders
     {
         string Accept { get; set; }
 

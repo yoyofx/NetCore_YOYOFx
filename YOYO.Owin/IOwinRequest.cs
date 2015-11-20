@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace YOYO.Owin
 {
-    internal interface IOwinRequest
+    public interface IOwinRequest
     {
         /// <summary>
         /// Gets the input body stream.
         /// </summary>
         Stream Body { get; }
 
-        //IFormData FormData { get; set; }
+        IFormData FormData { get; set; }
 
         /// <summary>
         /// Gets the URL.

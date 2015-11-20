@@ -2,7 +2,7 @@
 
 namespace YOYO.Owin
 {
-    internal interface IFormData
+    public interface IFormData
     {
         IList<IPostedFile> Files { get; }
 

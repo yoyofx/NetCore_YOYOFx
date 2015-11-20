@@ -15,15 +15,30 @@ namespace YOYO.Owin
     {
 
         private readonly IDictionary<String, Object> _environment;
+		private readonly OwinRequest _request;
+		private readonly OwinResponse _response;
+
 
         public OwinContext(IDictionary<string, object> environment = null)
         {
             _environment = environment ?? new ConcurrentDictionary<string, object>(StringComparer.Ordinal);
             if (!_environment.ContainsKey(OwinConstants.Owin.CallCancelled))
                 _environment.Add(OwinConstants.Owin.CallCancelled, new CancellationToken());
+			
+			_request = new OwinRequest(_environment);
+			_response = new OwinResponse(_environment);
         }
 
         #region IOwinContext Members   
+
+		IOwinRequest IOwinContext.Request {
+			get { return _request; }
+		}
+
+		IOwinResponse IOwinContext.Response {
+			get { return _response; }
+		}
+
 
 
         public IDictionary<string, object> Environment

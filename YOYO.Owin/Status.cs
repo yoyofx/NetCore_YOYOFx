@@ -7,7 +7,7 @@ namespace YOYO.Owin
     /// Represents the HTTP Status Code returned by a Handler.
     /// </summary>
     /// <remarks>Has an implicit cast from <see cref="int"/>.</remarks>
-    internal class Status : IEquatable<Status>
+    public class Status : IEquatable<Status>
     {
         private readonly int _httpStatusCode;
         private readonly string _httpStatusDescription;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,10 @@ namespace YOYO.Owin.Helper
 {
     internal static class DictionaryExtensions
     {
+       public static Func<IDictionary<string, string[]>> createHeadersFunc =
+                                    () => new ConcurrentDictionary<string, string[]>(StringComparer.OrdinalIgnoreCase);
+
+
         public static T GetNestedValueOrDefault<T>(this IDictionary<string, object> dictionary,
                                                    string key,
                                                    string subkey,

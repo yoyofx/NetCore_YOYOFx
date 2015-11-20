@@ -256,7 +256,7 @@ namespace YOYO.Owin.Helper
                 throw new ArgumentNullException("data");
             }
             if (cancellationToken.IsCancellationRequested) {
-                return TaskHelper.Canceled();
+				return OwinConstants.TaskHelper.Canceled();
             }
             if (encoding == null) {
                 encoding = Encoding.UTF8;
@@ -273,7 +273,7 @@ namespace YOYO.Owin.Helper
                 throw new ArgumentNullException("data");
             }
             if (cancellationToken.IsCancellationRequested) {
-                return TaskHelper.Canceled();
+				return OwinConstants.TaskHelper.Canceled();
             }
             return stream.WriteAsync(data, 0, data.Length, cancellationToken);
         }

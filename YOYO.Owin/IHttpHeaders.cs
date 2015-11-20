@@ -2,7 +2,7 @@
 
 namespace YOYO.Owin
 {
-    internal interface IHttpHeaders
+    public interface IHttpHeaders
     {
         IDictionary<string, string[]> Raw { get; }
 
