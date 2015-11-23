@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 using YOYO.Owin.Helper;
 using System.IO;
 using System.Security.Principal;
+using System.Text.RegularExpressions;
 
 namespace YOYO.Owin
 {
     internal class OwinRequest : IOwinRequest
     {
+        private static readonly Regex MultipartRegex = new Regex(@"boundary=""?(?<token>[^\n\;\"" ]*)",
+                                                                RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
         private readonly IDictionary<string, object> _environment;
         private readonly OwinRequestHeaders _headers;
         private QueryString _queryString;
@@ -29,6 +33,32 @@ namespace YOYO.Owin
             _environment = environment;
             var headers = _environment.GetValueOrCreate(OwinConstants.Request.Headers, DictionaryExtensions.createHeadersFunc);
             _headers = new OwinRequestHeaders(headers);
+
+            this.ParseFormData();
+
+
+        }
+
+        private void ParseFormData()
+        {
+            var contentType = this.Headers.ContentType;
+            if (String.IsNullOrEmpty(contentType))
+                return;
+
+            if (contentType == FormData.GetUrlEncodedContentType())
+            {
+                this.Form = FormData.ParseUrlEncoded(this.Body).Result;
+            }
+            else
+            {
+                var match = MultipartRegex.Match(contentType);
+                if (match.Success)
+                {
+                    this.Form = FormData.ParseMultipart(this.Body, match.Groups["token"].Value)
+                                                           .Result;
+                }
+            }
+
         }
 
         public Stream Body
@@ -37,7 +67,7 @@ namespace YOYO.Owin
             set { _environment.SetValue(OwinConstants.Request.Body, value); }
         }
 
-        public IFormData FormData
+        public IFormData Form
         {
             get { return _environment.GetValueOrDefault<IFormData>(OwinConstants.Simple.Form); }
             set { _environment.SetValue(OwinConstants.Simple.Form, value); }

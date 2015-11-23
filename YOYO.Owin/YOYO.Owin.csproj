@@ -59,6 +59,7 @@
     <Compile Include="IOwinResponse.cs" />
     <Compile Include="IPostedFile.cs" />
     <Compile Include="IResponseHeaders.cs" />
+    <Compile Include="OwinFunc.cs" />
     <Compile Include="OwinRequest.cs" />
     <Compile Include="OwinRequestHeaders.cs" />
     <Compile Include="OwinResponse.cs" />

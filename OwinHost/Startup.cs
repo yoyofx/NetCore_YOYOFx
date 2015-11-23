@@ -8,13 +8,6 @@ using YOYO.Owin.Pipeline;
 
 namespace OwinHost
 {
-    using Env = IDictionary<string, object>;
-    using AppFun = Func<IDictionary<String, object>, Task>;
-    using MiddlewareFunc = Func< //
-       IDictionary<string, object>, // owin request environment
-       Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
-       Task // completion signal
-       >;
     using YOYO.Owin;
     using System.IO;
 
@@ -44,7 +37,7 @@ namespace OwinHost
                     
                 }
 
-				}).Use(FormsMiddleware.ParseFormData));
+				}).Use(new MyMiddleWareComponent()));
 
 
         }

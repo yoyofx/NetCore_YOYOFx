@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YOYO.Owin;
 
 namespace YOYO.Owin.Pipeline
 {
     using Env = IDictionary<string, object>;
-    using AppFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Task // completion signal
-        >;
+    //using AppFunc = Func< //
+    //    IDictionary<string, object>, // owin request environment
+    //    Task // completion signal
+    //    >;
    
     using SetupAction = Action< //
        IDictionary<string, object> // owin host environment
@@ -29,8 +30,7 @@ namespace YOYO.Owin.Pipeline
 
         public async Task Execute(Env requestEnvironment)
         {
-            await Invoke(requestEnvironment,_next);
-            //await _next(requestEnvironment);
+            await Invoke(new OwinContext(requestEnvironment),_next);
         }
 
         public void Setup(Env hostEnvironment)
@@ -40,7 +40,7 @@ namespace YOYO.Owin.Pipeline
         }
 
 
-        public abstract Task Invoke(Env requestEnvironment,AppFunc next);
+        public abstract Task Invoke(IOwinContext context ,AppFunc next);
 
 
 

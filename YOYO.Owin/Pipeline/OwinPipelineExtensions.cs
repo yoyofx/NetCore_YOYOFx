@@ -8,10 +8,7 @@ using Owin;
 namespace YOYO.Owin.Pipeline
 {
 
-    using AppFunc = Func< //
-               IDictionary<string, object>, // owin request environment
-               Task // completion signal
-               >;
+
     public static class OwinPipelineExtensions
     {
         public static void UsePipeline(this IAppBuilder app,Action<Pipeline> setup)

@@ -10,7 +10,7 @@ namespace YOYO.Owin
     public class OwinMiddleware : PipelineComponent
     {
 
-        public override async Task Invoke(IDictionary<string, object> requestEnvironment, Func<IDictionary<string, object>, Task> next)
+        public override async Task Invoke(IOwinContext context, AppFunc next)
         {
             
 

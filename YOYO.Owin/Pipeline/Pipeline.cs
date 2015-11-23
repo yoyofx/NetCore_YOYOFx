@@ -8,15 +8,7 @@ namespace YOYO.Owin.Pipeline
 {
 
     using Env = IDictionary<string, object>;
-    using AppFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Task // completion signal
-        >;
-    using MiddlewareFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Func<IDictionary<string, object>, Task>, // next AppFunc in pipeline
-        Task // completion signal
-        >;
+  
     using SetupAction = Action< //
         IDictionary<string, object> // owin host environment
         >;

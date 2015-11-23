@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using YOYO.Owin;
 namespace YOYO.Owin.Pipeline
 {
     using Env = IDictionary<string, object>;
-    using AppFunc = Func< //
-        IDictionary<string, object>, // owin request environment
-        Task // completion signal
-        >;
+    //using AppFunc = Func< //
+    //    IDictionary<string, object>, // owin request environment
+    //    Task // completion signal
+    //    >;
 
     public interface IPipelineComponent
     {

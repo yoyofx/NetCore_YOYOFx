@@ -15,7 +15,7 @@ namespace YOYO.Owin
         /// </summary>
         Stream Body { get; }
 
-        IFormData FormData { get; set; }
+        IFormData Form{ get; set; }
 
         /// <summary>
         /// Gets the URL.
