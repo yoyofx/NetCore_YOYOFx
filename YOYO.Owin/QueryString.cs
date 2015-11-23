@@ -18,6 +18,16 @@ namespace YOYO.Owin
             _parts = parts;
         }
 
+
+        public string this[string key]
+        {
+            get
+            {
+                return _parts[key];
+            }
+        }
+
+
         public IDictionary<string, string> Parts {
             get { return _parts; }
         }
