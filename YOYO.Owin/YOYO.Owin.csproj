@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormData.cs" />
-    <Compile Include="FormsMiddleware.cs" />
     <Compile Include="Helper\DictionaryExtensions.cs" />
     <Compile Include="Helper\HeaderExtensions.cs" />
     <Compile Include="Helper\StreamExtensions.cs" />
