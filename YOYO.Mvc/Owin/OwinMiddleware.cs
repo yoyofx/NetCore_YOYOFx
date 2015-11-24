@@ -8,12 +8,16 @@ using YOYO.Owin.Pipeline;
 
 namespace YOYO.Mvc.Owin
 {
-    public class OwinMiddleware : PipelineComponent
+    public class YOYOFxOwinMiddleware : PipelineComponent
     {
 
         public override async Task Invoke(IOwinContext context, AppFunc next)
         {
-            
+            if (context.Request.Path == "/")
+            {
+                await context.Response.WriteAsync("<h1>Hello from My First Middleware</h1>");
+            }
+            await next(context.Environment);
 
         }
 

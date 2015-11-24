@@ -56,7 +56,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyMiddleWareComponent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -66,9 +65,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YOYO.Mvc\YOYO.Mvc.csproj">
+      <Project>{69105277-8bd6-404d-b81d-a8b22b08cd5e}</Project>
+      <Name>YOYO.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">
       <Project>{C2026151-9E62-4F53-B80C-CA9585118C18}</Project>
       <Name>YOYO.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YOYOFxMvcDemo\YOYOFxMvcDemo.csproj">
+      <Project>{7b609da0-a63f-42ef-bda7-0031bb5e4349}</Project>
+      <Name>YOYOFxMvcDemo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

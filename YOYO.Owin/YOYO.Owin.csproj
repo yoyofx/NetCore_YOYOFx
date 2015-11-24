@@ -69,8 +69,6 @@
     <Compile Include="Pipeline\MiddleWareDelegateComponent.cs" />
     <Compile Include="OwinContext.cs" />
     <Compile Include="OwinConstants.cs" />
-    <Compile Include="OwinMiddleware.cs" />
-    <Compile Include="Pipeline\OwinPipelineExtensions.cs" />
     <Compile Include="Pipeline\Pipeline.cs" />
     <Compile Include="Pipeline\PipelineComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
