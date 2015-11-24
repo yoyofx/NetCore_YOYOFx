@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        input {
+            width: 200px;
+        }
+
+        .form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        .label{
+            width: 80px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <form class="form" enctype="multipart/form-data" action="http://localhost:9000" method="post">
+        <p><span class="label">id:</span><input type="text" name="id" /></p>
+        <p><span class="label">name:</span><input type="text" name="name" /></p>
+        <p><span class="label">dsc:</span><input type="text" name="dsc" /></p>
+        <p><span class="label">file:</span><input type="file" name="file1" /></p>
+        <p><span class="label">&nbsp;</span><input type="submit" value="Submit" /></p>
+    </form>
+</body>
+</html>
