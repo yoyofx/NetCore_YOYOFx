@@ -8,6 +8,6 @@ namespace YOYO.Mvc.Route
 {
     public interface IRouteBuilder
     {
-
+        
     }
 }

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YOYO.Mvc", "YOYO.Mvc\YOYO.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YOYOFxMvcDemo", "YOYOFxMvcDemo\YOYOFxMvcDemo.csproj", "{7B609DA0-A63F-42EF-BDA7-0031BB5E4349}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YOYOFx.Test", "YOYOFx.Test\YOYOFx.Test.csproj", "{20B18284-18D6-4700-99D1-D93C39063DC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{7B609DA0-A63F-42EF-BDA7-0031BB5E4349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B609DA0-A63F-42EF-BDA7-0031BB5E4349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B609DA0-A63F-42EF-BDA7-0031BB5E4349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20B18284-18D6-4700-99D1-D93C39063DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B18284-18D6-4700-99D1-D93C39063DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B18284-18D6-4700-99D1-D93C39063DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B18284-18D6-4700-99D1-D93C39063DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

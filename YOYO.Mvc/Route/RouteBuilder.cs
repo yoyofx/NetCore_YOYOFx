@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace YOYO.Mvc.Route
 {
-    class RouteBuilder
+    public class RouteBuilder
     {
+        
     }
 }

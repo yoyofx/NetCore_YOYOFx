@@ -28,9 +28,26 @@ namespace YOYO.Owin.Pipeline
             _next = next;
         }
 
-        public async Task Execute(Env requestEnvironment)
+        public  Task Execute(Env requestEnvironment)
         {
-            await Invoke(new OwinContext(requestEnvironment),_next);
+            IOwinContext context = new OwinContext(requestEnvironment);
+            var tcs = new TaskCompletionSource<bool>();
+            try {
+                var pipelineInvoker = Invoke( context , _next) ;
+                pipelineInvoker.Wait();
+                tcs.SetResult(true);
+            }
+            catch (Exception e)
+            {
+                tcs.SetException(e);
+                
+                return context.Response.WriteAsync(e.ToString()+ e.StackTrace);
+            }
+            finally
+            {
+
+            }
+            return tcs.Task;
         }
 
         public void Setup(Env hostEnvironment)
