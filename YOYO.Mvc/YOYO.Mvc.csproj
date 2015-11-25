@@ -51,6 +51,8 @@
     <Compile Include="Route\IRouteBuilder.cs" />
     <Compile Include="Route\RouteBuilder.cs" />
     <Compile Include="Route\RouteRole.cs" />
+    <Compile Include="Route\RouteSegment.cs" />
+    <Compile Include="Route\SegmentType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">

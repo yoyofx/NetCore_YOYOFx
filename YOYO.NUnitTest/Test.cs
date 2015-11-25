@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using YOYOFx.Mvc.Route;
+using YOYO.Mvc.Route;
 
 namespace YOYO.NUnitTest
 {
@@ -11,8 +11,7 @@ namespace YOYO.NUnitTest
 		public void TestCase ()
 		{
 			RouteRole role = new RouteRole ("/{controller}/{action}/id");
-			role.GetRouteValues (null);
-
+			var segmentlist = role.Segments;
 
 		}
 	}
