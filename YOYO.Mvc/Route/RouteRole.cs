@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace YOYO.Mvc.Route
 {
-    public class RouteRole
-    {
-        private static readonly string _routeRoleMatchString = @"{(?<name>\w+)}";
+	public class RouteRole
+	{
+		private static readonly string _routeRoleMatchString = @"{(?<name>\w+)}";
 		private static readonly string _segmentRoleMatchString = @"(?<name>\w+)";
 		private IDictionary<string, string> _routeRoleValues = new Dictionary<string, string>();
 		private List<RouteSegment> _segmentList = new List<RouteSegment> ();
 
-        private string roleString = string.Empty;
+		private string roleString = string.Empty;
 
-        public RouteRole(string role)
-        {
-            this.MapRouteValues(role);
-        }
+		public RouteRole(string role)
+		{
+			this.MapRouteValues(role);
+		}
 
 		public List<RouteSegment> Segments
 		{
@@ -27,17 +27,18 @@ namespace YOYO.Mvc.Route
 		}
 
 
-        public virtual void MapRouteValues(string role)
-        {
+		public virtual void MapRouteValues(string role)
+		{
 			string[] nullorqueryString = role.Split ('?');
-			string roleStr  = nullorqueryString.Length > 1 ? nullorqueryString[0] : role;
+			string roleStr  = nullorqueryString.Length > 1 ? nullorqueryString[0] : role;  //split querystring , such as "?name=1" 
 			string[] segmentArray = roleStr.Split ('/');
 
 			for(int i = 0 ; i< segmentArray.Length ; i++)
-				_segmentList.Add( getRouteSegment(segmentArray[i],i) );
+				if(!String.IsNullOrEmpty(segmentArray[i]))
+					_segmentList.Add( getRouteSegment(segmentArray[i],i) );
 
-        
-        }
+		
+		}
 
 		private RouteSegment getRouteSegment(string segment , int index)
 		{
@@ -66,23 +67,30 @@ namespace YOYO.Mvc.Route
 
 
 
-        public virtual bool IsMatch(string url)
-        {
+		public virtual bool IsMatch(string url)
+		{
 
 
-            return true;
-        }
+			return true;
+		}
 
-        public IDictionary<string, string> GetRouteValues(string url)
-        {
-           string[] sp = url.Split('\\');
-            
+		public IDictionary<string, string> GetRouteValues(string url)
+		{
+			string[] nullorqueryString = url.Split('?');
+			string urlRoleStr = nullorqueryString.Length > 1 ? nullorqueryString[0] : url;    //split querystring , such as "?name=1" 
+			string[] sp = urlRoleStr.Split('\\');
+			StringBuilder urlBuilder = new StringBuilder();
 
-            return null;
-        }
+			for(int i = 0; i < sp.Length; i++)
+			{
+			   
+			}
+
+			return null;
+		}
 
 
 
 
-    }
+	}
 }
