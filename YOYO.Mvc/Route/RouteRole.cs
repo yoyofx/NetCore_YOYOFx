@@ -65,6 +65,16 @@ namespace YOYO.Mvc.Route
 			return rs;
 		}
 
+        private string setSegmentRole(RouteSegment segment)
+        {
+
+
+
+            return string.Empty;
+        }
+
+
+
 
 
 		public virtual bool IsMatch(string url)
