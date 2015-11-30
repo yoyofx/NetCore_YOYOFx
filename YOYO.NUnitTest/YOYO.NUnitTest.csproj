@@ -34,7 +34,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="Mock\MockOwinRequest.cs" />
+    <Compile Include="RouteRoleTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -44,6 +45,10 @@
     <ProjectReference Include="..\YOYO.Mvc\YOYO.Mvc.csproj">
       <Project>{69105277-8BD6-404D-B81D-A8B22B08CD5E}</Project>
       <Name>YOYO.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">
+      <Project>{c2026151-9e62-4f53-b80c-ca9585118c18}</Project>
+      <Name>YOYO.Owin</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

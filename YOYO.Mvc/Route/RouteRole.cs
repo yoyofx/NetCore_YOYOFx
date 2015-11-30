@@ -18,8 +18,15 @@ namespace YOYO.Mvc.Route
 
 		public RouteRole(string role)
 		{
-			this.MapRouteValues(role);
+            this.Method = HttpMethod.Both;
+            this.ResolveRoute(role);
 		}
+
+        public HttpMethod Method
+        {
+            set; get;
+        }
+
 
 		public List<RouteSegment> Segments
 		{
@@ -27,30 +34,24 @@ namespace YOYO.Mvc.Route
 		}
 
 
-		public virtual void MapRouteValues(string role)
+		public virtual void ResolveRoute(string role)
 		{
-			string[] nullorqueryString = role.Split ('?');
-			string roleStr  = nullorqueryString.Length > 1 ? nullorqueryString[0] : role;  //split querystring , such as "?name=1" 
-			string[] segmentArray = roleStr.Split ('/');
-
-			for(int i = 0 ; i< segmentArray.Length ; i++)
+            string[] segmentArray = GetUrlSegments(role);
+            for (int i = 0 ; i< segmentArray.Length ; i++)
 				if(!String.IsNullOrEmpty(segmentArray[i]))
 					_segmentList.Add( getRouteSegment(segmentArray[i],i) );
-
-		
 		}
 
 		private RouteSegment getRouteSegment(string segment , int index)
 		{
 			RouteSegment rs = new RouteSegment ();
 			rs.Segment = segment;
-			var matches = Regex.Matches( segment, _routeRoleMatchString, RegexOptions.IgnoreCase);
-			if (matches != null)
+			var match = Regex.Match( segment, _routeRoleMatchString, RegexOptions.IgnoreCase);
+			if (match != null)
 			{
-				foreach (Match m in matches)
-				{
-					if (m.Success) {
-						string value = m.Groups["name"].Value.ToLower();
+		
+					if (match.Success) {
+						string value = match.Groups["name"].Value.ToLower();
 						if (value == "controller" || value == "action") {
 							rs.SegmentType = SegmentType.Role;
 							rs.RouteNames.Add (value);
@@ -60,45 +61,41 @@ namespace YOYO.Mvc.Route
 							rs.RouteNames.Add (value);
 						}
 					}
-				}
+				
 			}
-			return rs;
+
+            setSegmentRole(rs);
+
+            return rs;
 		}
 
-        private string setSegmentRole(RouteSegment segment)
+        private void setSegmentRole(RouteSegment segment)
         {
+            if(segment.SegmentType == SegmentType.Role)
+            {
+                StringBuilder segmentRoleBuilder = new StringBuilder(segment.Segment) ;
 
+                foreach(var routeName in segment.RouteNames)
+                {
+                    string oldRoleName = string.Format("{{{0}}}",routeName);
+                    segmentRoleBuilder.Replace(oldRoleName, _segmentRoleMatchString);
+                }
 
+                segment.Role = segmentRoleBuilder.ToString();
 
-            return string.Empty;
+            }
+
         }
 
 
+       public static string[] GetUrlSegments(string roleUri)
+        {
+            string[] nullorqueryString = roleUri.Split('?');
+            string roleStr = nullorqueryString.Length > 1 ? nullorqueryString[0] : roleUri;  //split querystring , such as "?name=1" 
+            string[] segmentArray = roleStr.Split('/');
 
-
-
-		public virtual bool IsMatch(string url)
-		{
-
-
-			return true;
-		}
-
-		public IDictionary<string, string> GetRouteValues(string url)
-		{
-			string[] nullorqueryString = url.Split('?');
-			string urlRoleStr = nullorqueryString.Length > 1 ? nullorqueryString[0] : url;    //split querystring , such as "?name=1" 
-			string[] sp = urlRoleStr.Split('\\');
-			StringBuilder urlBuilder = new StringBuilder();
-
-			for(int i = 0; i < sp.Length; i++)
-			{
-			   
-			}
-
-			return null;
-		}
-
+            return segmentArray;
+        }
 
 
 
