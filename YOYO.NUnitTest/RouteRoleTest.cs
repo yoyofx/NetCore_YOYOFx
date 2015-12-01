@@ -44,16 +44,22 @@ namespace YOYO.NUnitTest
         {
             IRouteBuilder builder = RouteBuilder.Builder;
 
-            builder.Map("/api/p-{controller}/{action}/{id}");
+            builder.Map("/api/p-{controller}/{action}/{id}/");
             
-            IOwinRequest request = new Mock.MockOwinRequest("/p-mycontroller/add/1","get");
+            IOwinRequest request = new Mock.MockOwinRequest("/api/p-mycontroller/add/1/2/3/4","get");
             RouteResolveResult result = builder.Resolve(request);
 
             Assert.AreEqual("mycontroller", result.ControllerName);
 
             Assert.AreEqual("add", result.ActionName);
 
-            Assert.AreEqual("add", result.RouteValues);
+            Assert.AreEqual("1", result.RouteValues["id"]);
+
+            Assert.AreEqual("2", result.RouteValues["p0"]);
+
+            Assert.AreEqual("3", result.RouteValues["p1"]);
+
+            Assert.AreEqual("4", result.RouteValues["p2"]);
 
         }
 

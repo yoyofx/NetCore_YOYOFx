@@ -21,7 +21,8 @@ namespace OwinHost
         public void Configuration(IAppBuilder app)
         {
 
-            app.UseYOYOFx();
+            //app.UseYOYOFx( route => 
+            //            route.Map("/api/p-{controller}/{action}/{id}/") );
 
    //         app.UseYOYOFx(p => p.Use(async (env, next) =>
    //         {

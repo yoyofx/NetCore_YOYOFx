@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Owin;
+using YOYO.Mvc.Route;
 using YOYO.Owin;
 using YOYO.Owin.Pipeline;
 
@@ -13,7 +14,7 @@ namespace YOYO.Mvc.Owin
 
     public static class OwinPipelineExtensions
     {
-        public static IAppBuilder UseYOYOFx(this IAppBuilder app,Action<Pipeline> setup = null)
+        public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilder = null, Action<Pipeline> setup = null)
         {
             var pipeline = new Pipeline();
             setup(pipeline);
@@ -22,15 +23,21 @@ namespace YOYO.Mvc.Owin
             return app;
         }
 
-        public static void UseYOYOFx(this IAppBuilder app)
+        public static void UseYOYOFx(this IAppBuilder app , Action<IRouteBuilder> routebuilder = null)
         {
-            app.UseYOYOFx(  
+            app.UseYOYOFx(  routebuilder,
                 p=> p.Use(new YOYOFxOwinMiddleware() )
             );
-   
+
         }
 
+        public static void UseYOYOFx(this IAppBuilder app)
+        {
+            app.UseYOYOFx(null,
+                p => p.Use(new YOYOFxOwinMiddleware())
+            );
 
+        }
 
 
 

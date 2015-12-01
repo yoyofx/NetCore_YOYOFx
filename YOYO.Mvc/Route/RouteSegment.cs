@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace YOYO.Mvc.Route
 {
@@ -17,6 +18,24 @@ namespace YOYO.Mvc.Route
 		public string Role{ set; get;}
 
 		public SegmentType SegmentType {set;get;}
+
+
+        public string GetSegmentValue(string urlSegment)
+        {
+            if (this.SegmentType != SegmentType.Role && this.SegmentType != SegmentType.Parameter)
+                throw new NotSupportedException("not role or parameter!");
+
+            string value =null;
+            var m = Regex.Match(urlSegment, this.Role);
+            if(m!=null && m.Success)
+            {
+                value =m.Groups["name"].Value;
+            }
+
+            return value;
+
+        }
+
 	}
 }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using YOYO.Mvc.Extensions;
 
 namespace YOYO.Mvc.Route
 {
@@ -11,13 +12,14 @@ namespace YOYO.Mvc.Route
 	{
 		private static readonly string _routeRoleMatchString = @"{(?<name>\w+)}";
 		private static readonly string _segmentRoleMatchString = @"(?<name>\w+)";
-		private IDictionary<string, string> _routeRoleValues = new Dictionary<string, string>();
 		private List<RouteSegment> _segmentList = new List<RouteSegment> ();
 
 		private string roleString = string.Empty;
 
-		public RouteRole(string role)
+		public RouteRole(string role , string defaultControllerName = null, string defaultActionName = null)
 		{
+            this.DefalutAction = defaultActionName;
+            this.DefaultController = defaultControllerName;
             this.Method = HttpMethod.Both;
             this.ResolveRoute(role);
 		}
@@ -28,6 +30,11 @@ namespace YOYO.Mvc.Route
         }
 
 
+
+        public string DefaultController { set; get; }
+        public string DefalutAction { set; get; }
+
+
 		public List<RouteSegment> Segments
 		{
 			get{  return _segmentList;}
@@ -36,9 +43,8 @@ namespace YOYO.Mvc.Route
 
 		public virtual void ResolveRoute(string role)
 		{
-            string[] segmentArray = GetUrlSegments(role);
-            for (int i = 0 ; i< segmentArray.Length ; i++)
-				if(!String.IsNullOrEmpty(segmentArray[i]))
+            var segmentArray = role.GetUrlSegments();
+            for (int i = 0 ; i< segmentArray.Count ; i++)
 					_segmentList.Add( getRouteSegment(segmentArray[i],i) );
 		}
 
@@ -87,15 +93,13 @@ namespace YOYO.Mvc.Route
 
         }
 
+        
 
-       public static string[] GetUrlSegments(string roleUri)
-        {
-            string[] nullorqueryString = roleUri.Split('?');
-            string roleStr = nullorqueryString.Length > 1 ? nullorqueryString[0] : roleUri;  //split querystring , such as "?name=1" 
-            string[] segmentArray = roleStr.Split('/');
 
-            return segmentArray;
-        }
+
+
+
+     
 
 
 

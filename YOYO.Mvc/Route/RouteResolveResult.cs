@@ -11,6 +11,7 @@
             RouteValues = new ConcurrentDictionary<string, string>();
         }
 
+        public string Url { set; get; }
 
         public string ControllerName
         {

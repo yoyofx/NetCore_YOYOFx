@@ -14,9 +14,12 @@ namespace YOYOFxMvcDemo
 
         public void Configuration(IAppBuilder app)
         {
-            app.UseYOYOFx();
 
-            //hello world
+            app.UseYOYOFx(route =>
+                     route.Map("/{controller}/{action}/{id}/"));
+
+            //app.UseYOYOFx();
+
         }
 
 
