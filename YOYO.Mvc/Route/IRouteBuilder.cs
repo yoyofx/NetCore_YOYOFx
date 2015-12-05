@@ -9,7 +9,7 @@ namespace YOYO.Mvc.Route
 {
     public interface IRouteBuilder
     {
-        IRouteBuilder Map(string role);
+		IRouteBuilder Map(string role,string defaultControllerName = null, string defaultActionName = null);
         IRouteBuilder Map(RouteRole role);
         RouteResolveResult Resolve(IOwinRequest request);
     }

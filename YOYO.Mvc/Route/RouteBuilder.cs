@@ -45,7 +45,11 @@ namespace YOYO.Mvc.Route
             return this;
         }
 
-
+		public IRouteBuilder Map(string role , string defaultControllerName = null, string defaultActionName = null )
+		{
+			this.Map(new RouteRole(role,defaultControllerName,defaultActionName));
+			return this;
+		}
 
 
         public  RouteResolveResult Resolve(IOwinRequest request)
