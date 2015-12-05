@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YOYO.Owin;
+using YOYO.Owin.Helper;
 
 namespace YOYO.Owin.Pipeline
 {
@@ -32,22 +33,13 @@ namespace YOYO.Owin.Pipeline
         {
             IOwinContext context = new OwinContext(requestEnvironment);
             var tcs = new TaskCompletionSource<bool>();
-            try {
-                var pipelineInvoker = Invoke( context , _next) ;
-                pipelineInvoker.Wait();
-                tcs.SetResult(true);
-            }
-            catch (Exception e)
-            {
-                tcs.SetException(e);
-                
-                return context.Response.WriteAsync(e.ToString()+ e.StackTrace);
-            }
-            finally
-            {
+			var pipelineInvoker = Invoke( context , _next) ;
 
-            }
-            return tcs.Task;
+			pipelineInvoker.WhenCompleted ( onComplele => tcs.SetResult (true),  OnFaulted => {
+				tcs.SetException(OnFaulted.Exception);
+				context.Response.WriteAsync(OnFaulted.Exception.ToString() + OnFaulted.Exception.StackTrace).Wait();
+			});
+			return tcs.Task;
         }
 
         public void Setup(Env hostEnvironment)

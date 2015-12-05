@@ -14,10 +14,11 @@ namespace YOYO.Mvc.Owin
 
         public override async Task Invoke(IOwinContext context, AppFunc next)
         {
+			IRouteBuilder builder = RouteBuilder.Builder;
+			var route = builder.Resolve(context.Request);
+			IRouteHandler handler = RouteHandlerFactory.Default.CreateRouteHandler (route);
 
-            RouteHandler handler = new RouteHandler();
-
-            await handler.Process(context);
+			await handler.Process(context,context.CancellationToken);
 
             //if (context.Request.Path == "/")
             //{

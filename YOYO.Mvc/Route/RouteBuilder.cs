@@ -10,7 +10,7 @@ namespace YOYO.Mvc.Route
 {
     public class RouteBuilder : IRouteBuilder
     {
-        private List<RouteRole> routeRoles = new List<RouteRole>();
+        private static List<RouteRole> routeRoles = new List<RouteRole>();
         private static readonly object lockObject = new object();
         private static IRouteBuilder _builder;
 

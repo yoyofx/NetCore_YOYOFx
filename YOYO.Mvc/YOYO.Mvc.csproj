@@ -50,13 +50,15 @@
     <Compile Include="Owin\OwinPipelineExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Route\HttpMethod.cs" />
-    <Compile Include="Route\RouteHandler.cs" />
     <Compile Include="Route\RouteResolveResult.cs" />
     <Compile Include="Route\IRouteBuilder.cs" />
     <Compile Include="Route\RouteBuilder.cs" />
     <Compile Include="Route\RouteRole.cs" />
     <Compile Include="Route\RouteSegment.cs" />
     <Compile Include="Route\SegmentType.cs" />
+    <Compile Include="Route\IRouteHandler.cs" />
+    <Compile Include="Route\RouteHandlerFactory.cs" />
+    <Compile Include="Route\MvcRouteHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">

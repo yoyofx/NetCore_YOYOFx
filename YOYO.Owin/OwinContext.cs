@@ -31,11 +31,11 @@ namespace YOYO.Owin
 
         #region IOwinContext Members   
 
-		IOwinRequest IOwinContext.Request {
+	   public IOwinRequest Request {
 			get { return _request; }
 		}
 
-		IOwinResponse IOwinContext.Response {
+		public IOwinResponse Response {
 			get { return _response; }
 		}
 

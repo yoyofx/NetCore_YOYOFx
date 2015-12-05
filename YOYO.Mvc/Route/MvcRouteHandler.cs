@@ -4,26 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YOYO.Owin;
+using System.Threading;
 
 namespace YOYO.Mvc.Route
 {
-    internal class RouteHandler
+    internal class MvcRouteHandler : IRouteHandler
     {
         
-       public  Task Process(IOwinContext context)
+		public  Task Process(IOwinContext context,CancellationToken cancellationToken)
         {
             var task = Task.Factory.StartNew(() => {
-                IRouteBuilder builder = RouteBuilder.Builder;
-                var route = builder.Resolve(context.Request);
+               
 
 
-
-
-            } , context.CancellationToken);
-
-            
-
-
+			} , cancellationToken);
 
             return task;
 

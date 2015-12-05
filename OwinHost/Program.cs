@@ -12,7 +12,7 @@ namespace OwinHost
         {
 
 
-            using (Microsoft.Owin.Hosting.WebApp.Start<YOYOFxMvcDemo.Startup>("http://localhost:9000"))
+            using (Microsoft.Owin.Hosting.WebApp.Start<YOYOFxMvcDemo.Startup>("http://localhost:9001"))
             {
                 Console.WriteLine("Press [enter] to quit......");
                 Console.ReadLine();

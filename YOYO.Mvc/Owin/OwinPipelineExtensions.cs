@@ -14,8 +14,9 @@ namespace YOYO.Mvc.Owin
 
     public static class OwinPipelineExtensions
     {
-        public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilder = null, Action<Pipeline> setup = null)
+        public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null)
         {
+			routebuilderFunc ( RouteBuilder.Builder );
             var pipeline = new Pipeline();
             setup(pipeline);
             var appfunc = pipeline.Build();
