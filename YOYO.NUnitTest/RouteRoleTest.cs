@@ -45,7 +45,9 @@ namespace YOYO.NUnitTest
             IRouteBuilder builder = RouteBuilder.Builder;
 
             builder.Map("/api/p-{controller}/{action}/{id}/");
-            
+
+
+
             IOwinRequest request = new Mock.MockOwinRequest("/api/p-mycontroller/add/1/2/3/4","get");
             RouteResolveResult result = builder.Resolve(request);
 
@@ -60,6 +62,22 @@ namespace YOYO.NUnitTest
             Assert.AreEqual("3", result.RouteValues["p1"]);
 
             Assert.AreEqual("4", result.RouteValues["p2"]);
+
+			builder.Map ("/Home/Index", "v_Home", "v_Index");
+			IOwinRequest request1 = new Mock.MockOwinRequest("/Home/Index/1","get");
+			RouteResolveResult result1 = builder.Resolve(request1);
+			Assert.AreEqual("v_Home", result1.ControllerName);
+			Assert.AreEqual("v_Index", result1.ActionName);
+			Assert.AreEqual("1", result1.RouteValues["p0"]);
+
+			builder.Map (role:"/{controller}/Index", defaultActionName:"v_Index" );
+
+			IOwinRequest request2 = new Mock.MockOwinRequest("/Acount/Index/1","get");
+			RouteResolveResult result2 = builder.Resolve(request2);
+			Assert.AreEqual("Acount", result2.ControllerName);
+			Assert.AreEqual("v_Index", result2.ActionName);
+			Assert.AreEqual("1", result2.RouteValues["p0"]);
+
 
         }
 

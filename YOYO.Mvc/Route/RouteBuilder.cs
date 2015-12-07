@@ -76,10 +76,8 @@ namespace YOYO.Mvc.Route
 
         private RouteResolveResult getRouteForUrl(string path,string method, RouteRole role)
         {
-            RouteResolveResult result = new RouteResolveResult() {  Url = path };
-
-
-
+			RouteResolveResult result = new RouteResolveResult() {  Url = path ,  ControllerName = role.DefaultController , 
+																											ActionName = role.DefalutAction };
             List<RouteSegment> segments = role.Segments;
             var urlSegments = path.GetUrlSegments();
 
@@ -87,17 +85,20 @@ namespace YOYO.Mvc.Route
             {
                 if (index < segments.Count)
                 {
+
                     switch (segments[index].SegmentType)
                     {
                         case SegmentType.Directory:
                             if (segments[index].Segment != urlSegments[index] || segments[index].Index != index) result = null;
                             break;
-                        case SegmentType.Role:
-                            var controllerOrAction = segments[index].GetSegmentValue(urlSegments[index]);
-                            if (segments[index].RouteNames[0] == "controller")
-                                result.ControllerName = controllerOrAction;
-                            else                                                       //"action"
-                                result.ActionName = controllerOrAction;
+						case SegmentType.Role:
+							if (segments [index].Index == index) {
+								var controllerOrAction = segments [index].GetSegmentValue (urlSegments [index]);
+								if (segments [index].RouteNames [0] == "controller")
+									result.ControllerName = controllerOrAction;
+								else                                                       //"action"
+	                                	result.ActionName = controllerOrAction;
+							}
                             break;
                         case SegmentType.Parameter:
                             var segmentValue = urlSegments[index];
@@ -115,15 +116,11 @@ namespace YOYO.Mvc.Route
                 if (result == null)
                     break;
 
-
-
             }
 
-            if (result != null)
-            {
-                result.ControllerName = result.ControllerName == null ? role.DefaultController : result.ControllerName;
-                result.ActionName = result.ActionName == null ? role.DefalutAction : result.ActionName;
-            }
+			if (result!=null && ( string.IsNullOrEmpty (result.ActionName) || string.IsNullOrEmpty (result.ControllerName) ) )
+				return null;
+			
             return result;
         }
 

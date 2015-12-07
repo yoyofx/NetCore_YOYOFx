@@ -51,6 +51,7 @@ namespace YOYO.Mvc.Route
 		private RouteSegment getRouteSegment(string segment , int index)
 		{
 			RouteSegment rs = new RouteSegment ();
+			rs.Index = index;
 			rs.Segment = segment;
 			var match = Regex.Match( segment, _routeRoleMatchString, RegexOptions.IgnoreCase);
 			if (match != null)

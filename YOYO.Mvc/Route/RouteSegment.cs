@@ -12,7 +12,7 @@ namespace YOYO.Mvc.Route
 			this.SegmentType = SegmentType.Directory;
 		}
 
-		public uint Index{ set; get;}
+		public int Index{ set; get;}
 		public string Segment{ set; get;}
 		public IList<string> RouteNames{ private set;get;}
 		public string Role{ set; get;}
