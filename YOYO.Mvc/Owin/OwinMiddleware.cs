@@ -16,16 +16,12 @@ namespace YOYO.Mvc.Owin
         {
 			IRouteBuilder builder = RouteBuilder.Builder;
 			var route = builder.Resolve(context.Request);
-			IRouteHandler handler = RouteHandlerFactory.Default.CreateRouteHandler (route);
-
-			await handler.Process(context,context.CancellationToken);
-
-            //if (context.Request.Path == "/")
-            //{
-            //    await context.Response.WriteAsync("<h1>Hello from My First Middleware</h1>");
-            //}
+            if (route != null)
+            {
+                IRouteHandler handler = RouteHandlerFactory.Default.CreateRouteHandler(context, route);
+                await handler.Process(context, context.CancellationToken);
+            }
             await next(context.Environment);
-
         }
 
     }

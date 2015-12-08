@@ -37,7 +37,7 @@ namespace YOYO.Owin.Pipeline
 
 			pipelineInvoker.WhenCompleted ( onComplele => tcs.SetResult (true),  OnFaulted => {
 				tcs.SetException(OnFaulted.Exception);
-				context.Response.WriteAsync(OnFaulted.Exception.ToString() + OnFaulted.Exception.StackTrace).Wait();
+                _next(requestEnvironment);
 			});
 			return tcs.Task;
         }

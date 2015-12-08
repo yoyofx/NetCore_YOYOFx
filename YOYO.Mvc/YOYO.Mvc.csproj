@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyLoader.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="ControllerLoader.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Owin\OwinMiddleware.cs" />
     <Compile Include="Owin\OwinPipelineExtensions.cs" />

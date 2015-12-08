@@ -16,6 +16,8 @@ namespace YOYO.Mvc.Owin
     {
         public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null)
         {
+            AssemblyLoader.ResolveAssembly();
+
 			routebuilderFunc ( RouteBuilder.Builder );
             var pipeline = new Pipeline();
             setup(pipeline);

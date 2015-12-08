@@ -1,5 +1,6 @@
 ﻿using System;
 using YOYO.Mvc.Route;
+using YOYO.Owin;
 
 namespace YOYO.Mvc
 {
@@ -24,9 +25,10 @@ namespace YOYO.Mvc
 			}
 		}
 
-		public IRouteHandler CreateRouteHandler(RouteResolveResult resolveResult)
+		public IRouteHandler CreateRouteHandler(IOwinContext context,RouteResolveResult resolveResult)
 		{
-			return new MvcRouteHandler ();
+			IRouteHandler handler = new MvcRouteHandler (resolveResult);
+            return handler;
 		}
 
 
