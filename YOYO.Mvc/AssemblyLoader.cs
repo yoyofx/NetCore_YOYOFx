@@ -13,7 +13,7 @@ namespace YOYO.Mvc
 
         private static IDictionary<string, Type> mvcControllers = null;
 
-       
+
         /// <summary>
         /// 获得当前绝对路径，同时兼容windows和linux（系统自带的都不兼容）。
         /// </summary>
@@ -83,7 +83,7 @@ namespace YOYO.Mvc
                                 select type;
 
             mvcControllers = query.ToDictionary(kv => kv.Name);
-
+            //🔮
 
         }
 

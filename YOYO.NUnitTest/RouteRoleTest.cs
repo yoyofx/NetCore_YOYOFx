@@ -21,7 +21,7 @@ namespace YOYO.NUnitTest
 
 
 
-
+//
             Assert.AreEqual("controller", segmentlist[1].RouteNames[0]);
             Assert.AreEqual(SegmentType.Role, segmentlist[1].SegmentType);
             Assert.AreEqual(@"p-(?<name>\w+)", segmentlist[1].Role);
@@ -91,4 +91,3 @@ namespace YOYO.NUnitTest
 
 	}
 }
-

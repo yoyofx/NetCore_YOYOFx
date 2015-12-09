@@ -47,7 +47,7 @@
       <Name>YOYO.Mvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">
-      <Project>{c2026151-9e62-4f53-b80c-ca9585118c18}</Project>
+      <Project>{C2026151-9E62-4F53-B80C-CA9585118C18}</Project>
       <Name>YOYO.Owin</Name>
     </ProjectReference>
   </ItemGroup>
