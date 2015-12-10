@@ -10,7 +10,7 @@ namespace YOYOFxMvcDemo
 
         public string Hello()
         {
-            return "hello world!";
+            return "hello world!" + DateTime.Now.ToString();
         }
 
 

@@ -1,2 +1,3 @@
 #!/bin/sh
-exec mono ./OwinHost/bin/Debug/OwinHost.exe
+cd ./OwinHost/bin/Debug/
+exec mono OwinHost.exe
