@@ -53,6 +53,7 @@
     <Compile Include="Owin\OwinMiddleware.cs" />
     <Compile Include="Owin\OwinPipelineExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\DynamicMethodInvoker.cs" />
     <Compile Include="Route\HttpMethod.cs" />
     <Compile Include="Route\RouteResolveResult.cs" />
     <Compile Include="Route\IRouteBuilder.cs" />
