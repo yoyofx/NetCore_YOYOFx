@@ -11,7 +11,7 @@ namespace YOYO.Mvc
     public class AssemblyLoader
     {
 
-        private static IDictionary<string, Type> mvcControllers = null;
+        private static IDictionary<string, Type> mvcControllers = new Dictionary<string, Type>();
 
 
         /// <summary>
@@ -75,14 +75,21 @@ namespace YOYO.Mvc
             DirectoryInfo dir = new DirectoryInfo(GetMapPath("/bin"));
             if (!dir.Exists) dir = new DirectoryInfo(GetMapPath("/"));
             var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
-
-           var TypeList =  searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
+            Console.WriteLine(dir.Name);
+            var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
 
             var query = from type in TypeList
-                                where type.IsSubclassOf(typeof(Controller))
-                                select type;
+                        where type.IsSubclassOf(typeof(Controller))
+                        select type;
+            Console.WriteLine(string.Join(",", searchFiles.Select(f => f.Name).ToArray()));
+            foreach (var t in query)
+            {
+                Console.WriteLine(t.Name);
+                if (!mvcControllers.ContainsKey(t.Name))
+                    mvcControllers.Add(t.Name, t);
+            }
 
-            mvcControllers = query.ToDictionary(kv => kv.Name);
+            // mvcControllers = query.ToDictionary(kv => kv.Name);
             //🔮
 
         }
