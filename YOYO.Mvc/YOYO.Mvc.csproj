@@ -48,6 +48,7 @@
     <Compile Include="AssemblyLoader.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerLoader.cs" />
+    <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Owin\OwinMiddleware.cs" />
     <Compile Include="Owin\OwinPipelineExtensions.cs" />
@@ -74,7 +75,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

@@ -14,5 +14,6 @@ namespace YOYO.Owin
         IOwinRequest Request { get; }
 
         IOwinResponse Response { get; }
+
     }
 }

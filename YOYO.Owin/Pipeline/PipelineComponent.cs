@@ -13,7 +13,7 @@ namespace YOYO.Owin.Pipeline
     //    IDictionary<string, object>, // owin request environment
     //    Task // completion signal
     //    >;
-   
+
     using SetupAction = Action< //
        IDictionary<string, object> // owin host environment
        >;
@@ -29,17 +29,18 @@ namespace YOYO.Owin.Pipeline
             _next = next;
         }
 
-        public  Task Execute(Env requestEnvironment)
+        public async Task Execute(Env requestEnvironment)
         {
-            IOwinContext context = new OwinContext(requestEnvironment);
-            var tcs = new TaskCompletionSource<bool>();
-			var pipelineInvoker = Invoke( context , _next) ;
-
-			pipelineInvoker.WhenCompleted ( onComplele => tcs.SetResult (true),  OnFaulted => {
-				tcs.SetException(OnFaulted.Exception);
-                _next(requestEnvironment);
-			});
-			return tcs.Task;
+            IOwinContext context = await OwinContext.GetContextAsync(requestEnvironment);
+            try
+            {
+                await Invoke(context, _next);
+            }
+            catch
+            {
+                await _next(requestEnvironment);
+            }
+            
         }
 
         public void Setup(Env hostEnvironment)
@@ -49,7 +50,7 @@ namespace YOYO.Owin.Pipeline
         }
 
 
-        public abstract Task Invoke(IOwinContext context ,AppFunc next);
+        public abstract Task Invoke(IOwinContext context, AppFunc next);
 
 
 

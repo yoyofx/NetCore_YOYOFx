@@ -15,8 +15,8 @@ namespace YOYO.Owin
     {
 
         private readonly IDictionary<String, Object> _environment;
-		private readonly OwinRequest _request;
-		private readonly OwinResponse _response;
+        private readonly OwinRequest _request;
+        private readonly OwinResponse _response;
 
 
         public OwinContext(IDictionary<string, object> environment = null)
@@ -24,20 +24,27 @@ namespace YOYO.Owin
             _environment = environment ?? new ConcurrentDictionary<string, object>(StringComparer.Ordinal);
             if (!_environment.ContainsKey(OwinConstants.Owin.CallCancelled))
                 _environment.Add(OwinConstants.Owin.CallCancelled, new CancellationToken());
-			
-			_request = new OwinRequest(_environment);
-			_response = new OwinResponse(_environment);
+
+            _request = new OwinRequest(_environment);
+            _response = new OwinResponse(_environment);
         }
 
-        #region IOwinContext Members   
+        public static Task<IOwinContext> GetContextAsync(IDictionary<string, object> environment)
+        {
+            return Task.FromResult<IOwinContext>(new OwinContext(environment));
+        }
 
-	   public IOwinRequest Request {
-			get { return _request; }
-		}
+        #region IOwinContext Members
 
-		public IOwinResponse Response {
-			get { return _response; }
-		}
+        public IOwinRequest Request
+        {
+            get { return _request; }
+        }
+
+        public IOwinResponse Response
+        {
+            get { return _response; }
+        }
 
 
 
