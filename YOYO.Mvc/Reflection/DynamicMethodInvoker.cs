@@ -7,18 +7,18 @@ using System.Linq.Expressions;
 
 namespace YOYO.Mvc.Reflection
 {
-    public interface IMethodInvoker
+    public interface IDynamicMethodInvoker
     {
         object Invoke(object instance, params object[] parameters);
     }
 
-    public class MethodInvoker : IMethodInvoker
+    public class DynamicMethodInvoker : IDynamicMethodInvoker
     {
         private Func<object, object[], object> m_invoker;
 
         public MethodInfo MethodInfo { get; private set; }
 
-        public MethodInvoker(MethodInfo methodInfo)
+        public DynamicMethodInvoker(MethodInfo methodInfo)
         {
             this.MethodInfo = methodInfo;
             this.m_invoker = CreateInvokeDelegate(methodInfo);
@@ -83,7 +83,7 @@ namespace YOYO.Mvc.Reflection
 
         #region IMethodInvoker Members
 
-        object IMethodInvoker.Invoke(object instance, params object[] parameters)
+        object IDynamicMethodInvoker.Invoke(object instance, params object[] parameters)
         {
             return this.Invoke(instance, parameters);
         }

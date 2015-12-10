@@ -8,7 +8,6 @@ namespace YOYO.Mvc
 {
 	public interface IRouteHandler
 	{
-        void SetRouteResult(RouteResolveResult result);
 		Task  Process(IOwinContext context,CancellationToken cancellationToken);
 	}
 }
