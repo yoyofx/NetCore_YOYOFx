@@ -14,9 +14,15 @@ namespace YOYO.Mvc.Owin
 
     public static class OwinPipelineExtensions
     {
-        public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null)
+        public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null, Action<YOYOFxOptions> configuration = null)
         {
-            AssemblyLoader.ResolveAssembly();
+            YOYOFxOptions options = new YOYOFxOptions();
+            if(configuration!=null)
+                configuration(options);
+            options = options ?? new YOYOFxOptions();
+            options.Bootstrapper.Initialise();
+
+            Application.CurrentApplication.SetOptions(options);
 
 			routebuilderFunc ( RouteBuilder.Builder );
             var pipeline = new Pipeline();
@@ -26,10 +32,20 @@ namespace YOYO.Mvc.Owin
             return app;
         }
 
+
+        public static void UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilder = null, Action<YOYOFxOptions> configuration = null)
+        {
+            app.UseYOYOFx(routebuilder,
+                p => p.Use(new YOYOFxOwinMiddleware()) , configuration
+            );
+
+        }
+
+
         public static void UseYOYOFx(this IAppBuilder app , Action<IRouteBuilder> routebuilder = null)
         {
             app.UseYOYOFx(  routebuilder,
-                p=> p.Use(new YOYOFxOwinMiddleware() )
+                p=> p.Use(new YOYOFxOwinMiddleware() ) 
             );
 
         }

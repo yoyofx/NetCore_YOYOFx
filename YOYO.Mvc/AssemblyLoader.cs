@@ -13,10 +13,10 @@ namespace YOYO.Mvc
 
         private static IDictionary<string, Type> mvcControllers = new Dictionary<string, Type>();
 
-        public static void ResolveAssembly()
+        public static void ResolveAssembly(string path)
         {
-            DirectoryInfo dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/bin"));
-            if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
+            DirectoryInfo dir = new DirectoryInfo(path);
+            //if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
             var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
             Console.WriteLine(dir.Name);
             var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());

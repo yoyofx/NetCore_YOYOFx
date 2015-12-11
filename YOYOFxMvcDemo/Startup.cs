@@ -16,7 +16,7 @@ namespace YOYOFxMvcDemo
         {
 
             app.UseYOYOFx(route =>
-                     route.Map("/{controller}/{action}/{id}/"));
+                     route.Map("/{controller}/{action}/{id}/") );
 
             //app.UseYOYOFx();
 

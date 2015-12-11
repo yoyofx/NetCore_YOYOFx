@@ -34,22 +34,23 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionRuntime\ActionRuntimeManager.cs" />
+    <Compile Include="ActionRuntime\DotnetActionRuntimeProvider.cs" />
+    <Compile Include="ActionRuntime\IActionRuntimeProvider.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="AssemblyLoader.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerLoader.cs" />
+    <Compile Include="DefaultBootstrapper.cs" />
     <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="IYOYOBootstrapper.cs" />
     <Compile Include="Owin\OwinMiddleware.cs" />
     <Compile Include="Owin\OwinPipelineExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Route\IRouteHandler.cs" />
     <Compile Include="Route\RouteHandlerFactory.cs" />
     <Compile Include="Route\MvcRouteHandler.cs" />
+    <Compile Include="YOYOFxOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">

@@ -6,6 +6,17 @@ namespace YOYO.Mvc
 {
     public class HostingEnvronment
     {
+        private static string rootPath = (AppDomain.CurrentDomain.GetData(".appPath") as string) ?? Environment.CurrentDirectory;
+
+        public static string GetRootPath()
+        {
+            return rootPath;
+        }
+        public static void SetRootPath(string path)
+        {
+            rootPath = path;
+        }
+
         /// <summary>
         /// 获得当前绝对路径，同时兼容windows和linux（系统自带的都不兼容）。
         /// </summary>
@@ -13,7 +24,7 @@ namespace YOYO.Mvc
         /// <returns>绝对路径，不带/后缀</returns>
         public static string GetMapPath(string strPath)
         {
-            string rootPath = (AppDomain.CurrentDomain.GetData(".appPath") as string) ?? Environment.CurrentDirectory;
+           
 
             if (strPath == null)
             {
