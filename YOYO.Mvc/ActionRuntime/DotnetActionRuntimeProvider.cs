@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YOYO.Mvc.Reflection;
 using System.Reflection;
+using YOYO.Owin;
 
 namespace YOYO.Mvc.ActionRuntime
 {
@@ -14,27 +15,35 @@ namespace YOYO.Mvc.ActionRuntime
     {
         private static ConcurrentDictionary<MethodInfo, IDynamicMethodInvoker> actionInvokerCache = new ConcurrentDictionary<MethodInfo, IDynamicMethodInvoker>();
 
-        public object ExecuteAsync(string controllerName, string actionName, params object[] parameters)
-        {
-            var controllerType = AssemblyLoader.FindControllerTypeByName(controllerName);
-            if (controllerType == null) throw new NullReferenceException("Not Found Controller Name by" + controllerName);
+		public string Name{ get{ return "dotnet"; } }
 
-            var controller = (Controller)Activator.CreateInstance(controllerType);
-            var actionMethodInfo = controllerType.GetMethod(actionName);
+		public object ExecuteAsync(string controllerName,string actionName,IOwinContext context)
+		{
+			var controllerType = AssemblyLoader.FindControllerTypeByName(controllerName);
+			if (controllerType == null) throw new NullReferenceException("Not Found Controller Name by" + controllerName);
 
-            if (actionMethodInfo == null) throw new NullReferenceException("Not Found Action Name by" + actionName);
+			var controller = (Controller)Activator.CreateInstance(controllerType);
+			var actionMethodInfo = controllerType.GetMethod(actionName);
 
-            IDynamicMethodInvoker invoker = null;
-            if (!actionInvokerCache.TryGetValue(actionMethodInfo, out invoker))
-            {
-                invoker = new DynamicMethodInvoker(actionMethodInfo);
-                actionInvokerCache.TryAdd(actionMethodInfo, invoker);
-            }
-            object result = invoker.Invoke(controller, null);
+			if (actionMethodInfo == null) throw new NullReferenceException("Not Found Action Name by" + actionName);
 
-            return result;
+			IDynamicMethodInvoker invoker = null;
+			if (!actionInvokerCache.TryGetValue(actionMethodInfo, out invoker))
+			{
+				invoker = new DynamicMethodInvoker(actionMethodInfo);
+				actionInvokerCache.TryAdd(actionMethodInfo, invoker);
+			}
+			object result = invoker.Invoke(controller, null);
 
-        }
+			return result;
+		}
+
+
+		public string[] GetControllerNames()
+		{
+
+			return AssemblyLoader.GetNames();
+		}
 
 
 

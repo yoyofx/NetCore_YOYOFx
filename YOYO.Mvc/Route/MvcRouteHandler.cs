@@ -21,9 +21,10 @@ namespace YOYO.Mvc.Route
         protected override  void RequestHanderProcess(IOwinContext context)
         {
 
-            IActionRuntimeProvider provider = Application.CurrentApplication.Options.Bootstrapper.RuntimeManager.RuntimeProviders[0];
+			IActionRuntimeProvider provider = 
+				Application.CurrentApplication.Options.Bootstrapper.RuntimeManager.FindRuntimeByName (_resolveResult.ControllerName);
 
-            object result =  provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, null);
+			object result =  provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
 
             context.Response.Write(result.ToString());
 

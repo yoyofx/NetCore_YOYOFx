@@ -37,6 +37,11 @@ namespace YOYO.Mvc
 
         }
 
+		public static string[] GetNames()
+		{
+			return mvcControllers.Keys.ToArray ();
+		}
+
 
         public static Type FindControllerTypeByName(string controllerName)
         {
