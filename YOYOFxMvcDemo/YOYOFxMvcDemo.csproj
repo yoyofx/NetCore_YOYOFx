@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="PythonHello.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="test.html" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +65,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YOYO.ActionRuntime.Python\YOYO.ActionRuntime.Python.csproj">
+      <Project>{05c7fa52-a0e9-45f3-9570-fc86264d189c}</Project>
+      <Name>YOYO.ActionRuntime.Python</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YOYO.Mvc\YOYO.Mvc.csproj">
       <Project>{69105277-8BD6-404D-B81D-A8B22B08CD5E}</Project>
       <Name>YOYO.Mvc</Name>

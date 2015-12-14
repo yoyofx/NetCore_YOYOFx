@@ -16,6 +16,7 @@ namespace YOYO.Mvc.ActionRuntime
         public ActionRuntimeManager()
         {
             RuntimeProviders = new List<IActionRuntimeProvider>();
+            RuntimeProviders.Add(new DotnetActionRuntimeProvider());
         }
 
         public List<IActionRuntimeProvider> RuntimeProviders { private set; get; }
@@ -30,9 +31,6 @@ namespace YOYO.Mvc.ActionRuntime
 
         public void LoadRuntimeFileSystem(string path)
         {
-            if (RuntimeProviders.Count == 0)
-                RuntimeProviders.Add(new DotnetActionRuntimeProvider());
-
             foreach(var runtime in RuntimeProviders)
             {
                 runtime.LoadRuntime(path);

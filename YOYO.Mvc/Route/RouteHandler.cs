@@ -27,7 +27,7 @@ namespace YOYO.Mvc.Route
             handlerTask.WhenCompleted(complete => {
                 tcs.SetResult(true);
             }, faulted => {
-                context.Response.Write(faulted.Exception.ToString() + faulted.Exception.StackTrace.ToString());
+                context.Response.Write(faulted.Exception.ToString());
                 tcs.SetException(faulted.Exception);
             });
 

@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="PythonActionRuntimeProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PythonController.cs" />
+    <Compile Include="PythonRuntime.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

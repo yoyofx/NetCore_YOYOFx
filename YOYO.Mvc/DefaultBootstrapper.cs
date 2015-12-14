@@ -9,14 +9,16 @@ namespace YOYO.Mvc
 {
     public class DefaultBootstrapper : IYOYOBootstrapper
     {
+        public DefaultBootstrapper()
+        {
+            RuntimeManager = new ActionRuntimeManager();
+        }
+
 
         public ActionRuntimeManager RuntimeManager { private set; get; }
         public void Initialise()
-        {
-            RuntimeManager = new ActionRuntimeManager();
-
+        { 
             RuntimeManager.LoadRuntimeFileSystem(this.GetRootPath());
-
         }
 
         public virtual string GetRootPath()

@@ -1,2 +1,2 @@
-﻿def test1(say):
-	return "hello world" + say
+﻿def test1(arg):
+	return "hello world" + arg.Path

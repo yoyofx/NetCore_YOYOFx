@@ -17,10 +17,12 @@ namespace YOYO.Mvc.Owin
         public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null, Action<YOYOFxOptions> configuration = null)
         {
             YOYOFxOptions options = new YOYOFxOptions();
-            if(configuration!=null)
+            if (configuration != null)
                 configuration(options);
-            options = options ?? new YOYOFxOptions();
+
             options.Bootstrapper.Initialise();
+
+
 
             Application.CurrentApplication.SetOptions(options);
 

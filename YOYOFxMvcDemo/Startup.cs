@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Owin;
 using YOYO.Mvc.Owin;
+using YOYO.ActionRuntime.Python;
 
 namespace YOYOFxMvcDemo
 {
@@ -16,7 +17,10 @@ namespace YOYOFxMvcDemo
         {
 
             app.UseYOYOFx(route =>
-                     route.Map("/{controller}/{action}/{id}/") );
+                     route.Map("/{controller}/{action}/{id}/") ,
+                     config=> config.Bootstrapper.RuntimeManager. RuntimeProviders.Add(
+                                        new PythonActionRuntimeProvider() )
+            );
 
             //app.UseYOYOFx();
 
