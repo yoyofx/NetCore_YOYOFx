@@ -17,6 +17,13 @@ namespace YOYO.NUnitTest.Mock
             this.Method = httpmethod;
         }
 
+        public string this[string key]
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public Stream Body
         {
@@ -84,6 +91,19 @@ namespace YOYO.NUnitTest.Mock
         public QueryString QueryString
         {
             get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IDictionary<string, string> RouteValues
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
             {
                 throw new NotImplementedException();
             }

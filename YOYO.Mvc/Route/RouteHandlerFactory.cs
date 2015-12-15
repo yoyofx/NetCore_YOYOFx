@@ -27,6 +27,7 @@ namespace YOYO.Mvc
 
 		public IRouteHandler CreateRouteHandler(IOwinContext context,RouteResolveResult resolveResult)
 		{
+            context.Request.RouteValues = resolveResult.RouteValues;
 			IRouteHandler handler = new MvcRouteHandler (resolveResult);
             return handler;
 		}

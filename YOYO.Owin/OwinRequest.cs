@@ -20,7 +20,7 @@ namespace YOYO.Owin
         private readonly OwinRequestHeaders _headers;
         private QueryString _queryString;
 
-     
+
 
 
 
@@ -30,13 +30,11 @@ namespace YOYO.Owin
             {
                 throw new ArgumentNullException("environment");
             }
+            RouteValues = new ConcurrentDictionary<string, string>();
             _environment = environment;
             var headers = _environment.GetValueOrCreate(OwinConstants.Request.Headers, DictionaryExtensions.createHeadersFunc);
             _headers = new OwinRequestHeaders(headers);
-
             this.ParseFormData();
-
-
         }
 
         private void ParseFormData()
@@ -161,5 +159,26 @@ namespace YOYO.Owin
         {
             get { return _headers; }
         }
+
+
+        public IDictionary<string, string> RouteValues { set; get; }
+
+        public string this[string key]
+        {
+            get
+            {
+                string reqValue = this.QueryString[key];
+                if (string.IsNullOrEmpty(reqValue))
+                    reqValue = this.Form["key"];
+                if (string.IsNullOrEmpty(reqValue)) {
+                    this.RouteValues.TryGetValue(key, out reqValue);
+                }
+
+                return reqValue;
+            }
+        }
+
+
+
     }
 }

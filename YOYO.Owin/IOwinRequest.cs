@@ -47,6 +47,7 @@ namespace YOYO.Owin
 
         IPrincipal User { get; set; }
 
-
+        string this[string key] { get; }
+        IDictionary<string, string> RouteValues{set; get; }
     }
 }
