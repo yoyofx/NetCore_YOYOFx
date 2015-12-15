@@ -37,6 +37,22 @@ namespace YOYO.NUnitTest
 
         }
 
+		[Test]
+		public void TestDirWatcher()
+		{
+			DirectoryWatcher watcher = new DirectoryWatcher ();
+			watcher.OnFileChanged+= (sender, e) => {
+				//switch(e.status)
+				//{
+					
+					
+				//}
+				 //e.Filename
+			};
+
+
+		}
+
 	}
 }
 
