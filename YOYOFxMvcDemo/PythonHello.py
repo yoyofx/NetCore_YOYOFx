@@ -1,2 +1,2 @@
-﻿def hello(request):
-	return "hello world" + request.QueryString["name"]
+﻿def hello(req):
+	return "hello world" + req["name"]
