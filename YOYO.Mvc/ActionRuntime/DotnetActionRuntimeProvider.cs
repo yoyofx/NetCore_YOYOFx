@@ -23,8 +23,9 @@ namespace YOYO.Mvc.ActionRuntime
 			if (controllerType == null) throw new NullReferenceException("Not Found Controller Name by" + controllerName);
 
 			var controller = (Controller)Activator.CreateInstance(controllerType);
+            var pi = controllerType.GetProperty("Context",BindingFlags.NonPublic | BindingFlags.Public  | BindingFlags.Instance | BindingFlags.Static);
+            pi.SetValue(controller, context);
 			var actionMethodInfo = controllerType.GetMethod(actionName);
-
 			if (actionMethodInfo == null) throw new NullReferenceException("Not Found Action Name by" + actionName);
 
 			IDynamicMethodInvoker invoker = null;

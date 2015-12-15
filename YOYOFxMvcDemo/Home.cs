@@ -13,6 +13,10 @@ namespace YOYOFxMvcDemo
             return "hello world!" + DateTime.Now.ToString();
         }
 
-
+        public string Say()
+        {
+            var message = this.Context.Request["m"];
+            return message;
+        }
     }
 }

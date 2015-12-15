@@ -9,7 +9,7 @@ namespace YOYO.Mvc
 {
     public class Controller
     {
-        protected IOwinContext Context { private set; get; }
+        protected IOwinContext Context { set; get; }
 
 
 
