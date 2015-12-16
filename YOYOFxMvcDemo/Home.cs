@@ -13,10 +13,10 @@ namespace YOYOFxMvcDemo
             return "hello world!" + DateTime.Now.ToString();
         }
 
-        public string Say()
+        public dynamic Say()
         {
             var message = this.Context.Request["m"];
-            return message;
+            return new { HelloMessage = message };
         }
     }
 }

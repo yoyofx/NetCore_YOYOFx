@@ -34,8 +34,8 @@ namespace YOYO.ActionRuntime.Python
                 dynamic actionInvokerFunc = scope.GetVariable(actionName);
                 funcResult = actionInvokerFunc(p);
             }
-            catch{
-               throw new NullReferenceException("Not Found Action Name by" + actionName);
+            catch(Exception ex){
+               throw new NullReferenceException(string.Format("Not Found Action Name by {0} , Exception:", actionName ,ex.ToString()));
             }
             return funcResult;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YOYO.Mvc.ResponseProcessor;
 
 namespace YOYO.Mvc
 {
@@ -10,6 +11,12 @@ namespace YOYO.Mvc
     {
         private static object lockobject = new object();
         private static Application _app;
+
+        public Application()
+        {
+
+        }
+
 
         public static Application CurrentApplication
         {

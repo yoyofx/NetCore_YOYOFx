@@ -59,6 +59,12 @@
     <Compile Include="Owin\OwinPipelineExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\DynamicMethodInvoker.cs" />
+    <Compile Include="ResponseProcessor\IResponseProcessor.cs" />
+    <Compile Include="ResponseProcessor\JsonResponseProcessor.cs" />
+    <Compile Include="ResponseProcessor\ResponseProcessorFactory.cs" />
+    <Compile Include="ResponseProcessor\ResponseProcessor.cs" />
+    <Compile Include="ResponseProcessor\TextResponseProcessor.cs" />
+    <Compile Include="ResponseProcessor\XmlResponseProcessor.cs" />
     <Compile Include="Route\HttpMethod.cs" />
     <Compile Include="Route\RouteHandler.cs" />
     <Compile Include="Route\RouteResolveResult.cs" />
