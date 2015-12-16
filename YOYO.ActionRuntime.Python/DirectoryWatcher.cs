@@ -11,17 +11,19 @@ namespace YOYO.ActionRuntime.Python
 	{
 		public event EventHandler<FileChangedEventArgs> OnFileChanged;
 
-		const double timer_interval = 5000;
+		const double timer_interval = 30000;
 		Timer watcher_timer = new Timer ();
 		string PathName;
+        string searchPattern;
 
-		Dictionary<string, PyFileInfo> files_realtime = new Dictionary<string, PyFileInfo> ();
+
+        Dictionary<string, PyFileInfo> files_realtime = new Dictionary<string, PyFileInfo> ();
 		Dictionary<string, PyFileInfo> files_last = new Dictionary<string, PyFileInfo> ();
 
-		public DirectoryWatcher (string pathName)
+		public DirectoryWatcher (string pathName,string searchpattern)
 		{
 			this.PathName = pathName;
-
+            this.searchPattern = searchpattern;
 			watcher_timer.Elapsed += timer_elapsed;
 			watcher_timer.Interval = timer_interval;
 			watcher_timer.Enabled = false;
@@ -34,7 +36,7 @@ namespace YOYO.ActionRuntime.Python
 				throw new Exception ("The Whatcher thread is not ready, please check!");
 
 			// is a directory and timer is ready
-			IEnumerable<PyFileInfo> files = from n in System.IO.Directory.GetFiles (this.PathName)
+			IEnumerable<PyFileInfo> files = from n in System.IO.Directory.GetFiles (this.PathName,this.searchPattern)
 			                               select new PyFileInfo (n, get_file_md5 (n), Status.Added_Modified);
 						
 			foreach (var f in files) {
@@ -58,7 +60,9 @@ namespace YOYO.ActionRuntime.Python
 
 		private void timer_elapsed (object sender, ElapsedEventArgs args)
 		{
-			List<string> dir_files = new List<string> (System.IO.Directory.GetFiles (this.PathName));
+            files_realtime.Clear(); 
+
+			List<string> dir_files = new List<string> (System.IO.Directory.GetFiles (this.PathName,this.searchPattern));
 
 			dir_files.ForEach (f => {
 

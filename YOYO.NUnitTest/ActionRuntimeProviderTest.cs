@@ -45,7 +45,7 @@ namespace YOYO.NUnitTest
 				System.IO.Directory.CreateDirectory (path);
 
 
-			DirectoryWatcher watcher = new DirectoryWatcher ("/home/peng/test");
+			DirectoryWatcher watcher = new DirectoryWatcher ("/home/peng/test","*.py");
 			watcher.OnFileChanged += (sender, e) => {
 				switch (e.FileInfo.status) {
 				case YOYO.ActionRuntime.Python.Status.Added_Modified:			

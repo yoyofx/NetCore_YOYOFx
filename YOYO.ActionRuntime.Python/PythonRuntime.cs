@@ -41,6 +41,33 @@ namespace YOYO.ActionRuntime.Python
             _controllers.Add(name,controller);
         }
 
+        public void ReloadController(string path)
+        {
+            string name = System.IO.Path.GetFileNameWithoutExtension(path);
+            if (_controllers.ContainsKey(name))
+            {
+                //update
+                _controllers[name] = new PythonController(this._engine, path);
+            }
+            else
+            {
+                //add
+                AddController(path);
+
+            }
+
+        }
+
+        public void RemoveController(string path)
+        {
+            string name = System.IO.Path.GetFileNameWithoutExtension(path);
+            if (_controllers.ContainsKey(name))
+            {
+                _controllers.Remove(name);
+            }
+        }
+
+
 
     }
 

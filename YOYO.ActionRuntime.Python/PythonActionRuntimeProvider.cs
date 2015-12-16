@@ -17,8 +17,14 @@ namespace YOYO.ActionRuntime.Python
             runtime = new PythonRuntime();
         }
 
-        private PythonRuntime runtime;
+        ~PythonActionRuntimeProvider()
+        {
+            directoryWatcher.Stop();
+        }
 
+
+        private PythonRuntime runtime;
+        DirectoryWatcher directoryWatcher;
 
         public string Name{ get{ return "python"; } }
 
@@ -43,7 +49,22 @@ namespace YOYO.ActionRuntime.Python
                 runtime.AddController(file.FullName);
             }
 
+            directoryWatcher = new DirectoryWatcher(path,"*.py");
+            directoryWatcher.OnFileChanged += DirectoryWatcher_OnFileChanged;
+            directoryWatcher.Start();
+        }
 
+        private void DirectoryWatcher_OnFileChanged(object sender, FileChangedEventArgs e)
+        {
+            switch(e.FileInfo.status)
+            {
+                case Status.Added_Modified:
+                    runtime.ReloadController(e.FileInfo.FileName);
+                    break;
+                case Status.Removed:
+                    runtime.RemoveController(e.FileInfo.FileName);
+                    break;
+            }
         }
     }
 }
