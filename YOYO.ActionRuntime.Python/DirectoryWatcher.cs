@@ -11,7 +11,7 @@ namespace YOYO.ActionRuntime.Python
 	{
 		public event EventHandler<FileChangedEventArgs> OnFileChanged;
 
-		const double timer_interval = 30000;
+		const double timer_interval = 5000;
 		Timer watcher_timer = new Timer ();
 		string PathName;
         string searchPattern;
@@ -65,14 +65,12 @@ namespace YOYO.ActionRuntime.Python
 			List<string> dir_files = new List<string> (System.IO.Directory.GetFiles (this.PathName,this.searchPattern));
 
 			dir_files.ForEach (f => {
-
 				files_realtime.Add (f, new PyFileInfo (f, get_file_md5 (f), Status.None));
-
 			});
 
 			var both = files_realtime.Intersect (files_last, new PyFileInfoCompare ());
 			var files_added_or_modified = files_realtime.Except (both, new PyFileInfoCompare ());
-			var files_removed = files_last.Except (both, new PyFileInfoCompare ());
+			var files_removed = files_last.Except (files_realtime, new PyFilenameCompare ());
 
 			foreach (var item in files_added_or_modified) {
 				item.Value.status = Status.Added_Modified;
@@ -89,8 +87,6 @@ namespace YOYO.ActionRuntime.Python
 					item.Value.status = Status.None;
 				}
 			}
-
-
 
 			files_last = files_realtime.ToDictionary (k=>k.Key,v=>v.Value);
 
@@ -133,6 +129,19 @@ namespace YOYO.ActionRuntime.Python
 			this.FileName = fname;
 			this.md5 = md5;
 			this.status = status;
+		}
+	}
+
+	public class PyFilenameCompare:IEqualityComparer<KeyValuePair<string, PyFileInfo>>
+	{
+		public bool Equals (KeyValuePair<string, PyFileInfo> a, KeyValuePair<string, PyFileInfo> b)
+		{
+			return (a.Key.Equals (b.Key));
+		}
+
+		public int GetHashCode (KeyValuePair<string, PyFileInfo> kv)
+		{
+			return kv.Key.GetHashCode ();
 		}
 	}
 
