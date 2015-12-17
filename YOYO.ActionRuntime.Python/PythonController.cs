@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Scripting.Hosting;
@@ -32,7 +33,13 @@ namespace YOYO.ActionRuntime.Python
             try {
                 _compiledCode.Execute(scope);
                 dynamic actionInvokerFunc = scope.GetVariable(actionName);
-                funcResult = actionInvokerFunc(p);
+                funcResult =  this.Engine.Operations.Invoke(actionInvokerFunc, p);
+
+               // var funcType = ((object)actionInvokerFunc).GetType();
+               //var argNames =  funcType.GetProperty("ArgNames", BindingFlags.Instance | BindingFlags.NonPublic);
+               // var arguments = argNames.GetValue(actionInvokerFunc, null) as string[];
+
+                //funcResult = actionInvokerFunc(p);
             }
             catch(Exception ex){
                throw new NullReferenceException(string.Format("Not Found Action Name by {0} , Exception:", actionName ,ex.ToString()));
