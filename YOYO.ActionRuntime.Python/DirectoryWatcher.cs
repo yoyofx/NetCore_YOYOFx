@@ -90,6 +90,10 @@ namespace YOYO.ActionRuntime.Python
 				}
 			}
 
+
+
+			files_last = files_realtime.ToDictionary (k=>k.Key,v=>v.Value);
+
 		}
 
 		private static string get_file_md5 (string filename)
