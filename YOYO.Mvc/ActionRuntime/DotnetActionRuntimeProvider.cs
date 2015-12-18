@@ -34,10 +34,29 @@ namespace YOYO.Mvc.ActionRuntime
 				invoker = new DynamicMethodInvoker(actionMethodInfo);
 				actionInvokerCache.TryAdd(actionMethodInfo, invoker);
 			}
-			object result = invoker.Invoke(controller, null);
+
+           var parameterInfoList = actionMethodInfo.GetParameters();
+
+            var paramValues = this.getParameterValues(parameterInfoList);
+
+			object result = invoker.Invoke(controller, paramValues);
 
 			return result;
 		}
+
+
+        private object[] getParameterValues(ParameterInfo[] parameters)
+        {
+            foreach(var pinfo in parameters)
+            {
+
+
+
+            }
+
+            return null;
+        }
+
 
 
 		public string[] GetControllerNames()
