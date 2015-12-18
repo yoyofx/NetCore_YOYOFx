@@ -13,6 +13,13 @@ namespace YOYOFxMvcDemo
             return "hello world!" + DateTime.Now.ToString();
         }
 
+        public int Add(int a,int b)
+        {
+            return a + b;
+
+        }
+
+
         public dynamic Say()
         {
             var message = this.Context.Request["m"];

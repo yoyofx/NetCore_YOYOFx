@@ -65,7 +65,8 @@ namespace YOYO.ActionRuntime.Python
 			List<string> dir_files = new List<string> (System.IO.Directory.GetFiles (this.PathName,this.searchPattern));
 
 			dir_files.ForEach (f => {
-				files_realtime.Add (f, new PyFileInfo (f, get_file_md5 (f), Status.None));
+                if(!files_realtime.ContainsKey(f))
+				    files_realtime.Add (f, new PyFileInfo (f, get_file_md5 (f), Status.None));
 			});
 
 			var both = files_realtime.Intersect (files_last, new PyFileInfoCompare ());

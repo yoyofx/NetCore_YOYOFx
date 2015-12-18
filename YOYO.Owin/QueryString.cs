@@ -23,7 +23,9 @@ namespace YOYO.Owin
         {
             get
             {
-                return _parts[key];
+                string v = null;
+                _parts.TryGetValue(key, out v);
+                return v;
             }
         }
 

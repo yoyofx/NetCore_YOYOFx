@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using YOYO.Mvc.Reflection;
 using System.Reflection;
 using YOYO.Owin;
+using YOYO.Mvc.Extensions;
 
 namespace YOYO.Mvc.ActionRuntime
 {
@@ -37,26 +38,17 @@ namespace YOYO.Mvc.ActionRuntime
 
            var parameterInfoList = actionMethodInfo.GetParameters();
 
-            var paramValues = this.getParameterValues(parameterInfoList);
+           var actionParams = parameterInfoList.ToActionParameters();
 
-			object result = invoker.Invoke(controller, paramValues);
+            var paramValues = ActionRuntimeParameter.GetValuesByRequest(actionParams, context.Request);
+
+			object result = invoker.Invoke(controller, paramValues.ToArray());
 
 			return result;
 		}
 
 
-        private object[] getParameterValues(ParameterInfo[] parameters)
-        {
-            foreach(var pinfo in parameters)
-            {
-
-
-
-            }
-
-            return null;
-        }
-
+      
 
 
 		public string[] GetControllerNames()

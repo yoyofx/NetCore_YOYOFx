@@ -167,12 +167,14 @@ namespace YOYO.Owin
         {
             get
             {
-                string reqValue = this.QueryString[key];
+                string reqValue = null;
+                this.RouteValues.TryGetValue(key, out reqValue);
+              
                 if (string.IsNullOrEmpty(reqValue))
+                    reqValue = this.QueryString[key];
+
+                if (string.IsNullOrEmpty(reqValue) && this.Form !=null)
                     reqValue = this.Form["key"];
-                if (string.IsNullOrEmpty(reqValue)) {
-                    this.RouteValues.TryGetValue(key, out reqValue);
-                }
 
                 return reqValue;
             }

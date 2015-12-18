@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionRuntime\ActionRuntimeManager.cs" />
+    <Compile Include="ActionRuntime\ActionRuntimeParameter.cs" />
     <Compile Include="ActionRuntime\DotnetActionRuntimeProvider.cs" />
     <Compile Include="ActionRuntime\IActionRuntimeProvider.cs" />
     <Compile Include="Application.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerLoader.cs" />
     <Compile Include="DefaultBootstrapper.cs" />
+    <Compile Include="Extensions\ParameterInfoExtensions.cs" />
     <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="IYOYOBootstrapper.cs" />
