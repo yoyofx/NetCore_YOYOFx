@@ -56,6 +56,7 @@
     <Compile Include="Mock\MockOwinRequest.cs" />
     <Compile Include="RouteRoleTest.cs" />
     <Compile Include="ActionRuntimeProviderTest.cs" />
+    <Compile Include="ViewEngineTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\YOYO.ActionRuntime.Python\YOYO.ActionRuntime.Python.csproj">
       <Project>{05C7FA52-A0E9-45F3-9570-FC86264D189C}</Project>
       <Name>YOYO.ActionRuntime.Python</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YOYO.ViewEngine.RazorViewEngine\YOYO.ViewEngine.RazorViewEngine.csproj">
+      <Project>{97dde7ff-142f-4b34-afd3-b64cf604eb94}</Project>
+      <Name>YOYO.ViewEngine.RazorViewEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,11 @@ namespace YOYO.Mvc
     {
         protected IOwinContext Context { set; get; }
 
-
+        protected View View(string mapPath)
+        {
+            return new View(mapPath) {
+                ControllerName = this.GetType().Name  };
+        }
 
     }
 }

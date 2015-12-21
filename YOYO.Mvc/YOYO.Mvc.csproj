@@ -49,13 +49,14 @@
     <Compile Include="ActionRuntime\DotnetActionRuntimeProvider.cs" />
     <Compile Include="ActionRuntime\IActionRuntimeProvider.cs" />
     <Compile Include="Application.cs" />
-    <Compile Include="AssemblyLoader.cs" />
+    <Compile Include="ApplicationAssemblyLoader.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerLoader.cs" />
     <Compile Include="DefaultBootstrapper.cs" />
     <Compile Include="Extensions\ParameterInfoExtensions.cs" />
     <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="View.cs" />
     <Compile Include="IViewEngine.cs" />
     <Compile Include="IYOYOBootstrapper.cs" />
     <Compile Include="Owin\OwinMiddleware.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="ResponseProcessor\ResponseProcessorFactory.cs" />
     <Compile Include="ResponseProcessor\ResponseProcessor.cs" />
     <Compile Include="ResponseProcessor\TextResponseProcessor.cs" />
+    <Compile Include="ResponseProcessor\ViewResponseProcessor.cs" />
     <Compile Include="ResponseProcessor\XmlResponseProcessor.cs" />
     <Compile Include="Route\HttpMethod.cs" />
     <Compile Include="Route\RouteHandler.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Route\IRouteHandler.cs" />
     <Compile Include="Route\RouteHandlerFactory.cs" />
     <Compile Include="Route\MvcRouteHandler.cs" />
+    <Compile Include="ViewEngineFactory.cs" />
     <Compile Include="YOYOFxOptions.cs" />
   </ItemGroup>
   <ItemGroup>

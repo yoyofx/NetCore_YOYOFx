@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace YOYO.Mvc
 {
-    public class AssemblyLoader
+    public class ApplicationAssemblyLoader
     {
-
+        private static IEnumerable<Type> types = null;
         private static IDictionary<string, Type> mvcControllers = new Dictionary<string, Type>();
 
         public static void ResolveAssembly(string path)
@@ -18,18 +18,18 @@ namespace YOYO.Mvc
             DirectoryInfo dir = new DirectoryInfo(path);
             //if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
             var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
-            Console.WriteLine(dir.Name);
             var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
+
+            types = TypeList;
+
 
             var query = from type in TypeList
                         where type.IsSubclassOf(typeof(Controller))
                         select type;
 
-            Console.WriteLine(string.Join(",", searchFiles.Select(f => f.Name).ToArray()));
 
             foreach (var t in query)
             {
-                Console.WriteLine(t.Name);
                 if (!mvcControllers.ContainsKey(t.Name))
                     mvcControllers.Add(t.Name, t);
             }
@@ -37,7 +37,17 @@ namespace YOYO.Mvc
 
         }
 
-		public static string[] GetNames()
+        public static IEnumerable<Type> TypesOf(Type type)
+        {
+            var returnTypes =
+             types.Where(type.IsAssignableFrom);
+
+            return returnTypes;
+
+        }
+
+
+        public static string[] GetControllerNames()
 		{
 			return mvcControllers.Keys.ToArray ();
 		}

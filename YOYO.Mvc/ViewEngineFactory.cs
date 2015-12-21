@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Concurrent;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace YOYO.Mvc
+{
+    public class ViewEngineFactory
+    {
+        private static IDictionary<string, IViewEngine> viewEngineCache = new ConcurrentDictionary<string, IViewEngine>();
+        public static void LoadViewEngine()
+        {
+            foreach (var viewEngineType in Application.CurrentApplication.Options.Bootstrapper.ViewEngines)
+            {
+                var viewEngine = (IViewEngine)Activator.CreateInstance(viewEngineType);
+                viewEngineCache.Add(viewEngine.ExtensionName, viewEngine);
+
+            }
+        }
+
+        public static IViewEngine GetViewEngine(string extension)
+        {
+            IViewEngine engine = null;
+            viewEngineCache.TryGetValue(extension, out engine);
+
+            return engine;
+
+        }
+
+    }
+}

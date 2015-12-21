@@ -20,7 +20,7 @@ namespace YOYO.Mvc.ActionRuntime
 
 		public object ExecuteAsync(string controllerName,string actionName,IOwinContext context)
 		{
-			var controllerType = AssemblyLoader.FindControllerTypeByName(controllerName);
+			var controllerType = ApplicationAssemblyLoader.FindControllerTypeByName(controllerName);
 			if (controllerType == null) throw new NullReferenceException("Not Found Controller Name by" + controllerName);
 
 			var controller = (Controller)Activator.CreateInstance(controllerType);
@@ -54,14 +54,14 @@ namespace YOYO.Mvc.ActionRuntime
 		public string[] GetControllerNames()
 		{
 
-			return AssemblyLoader.GetNames();
+			return ApplicationAssemblyLoader.GetControllerNames();
 		}
 
 
 
         public void LoadRuntime(string path)
         {
-            AssemblyLoader.ResolveAssembly(path);
+            ApplicationAssemblyLoader.ResolveAssembly(path);
         }
     }
 }

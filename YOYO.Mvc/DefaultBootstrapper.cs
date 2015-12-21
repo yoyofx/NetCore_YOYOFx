@@ -16,9 +16,10 @@ namespace YOYO.Mvc
 
 
         public ActionRuntimeManager RuntimeManager { private set; get; }
-        public void Initialise()
+        public virtual void Initialise()
         { 
             RuntimeManager.LoadRuntimeFileSystem(this.GetRootPath());
+            ViewEngineFactory.LoadViewEngine();
         }
 
         public virtual string GetRootPath()
@@ -26,7 +27,14 @@ namespace YOYO.Mvc
             return HostingEnvronment.GetRootPath();
         }
 
+        public IEnumerable<Type> ViewEngines
+        {
+            get
+            {
+                return ApplicationAssemblyLoader.TypesOf(typeof(IViewEngine));
+            }
 
+        }
 
     }
 }

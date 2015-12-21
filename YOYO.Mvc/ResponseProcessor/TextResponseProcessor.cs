@@ -16,7 +16,7 @@ namespace YOYO.Mvc.ResponseProcessor
             string contentType = _context.Request.Headers.ContentType;
             if (string.IsNullOrEmpty(contentType))
             {
-                return true;
+                return false;
             }
 
             var contentMimeType = contentType.Split(';')[0];

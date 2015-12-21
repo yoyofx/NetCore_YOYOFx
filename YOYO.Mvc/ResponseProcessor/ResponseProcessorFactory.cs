@@ -37,7 +37,8 @@ namespace YOYO.Mvc.ResponseProcessor
                 {
                     new JsonResponseProcessor( _ ),
                     new XmlResponseProcessor( _ ),
-                    new TextResponseProcessor( _ )
+                    new TextResponseProcessor( _ ),
+                    new ViewResponseProcessor( _ )
 
                 };
             };
