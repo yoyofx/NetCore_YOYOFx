@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RazorEngineTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazorTemplateResolver.cs" />
     <Compile Include="RazorViewEngine.cs" />
   </ItemGroup>
   <ItemGroup>

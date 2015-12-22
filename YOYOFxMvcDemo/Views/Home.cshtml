@@ -1,13 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@inherits YOYO.ViewEngine.RazorViewEngine.RazorEngineTemplate<List<YOYOFxMvcDemo.MyUser>>
+@{
+    Layout = "/Views/_Layout.cshtml";
+}
+<div>
+    @foreach(var user in Model) { 
+        <p>@Html.Raw( user.Name)</p>
+    }
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    @Model.Name
-    </div>
-</body>
-</html>
+</div>
+

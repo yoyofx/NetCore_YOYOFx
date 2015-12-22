@@ -19,24 +19,23 @@ namespace YOYO.ViewEngine.RazorViewEngine
         private IRazorEngineService Service = null;
 
 
-        private AppDomain createSandboxFunc()
-        {
-            var ev = new Evidence();
-            ev.AddHostEvidence(new Zone(SecurityZone.Internet));
-            var permissionSet = SecurityManager.GetStandardSandbox(ev);
-            // We have to load ourself with full trust 
-            var razorEngineAssembly = typeof(RazorEngineService).Assembly.Evidence.GetHostEvidence<StrongName>();
-            var razorAssembly = typeof(RazorTemplateEngine).Assembly.Evidence.GetHostEvidence<StrongName>();
-            var appDomainSetup = new AppDomainSetup { ApplicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase };
-            var sandbox = AppDomain.CreateDomain("Sandbox", null, appDomainSetup, permissionSet, razorEngineAssembly, razorAssembly);
-            return sandbox;
-        }
+        //private AppDomain createSandboxFunc()
+        //{
+        //    var ev = new Evidence();
+        //    ev.AddHostEvidence(new Zone(SecurityZone.Internet));
+        //    var permissionSet = SecurityManager.GetStandardSandbox(ev);
+        //    // We have to load ourself with full trust 
+        //    var razorEngineAssembly = typeof(RazorEngineService).Assembly.Evidence.GetHostEvidence<StrongName>();
+        //    var razorAssembly = typeof(RazorTemplateEngine).Assembly.Evidence.GetHostEvidence<StrongName>();
+        //    var appDomainSetup = new AppDomainSetup { ApplicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase };
+        //    var sandbox = AppDomain.CreateDomain("Sandbox", null, appDomainSetup, permissionSet, razorEngineAssembly, razorAssembly);
+        //    return sandbox;
+        //}
 
 
         public RazorViewEngine()
         {
-            var configCreator = new YOYOConfigCreator();
-            this.Service = IsolatedRazorEngineService.Create(configCreator, createSandboxFunc);
+            this.Service = RazorEngineService.Create(configFunc());
         }
 
         ~RazorViewEngine()
@@ -57,7 +56,10 @@ namespace YOYO.ViewEngine.RazorViewEngine
         private TemplateServiceConfiguration configFunc()
         {
             var config = new TemplateServiceConfiguration();
-
+            config.BaseTemplateType = typeof(RazorEngineTemplate<>);
+            config.CachingProvider = new DefaultCachingProvider(t => {  });
+            config.TemplateManager = new RazorTemplateManager();
+            config.DisableTempFileLocking = true;
             return config;
         }
 
@@ -67,16 +69,9 @@ namespace YOYO.ViewEngine.RazorViewEngine
         {
             string result = string.Empty;
 
-            string templatePath = HostingEnvronment.GetMapPath(viewName);
-            if (!File.Exists(templatePath))
-                throw new FileNotFoundException("not found view template . " + viewName);
 
-            using (StreamReader reader = new StreamReader(new FileStream(templatePath, FileMode.Open,FileAccess.Read), Encoding.UTF8))
-            {
-                string templateContent = reader.ReadToEnd();
+            result = Service.RunCompile(viewName, null, model, null);
 
-                result = Service.RunCompile(templateContent, viewName, null, model, null);
-            }
 
             return result;
             
@@ -84,22 +79,22 @@ namespace YOYO.ViewEngine.RazorViewEngine
         }
     }
 
-    [Serializable]
-    public class YOYOConfigCreator : IsolatedRazorEngineService.IConfigCreator
-    {
-        public YOYOConfigCreator()
-        {
+    //[Serializable]
+    //public class YOYOConfigCreator : IsolatedRazorEngineService.IConfigCreator
+    //{
+    //    public YOYOConfigCreator()
+    //    {
 
-        }
+    //    }
 
 
-        public ITemplateServiceConfiguration CreateConfiguration()
-        {
-            var config = new TemplateServiceConfiguration();
+    //    public ITemplateServiceConfiguration CreateConfiguration()
+    //    {
+    //        var config = new TemplateServiceConfiguration();
 
-            return config;
-        }
-    }
+    //        return config;
+    //    }
+    //}
 
 
 }

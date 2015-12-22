@@ -29,7 +29,11 @@ namespace YOYOFxMvcDemo
 
         public View Index()
         {
-            return View("/Views/Home.cshtml", new { Name = "maxzhang" });
+            var model = new List<MyUser>();
+            for (int i = 0; i <= 10; i++)
+                model.Add( new MyUser() { Name = "maxzhang" + i.ToString() } );
+
+            return View("/Views/Home.cshtml", model);
         }
 
     }
