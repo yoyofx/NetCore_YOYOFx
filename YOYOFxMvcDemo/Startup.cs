@@ -17,12 +17,7 @@ namespace YOYOFxMvcDemo
         {
 
             app.UseYOYOFx(route =>
-                     route.Map("/{controller}/{action}/{id}/"),
-                     config =>
-                     {
-                         config.Bootstrapper.RuntimeManager.RuntimeProviders.Add( new PythonActionRuntimeProvider()  );
-                     }
-            );
+                     route.Map("/{controller}/{action}/{id}/") );
 
             //app.UseYOYOFx();
 

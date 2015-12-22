@@ -27,10 +27,8 @@ namespace YOYO.Mvc.ResponseProcessor
                 IViewEngine viewEngine = ViewEngineFactory.GetViewEngine(extensionName);
 
 
-                viewEngine.RenderView(_context, view.Path, model);
+               return viewEngine.RenderView(_context, view.Path, view.Model);
 
-
-                return string.Empty;
             }
             else
             {

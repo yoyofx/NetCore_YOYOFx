@@ -40,7 +40,7 @@ namespace YOYO.Mvc
         public static IEnumerable<Type> TypesOf(Type type)
         {
             var returnTypes =
-             types.Where(type.IsAssignableFrom);
+             types.Where(t=> type.IsAssignableFrom(t)  && !t.IsInterface );
 
             return returnTypes;
 

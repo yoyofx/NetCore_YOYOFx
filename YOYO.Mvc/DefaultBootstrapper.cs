@@ -17,7 +17,8 @@ namespace YOYO.Mvc
 
         public ActionRuntimeManager RuntimeManager { private set; get; }
         public virtual void Initialise()
-        { 
+        {
+            ApplicationAssemblyLoader.ResolveAssembly(this.GetRootPath());
             RuntimeManager.LoadRuntimeFileSystem(this.GetRootPath());
             ViewEngineFactory.LoadViewEngine();
         }

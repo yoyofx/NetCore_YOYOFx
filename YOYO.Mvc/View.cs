@@ -16,5 +16,7 @@ namespace YOYO.Mvc
 
         public string ActionName { set; get; }
 
+        public dynamic Model { set; get; }
+
     }
 }

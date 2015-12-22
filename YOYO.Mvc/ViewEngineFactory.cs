@@ -12,7 +12,9 @@ namespace YOYO.Mvc
         private static IDictionary<string, IViewEngine> viewEngineCache = new ConcurrentDictionary<string, IViewEngine>();
         public static void LoadViewEngine()
         {
-            foreach (var viewEngineType in Application.CurrentApplication.Options.Bootstrapper.ViewEngines)
+            var viewEngineTypes = ApplicationAssemblyLoader.TypesOf(typeof(IViewEngine));
+
+            foreach (var viewEngineType in viewEngineTypes)
             {
                 var viewEngine = (IViewEngine)Activator.CreateInstance(viewEngineType);
                 viewEngineCache.Add(viewEngine.ExtensionName, viewEngine);

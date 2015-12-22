@@ -61,7 +61,7 @@ namespace YOYO.Mvc.ActionRuntime
 
         public void LoadRuntime(string path)
         {
-            ApplicationAssemblyLoader.ResolveAssembly(path);
+            //ApplicationAssemblyLoader.ResolveAssembly(path);
         }
     }
 }

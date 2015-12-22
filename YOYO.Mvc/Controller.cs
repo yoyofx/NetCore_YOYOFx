@@ -11,10 +11,10 @@ namespace YOYO.Mvc
     {
         protected IOwinContext Context { set; get; }
 
-        protected View View(string mapPath)
+        protected View View(string mapPath , dynamic model)
         {
             return new View(mapPath) {
-                ControllerName = this.GetType().Name  };
+                ControllerName = this.GetType().Name , Model = model  };
         }
 
     }

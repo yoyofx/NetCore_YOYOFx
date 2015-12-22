@@ -25,5 +25,12 @@ namespace YOYOFxMvcDemo
             var message = this.Context.Request["m"];
             return new { HelloMessage = message };
         }
+
+
+        public View Index()
+        {
+            return View("/Views/Home.cshtml", new { Name = "maxzhang" });
+        }
+
     }
 }
