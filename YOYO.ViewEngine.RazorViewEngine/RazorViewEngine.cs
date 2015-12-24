@@ -52,7 +52,7 @@ namespace YOYO.ViewEngine.RazorViewEngine
         }
 
 
-
+         
         private TemplateServiceConfiguration configFunc()
         {
             var config = new TemplateServiceConfiguration();
