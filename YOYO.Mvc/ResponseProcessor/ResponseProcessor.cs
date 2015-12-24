@@ -22,9 +22,11 @@ namespace YOYO.Mvc.ResponseProcessor
         public void Process(object model)
         {
             string rawData = GetRawDataString(model);
+          
             if (!string.IsNullOrEmpty(rawData))
             {
-                _context.Response.Status = Status.Is.OK;
+                _context.Response.Headers.ContentLength = rawData.Length;
+              _context.Response.Status = Status.Is.OK;
             }
             else
             {
