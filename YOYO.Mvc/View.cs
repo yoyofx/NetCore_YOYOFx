@@ -18,5 +18,7 @@ namespace YOYO.Mvc
 
         public dynamic Model { set; get; }
 
+        public DynamicDictionary ViewBag { set; get; }
+
     }
 }

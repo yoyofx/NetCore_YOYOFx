@@ -54,6 +54,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="ControllerLoader.cs" />
     <Compile Include="DefaultBootstrapper.cs" />
+    <Compile Include="DynamicDictionary.cs" />
     <Compile Include="Extensions\ParameterInfoExtensions.cs" />
     <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

@@ -22,8 +22,14 @@ namespace YOYO.Mvc.ResponseProcessor
         public void Process(object model)
         {
             string rawData = GetRawDataString(model);
-
-            _context.Response.Status = Status.Is.OK;
+            if (!string.IsNullOrEmpty(rawData))
+            {
+                _context.Response.Status = Status.Is.OK;
+            }
+            else
+            {
+                _context.Response.Status = Status.Is.NotFound;
+            }
 
             _context.Response.Write(rawData);
         }

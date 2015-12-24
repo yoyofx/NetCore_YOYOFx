@@ -10,6 +10,6 @@ namespace YOYO.Mvc
     public interface IViewEngine
     {
         string ExtensionName { get; }
-        string RenderView(IOwinContext context, string viewName, object model);
+        string RenderView(IOwinContext context, string viewName, object model , DynamicDictionary viewbag);
     }
 }

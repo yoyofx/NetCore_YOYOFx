@@ -23,11 +23,8 @@ namespace YOYO.Mvc.ResponseProcessor
             if(view!=null)
             {
                 string extensionName = System.IO.Path.GetExtension(view.Path);
-
                 IViewEngine viewEngine = ViewEngineFactory.GetViewEngine(extensionName);
-
-
-               return viewEngine.RenderView(_context, view.Path, view.Model);
+               return viewEngine.RenderView(_context, view.Path, view.Model, view.ViewBag);
 
             }
             else

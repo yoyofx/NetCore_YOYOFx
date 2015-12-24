@@ -65,12 +65,16 @@ namespace YOYO.ViewEngine.RazorViewEngine
 
 
 
-        public string RenderView(IOwinContext context, string viewName, object model)
+        public string RenderView(IOwinContext context, string viewName, object model,DynamicDictionary viewbag)
         {
             string result = string.Empty;
+            DynamicViewBag dynamicViewBag = null;
+            if(viewbag!=null)
+            {
+                dynamicViewBag = new DynamicViewBag(viewbag.ToDictionary());
+            }
 
-
-            result = Service.RunCompile(viewName, null, model, null);
+            result = Service.RunCompile(viewName, null, model, dynamicViewBag);
 
 
             return result;

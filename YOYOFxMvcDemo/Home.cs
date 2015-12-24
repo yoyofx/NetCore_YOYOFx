@@ -33,6 +33,9 @@ namespace YOYOFxMvcDemo
             for (int i = 0; i <= 10; i++)
                 model.Add( new MyUser() { Name = "maxzhang" + i.ToString() } );
 
+            ViewBag.Title = "My First Application Demo";
+
+
             return View("/Views/Home.cshtml", model);
         }
 
