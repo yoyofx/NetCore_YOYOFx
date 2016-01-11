@@ -13,7 +13,6 @@ namespace YOYO.Owin
         private readonly OwinResponseHeaders _headers;
 
 
-
         public OwinResponse(IDictionary<string, object> environment) {
             if (environment == null) {
                 throw new ArgumentNullException("environment");
@@ -23,7 +22,10 @@ namespace YOYO.Owin
             _headers = new OwinResponseHeaders(headers);
         }
 
-
+        public ResponseCookieCollection Cookies
+        {
+            get { return new ResponseCookieCollection(this.Headers.ToDictionary()); }
+        }
 
         public void Write(byte[] bytes)
         {

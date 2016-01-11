@@ -94,5 +94,10 @@ namespace YOYO.Owin
             get { return GetValue(HttpHeaderKeys.WwwAuthenticate); }
             set { SetValue(HttpHeaderKeys.WwwAuthenticate, value); }
         }
+
+        public IDictionary<string, string[]> ToDictionary()
+        {
+            return Raw;
+        }
     }
 }

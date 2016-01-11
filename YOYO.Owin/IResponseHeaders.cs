@@ -1,4 +1,7 @@
-﻿namespace YOYO.Owin
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace YOYO.Owin
 {
     public interface IResponseHeaders : IHttpHeaders
     {
@@ -33,5 +36,7 @@
         string Vary { get; set; }
 
         string WwwAuthenticate { get; set; }
+
+        IDictionary<string, string[]> ToDictionary();
     }
 }

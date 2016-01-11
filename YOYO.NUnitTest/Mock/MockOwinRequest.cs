@@ -33,6 +33,14 @@ namespace YOYO.NUnitTest.Mock
             }
         }
 
+        public RequestCookieCollection Cookie
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public IFormData Form
         {
             get
@@ -128,6 +136,16 @@ namespace YOYO.NUnitTest.Mock
             {
                 throw new NotImplementedException();
             }
+        }
+
+        public T GetEnvironmentValue<T>(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetEnvironmentValue<T>(string key, T value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

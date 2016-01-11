@@ -10,6 +10,7 @@ namespace YOYO.Owin
 {
     public interface IOwinRequest
     {
+       
         /// <summary>
         /// Gets the input body stream.
         /// </summary>
@@ -49,5 +50,10 @@ namespace YOYO.Owin
 
         string this[string key] { get; }
         IDictionary<string, string> RouteValues{set; get; }
+
+        void SetEnvironmentValue<T>(string key, T value);
+        T GetEnvironmentValue<T>(string key);
+
+        RequestCookieCollection Cookie { get; }
     }
 }

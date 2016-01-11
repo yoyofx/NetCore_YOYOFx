@@ -15,6 +15,8 @@ namespace YOYO.Owin
         /// </summary>
         IResponseHeaders Headers { get; }
 
+        ResponseCookieCollection Cookies { get;  }
+
         /// <summary>
         /// Gets or sets the status code and description.
         /// </summary>

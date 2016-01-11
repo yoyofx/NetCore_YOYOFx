@@ -37,6 +37,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CookieOptions.cs" />
     <Compile Include="FormData.cs" />
     <Compile Include="Helper\DictionaryExtensions.cs" />
     <Compile Include="Helper\HeaderExtensions.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Pipeline\PipelineComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryString.cs" />
+    <Compile Include="RequestCookieCollection.cs" />
+    <Compile Include="ResponseCookieCollection.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Helper\TaskExtensions.cs" />
   </ItemGroup>

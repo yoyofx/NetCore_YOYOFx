@@ -23,7 +23,6 @@ namespace YOYO.Owin
 
 
 
-
         public OwinRequest(IDictionary<string, object> environment)
         {
             if (environment == null)
@@ -58,6 +57,18 @@ namespace YOYO.Owin
             }
 
         }
+
+        public void SetEnvironmentValue<T>(string key , T value)
+        {
+            _environment.SetValue<T>(key, value);
+        }
+
+        public T GetEnvironmentValue<T>(string key)
+        {
+            return _environment.GetValue<T>(key);
+        }
+
+
 
         public Stream Body
         {
@@ -180,7 +191,13 @@ namespace YOYO.Owin
             }
         }
 
-
+        public RequestCookieCollection Cookie
+        {
+            get
+            {
+                return new RequestCookieCollection(HeaderExtensions.GetCookies(this));
+            }
+        }
 
     }
 }
