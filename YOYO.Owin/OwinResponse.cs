@@ -29,6 +29,7 @@ namespace YOYO.Owin
 
         public void Write(byte[] bytes)
         {
+            this.Headers.ContentLength = bytes.Length;
             this.Body.Write(bytes, 0, bytes.Length);
         }
 
@@ -40,6 +41,7 @@ namespace YOYO.Owin
 
         public Task WriteAsync(byte[] bytes)
         {
+            this.Headers.ContentLength = bytes.Length;
             return this.Body.WriteAsync(bytes, 0, bytes.Length);
         }
 

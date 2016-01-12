@@ -22,6 +22,7 @@ namespace YOYOFxMvcDemo
 
         public dynamic Say()
         {
+            var cookie = this.Context.Request.Cookie;
             var message = this.Context.Request["m"];
             return new { HelloMessage = message };
         }
@@ -29,11 +30,13 @@ namespace YOYOFxMvcDemo
 
         public dynamic Index()
         {
+            var cookie = this.Context.Request.Cookie;
+            this.Context.Response.Cookies.Append("sessionid", Guid.NewGuid().ToString());
             var model = new List<MyUser>();
             for (int i = 0; i <= 10; i++)
-                model.Add( new MyUser() { Name = "maxzhang" + i.ToString() } );
+                model.Add( new MyUser() { Name = "maxzhang 张磊" + i.ToString() } );
 
-            ViewBag.Title = "My First Application Demo";
+            ViewBag.Title = "My First Application Demo 哈哈";
 
 
             return View("/Views/Home.cshtml", model);

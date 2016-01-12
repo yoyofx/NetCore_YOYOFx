@@ -25,7 +25,6 @@ namespace YOYO.Mvc.ResponseProcessor
           
             if (!string.IsNullOrEmpty(rawData))
             {
-                _context.Response.Headers.ContentLength = rawData.Length;
               _context.Response.Status = Status.Is.OK;
             }
             else
