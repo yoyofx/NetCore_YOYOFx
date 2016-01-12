@@ -24,7 +24,13 @@ namespace YOYO.Owin.Helper
 
         public static T GetValue<T>(this IDictionary<string, object> dictionary, string key)
         {
-            return (T)dictionary[key];
+            T outValue = default(T);
+            object value = null;
+
+            if (dictionary.TryGetValue(key, out value))
+                outValue = (T)value;
+
+            return outValue;
         }
 
         public static T GetValueOrCreate<T>(this IDictionary<string, object> dictionary, string key, Func<T> create)
