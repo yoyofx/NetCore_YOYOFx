@@ -27,7 +27,7 @@ namespace YOYO.Mvc.Route
 				Application.CurrentApplication.Options.Bootstrapper.RuntimeManager.FindRuntimeByName (_resolveResult.ControllerName);
 
             var responseProcessor = ResponseProcessorFactory.GetResponseProcessor(context);
-            if (responseProcessor != null)
+            if (responseProcessor != null && provider!=null)
             {
                 object model = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
                 responseProcessor.Process(model);

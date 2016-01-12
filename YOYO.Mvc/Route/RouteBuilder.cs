@@ -54,6 +54,10 @@ namespace YOYO.Mvc.Route
 
         public  RouteResolveResult Resolve(IOwinRequest request)
         {
+
+            if (request.Path.IndexOf('.') > 0)
+                return null;
+
             RouteResolveResult result = null;
             var roles = routeRoles.Where(r => r.Method == HttpMethod.Both || r.Method.ToString().ToLower() == request.Method.ToLower());
 
@@ -76,6 +80,7 @@ namespace YOYO.Mvc.Route
 
         private RouteResolveResult getRouteForUrl(string path,string method, RouteRole role)
         {
+
 			RouteResolveResult result = new RouteResolveResult() {  Url = path ,  ControllerName = role.DefaultController , 
 																											ActionName = role.DefalutAction };
             List<RouteSegment> segments = role.Segments;
