@@ -35,5 +35,12 @@ namespace YOYO.Mvc
         }
 
 
+        protected dynamic Redirect(string location)
+        {
+            this.Context.Response.Redirect(location);
+            return null;
+        }
+
+
     }
 }
