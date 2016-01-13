@@ -24,7 +24,7 @@ namespace YOYOFxMvcDemo
                 EnableDefaultFiles = true,
                 EnableDirectoryBrowsing = true,
                 RequestPath = PathString.Empty,
-                FileSystem = new PhysicalFileSystem(@"F:\workspace\YOYOFx\OwinHost\bin\Debug\"),
+                FileSystem = new PhysicalFileSystem(@"."),
             });
 
             app.UseYOYOFx(route =>
