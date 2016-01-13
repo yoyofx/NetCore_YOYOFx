@@ -30,7 +30,7 @@ namespace YOYO.Mvc.Route
             if (responseProcessor != null && provider!=null)
             {
                 object model = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
-                responseProcessor.Process(model);
+                if(model!=null)  responseProcessor.Process(model);
             }
             else
             {

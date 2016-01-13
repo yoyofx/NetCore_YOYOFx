@@ -34,5 +34,6 @@ namespace YOYO.Owin
 
         Task WriteAsync(string text);
 
+        void Redirect(string location);
     }
 }

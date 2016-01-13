@@ -121,5 +121,14 @@ namespace YOYO.Owin
         IResponseHeaders IOwinResponse.Headers {
             get { return _headers; }
         }
+
+
+        public virtual void Redirect(string location)
+        {
+            this.Status = Status.Is.Found(location);
+            this.Headers.SetValue(HttpHeaderKeys.Location,location);
+        }
+
+
     }
 }

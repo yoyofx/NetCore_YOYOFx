@@ -8,6 +8,13 @@ namespace YOYOFxMvcDemo
     public class Home : Controller
     {
 
+        public dynamic Login()
+        {
+
+            return Redirect("/Home/Index");
+        }
+
+
         public string Hello()
         {
             return "hello world!" + DateTime.Now.ToString();
