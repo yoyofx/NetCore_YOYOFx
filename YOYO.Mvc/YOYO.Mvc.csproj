@@ -58,6 +58,10 @@
     <Compile Include="Extensions\ParameterInfoExtensions.cs" />
     <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Session\DefaultSessionManager.cs" />
+    <Compile Include="Session\ISessionManager.cs" />
+    <Compile Include="Session\Session.cs" />
+    <Compile Include="Session\SessionsStore.cs" />
     <Compile Include="View.cs" />
     <Compile Include="IViewEngine.cs" />
     <Compile Include="IYOYOBootstrapper.cs" />
