@@ -29,7 +29,7 @@ namespace YOYO.Mvc.ActionRuntime
                 }
                 else
                 {
-                    if (routeValues.Count >= pindex)
+                    if (routeValues.Count > pindex)
                     {
                         string routeValue = request.RouteValues.Values.ToList()[pindex];
                         object value = Convert.ChangeType(routeValue, p.ParameterType);

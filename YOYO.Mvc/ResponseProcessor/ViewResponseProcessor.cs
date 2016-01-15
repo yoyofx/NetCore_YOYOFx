@@ -14,7 +14,13 @@ namespace YOYO.Mvc.ResponseProcessor
         public override bool CanProcess()
         {
             string contentType = _context.Request.Headers.ContentType;
-            return string.IsNullOrEmpty(contentType);
+            if (string.IsNullOrEmpty(contentType))
+                return true;
+            //post form data
+            var contentMimeType = contentType.Split(';')[0];
+            return 
+                contentMimeType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase) ||
+                 contentMimeType.Equals("multipart/form-data", StringComparison.OrdinalIgnoreCase) ;
         }
 
         public override string GetRawDataString(object model)

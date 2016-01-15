@@ -185,7 +185,7 @@ namespace YOYO.Owin
                     reqValue = this.QueryString[key];
 
                 if (string.IsNullOrEmpty(reqValue) && this.Form !=null)
-                    reqValue = this.Form["key"];
+                    reqValue = this.Form[key];
 
                 return reqValue;
             }

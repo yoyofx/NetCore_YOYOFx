@@ -54,7 +54,9 @@ namespace YOYOFxMvcDemo
             for (int i = 0; i <= 10; i++)
                 model.Add( new MyUser() { Name = "maxzhang 张磊" + i.ToString() } );
 
-            ViewBag.Title = "welcome" + Session["username"].ToString();
+            var username = Session["username"]?.ToString();
+
+            ViewBag.Title = "welcome" + username;
 
 
             return View("/Views/Home.cshtml", model);

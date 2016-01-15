@@ -71,6 +71,7 @@ namespace YOYO.Mvc.Session
                 string sessionid = Guid.NewGuid().ToString();
                 session = new CookieSession() { ID = sessionid };
                 store.SetSession(sessionid, session);
+                context.Response.Cookies.Append("YOYOFx_SessionID", sessionid);
 
             }
             session.RefreshSessionAccessTime();
