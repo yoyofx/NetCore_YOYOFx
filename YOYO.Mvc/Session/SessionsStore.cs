@@ -9,24 +9,38 @@ namespace YOYO.Mvc.Session
 {
     internal class SessionsStore
     {
-        private  IDictionary<string, Session> sessionStore = new ConcurrentDictionary<string,Session>();
+        private  IDictionary<string, CookieSession> sessionStore = new ConcurrentDictionary<string, CookieSession>();
 
-        internal Session GetSession(string sessionid)
+        internal CookieSession GetSession(string sessionid)
         {
-            Session session = null;
+            CookieSession session = null;
 
             sessionStore.TryGetValue(sessionid,out session);
 
             return session;
         }  
 
-        internal void SetSession(string id, Session session)
+        internal void SetSession(string id, CookieSession session)
         {
             if (sessionStore.ContainsKey(id))
                 sessionStore[id] = session;
             else
                 sessionStore.Add(id, session);
         }
+
+        internal void RecoverSession(Func<string, CookieSession, bool> recoverFunc)
+        {
+            var sessionIds = sessionStore.Keys.ToArray();
+           
+            foreach(var sessionid in sessionIds)
+            {
+                if(recoverFunc(sessionid, GetSession(sessionid) ))
+                {
+                    sessionStore.Remove(sessionid);
+                }
+            }
+        }
+
 
     }
 }

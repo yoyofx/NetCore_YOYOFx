@@ -27,6 +27,7 @@ namespace YOYO.Owin
 
             _request = new OwinRequest(_environment);
             _response = new OwinResponse(_environment);
+
         }
 
         public static Task<IOwinContext> GetContextAsync(IDictionary<string, object> environment)
@@ -53,12 +54,13 @@ namespace YOYO.Owin
             get { return _environment; }
         }
 
+        public IDictionary<string,object> Items {
+            get { return this; } }
+
         public CancellationToken CancellationToken
         {
             get { return _environment.GetValue<CancellationToken>(OwinConstants.Owin.CallCancelled); }
         }
-
-
 
         public string OwinVersion
         {
@@ -157,6 +159,8 @@ namespace YOYO.Owin
         {
             return _environment.Remove(item);
         }
+
+
 
 
         #endregion

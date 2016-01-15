@@ -15,5 +15,6 @@ namespace YOYO.Owin
 
         IOwinResponse Response { get; }
 
+        IDictionary<string,object> Items { get; }
     }
 }

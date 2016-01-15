@@ -11,7 +11,7 @@ using YOYO.Mvc.Reflection;
 using System.Reflection;
 using YOYO.Mvc.ActionRuntime;
 using YOYO.Mvc.ResponseProcessor;
-
+using YOYO.Mvc.Session;
 
 namespace YOYO.Mvc.Route
 {
@@ -29,6 +29,13 @@ namespace YOYO.Mvc.Route
             var responseProcessor = ResponseProcessorFactory.GetResponseProcessor(context);
             if (responseProcessor != null && provider!=null)
             {
+                ISessionProvider sessionProvider = DefaultSessionProvider.DefaultProvider;
+                ISession session = sessionProvider.AccessSession(context);
+                if (!context.Items.ContainsKey("session"))
+                    context.Items.Add("session", session);
+                else
+                    context.Items["session"] = session;
+
                 object model = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
                 if(model!=null)  responseProcessor.Process(model);
             }

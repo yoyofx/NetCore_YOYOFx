@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace YOYO.Mvc.Session
 {
-    internal interface ISessionManager
+    public interface ISession
     {
-        void OnRequest();
+        object this[string key] { set; get; }
+        string ID { set; get; }
 
     }
 }

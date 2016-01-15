@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YOYO.Mvc.Session
 {
-    public class Session
+    public class CookieSession : ISession
     {
         public object this[string key]
         {
@@ -24,6 +24,14 @@ namespace YOYO.Mvc.Session
 
         private IDictionary<string, object> _userData = new Dictionary<string, object>();
 
-        internal DateTime ActiveTime { get; set; }
+        internal DateTime DeathTime { get; set; }
+
+        public string ID { set; get; }
+
+        public void RefreshSessionAccessTime()
+        {
+            DeathTime = DateTime.Now.AddMinutes(30);
+        }
+
     }
 }

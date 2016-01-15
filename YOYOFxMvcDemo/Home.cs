@@ -8,11 +8,24 @@ namespace YOYOFxMvcDemo
     public class Home : Controller
     {
 
+
         public dynamic Login()
         {
-
-            return Redirect("/Home/Index");
+            return View("/Views/Login.cshtml");
         }
+
+        public dynamic UserLoginAction(string name, string password)
+        {
+            if (name == "maxzhang" && password == "123")
+            {
+                this.Session["username"] = "maxzhang";
+                return Redirect("/Home/Index");
+            }
+            else
+                return View("/Views/Login.cshtml");
+
+        }
+
 
 
         public string Hello()
@@ -37,13 +50,11 @@ namespace YOYOFxMvcDemo
 
         public dynamic Index()
         {
-            var cookie = this.Context.Request.Cookie;
-            this.Context.Response.Cookies.Append("sessionid", Guid.NewGuid().ToString());
             var model = new List<MyUser>();
             for (int i = 0; i <= 10; i++)
                 model.Add( new MyUser() { Name = "maxzhang 张磊" + i.ToString() } );
 
-            ViewBag.Title = "My First Application Demo 哈哈";
+            ViewBag.Title = "welcome" + Session["username"].ToString();
 
 
             return View("/Views/Home.cshtml", model);

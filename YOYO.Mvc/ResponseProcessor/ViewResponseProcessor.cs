@@ -29,7 +29,7 @@ namespace YOYO.Mvc.ResponseProcessor
             }
             else
             {
-                return "";
+                return model!=null?model.ToString():"";
             }
 
 

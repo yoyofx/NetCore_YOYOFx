@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YOYO.Mvc.Session;
 using YOYO.Owin;
 
 namespace YOYO.Mvc
@@ -41,6 +42,10 @@ namespace YOYO.Mvc
             return null;
         }
 
-
+        protected ISession Session {
+            get {
+                return Context.Items["session"] as ISession;
+            }
+        }
     }
 }
