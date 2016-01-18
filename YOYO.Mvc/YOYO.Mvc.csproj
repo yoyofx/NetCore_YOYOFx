@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionExecuteContext.cs" />
+    <Compile Include="ActionFilterAttribute.cs" />
     <Compile Include="ActionRuntime\ActionRuntimeManager.cs" />
     <Compile Include="ActionRuntime\ActionRuntimeParameter.cs" />
     <Compile Include="ActionRuntime\DotnetActionRuntimeProvider.cs" />

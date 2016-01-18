@@ -68,6 +68,7 @@
     <Content Include="test.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncryptAttribute.cs" />
     <Compile Include="MyUser.cs" />
     <Compile Include="TinyfoxAdapter.cs" />
     <Compile Include="Home.cs" />

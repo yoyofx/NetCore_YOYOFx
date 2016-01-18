@@ -39,7 +39,7 @@ namespace YOYOFxMvcDemo
 
         }
 
-
+        [Encrypt]
         public dynamic Say()
         {
             var cookie = this.Context.Request.Cookie;

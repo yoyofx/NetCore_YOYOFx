@@ -36,13 +36,28 @@ namespace YOYO.Mvc.ActionRuntime
 				actionInvokerCache.TryAdd(actionMethodInfo, invoker);
 			}
 
-           var parameterInfoList = actionMethodInfo.GetParameters();
+            var parameterInfoList = actionMethodInfo.GetParameters();
 
-           var actionParams = parameterInfoList.ToActionParameters();
+            var actionParams = parameterInfoList.ToActionParameters();
 
             var paramValues = ActionRuntimeParameter.GetValuesByRequest(actionParams, context.Request);
 
-			object result = invoker.Invoke(controller, paramValues.ToArray());
+            var filter = actionMethodInfo.GetCustomAttribute(typeof(ActionFilterAttribute), true) as ActionFilterAttribute;
+            object result = null;
+            if (filter != null)
+            {
+                ActionExecuteContext executeContext = new ActionExecuteContext(context, controllerName, actionName, invoker, parameterInfoList);
+               
+                if (filter.OnActionExecuting(executeContext))
+                    executeContext.Result = invoker.Invoke(controller, paramValues.ToArray());
+
+                filter.OnActionExecuted(executeContext);
+                result = executeContext.Result;
+            }
+            else
+            {
+                result = invoker.Invoke(controller, paramValues.ToArray());
+            }
 
 			return result;
 		}
