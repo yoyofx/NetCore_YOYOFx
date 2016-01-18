@@ -37,7 +37,8 @@ namespace YOYO.Mvc.Route
                     context.Items["session"] = session;
 
                 object model = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
-                if(model!=null)  responseProcessor.Process(model);
+                if (model != null) responseProcessor.Process(model);
+                else context.Response.Status = Status.Is.NotFound;
             }
             else
             {
