@@ -9,16 +9,26 @@ namespace YOYO.Mvc.ResponseProcessor
 {
     internal class ViewResponseProcessor : ResponseProcessor, IResponseProcessor
     {
-        internal ViewResponseProcessor(IOwinContext context) : base(context) { }
+        internal ViewResponseProcessor(IOwinContext context) : base(context) {
+            ContentType = @"text/html";
+        }
 
         public override bool CanProcess()
         {
             string contentType = _context.Request.Headers.ContentType;
+            char splitChar = ';';
             if (string.IsNullOrEmpty(contentType))
-                return true;
+            {
+                contentType = _context.Request.Headers.Accept;
+                splitChar = ',';
+            }
+
+            if (string.IsNullOrEmpty(contentType))
+                return false;
             //post form data
-            var contentMimeType = contentType.Split(';')[0];
-            return 
+            var contentMimeType = contentType.Split(splitChar)[0];
+            return
+                 contentMimeType.Equals("text/html", StringComparison.OrdinalIgnoreCase) ||
                 contentMimeType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase) ||
                  contentMimeType.Equals("multipart/form-data", StringComparison.OrdinalIgnoreCase) ;
         }

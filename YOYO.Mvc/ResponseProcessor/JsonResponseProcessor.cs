@@ -12,20 +12,27 @@ namespace YOYO.Mvc.ResponseProcessor
     {
         internal JsonResponseProcessor(IOwinContext context):base(context)
         {
-
+            ContentType = @"application/json";
         }
+
+        
+
 
         public override bool CanProcess()
         {
 
             string contentType = _context.Request.Headers.ContentType;
-
+            char splitChar = ';';
             if (string.IsNullOrEmpty(contentType))
             {
-                return false;
+                contentType = _context.Request.Headers.Accept;
+                splitChar = ',';
             }
 
-            var contentMimeType = contentType.Split(';')[0];
+            if (string.IsNullOrEmpty(contentType))
+                return false;
+
+            var contentMimeType = contentType.Split(splitChar)[0];
 
             return contentMimeType.Equals("application/json", StringComparison.OrdinalIgnoreCase) ||
             contentMimeType.StartsWith("application/json-", StringComparison.OrdinalIgnoreCase) ||

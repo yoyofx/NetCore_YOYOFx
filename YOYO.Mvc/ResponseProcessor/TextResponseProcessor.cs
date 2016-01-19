@@ -9,17 +9,24 @@ namespace YOYO.Mvc.ResponseProcessor
 {
     internal class TextResponseProcessor : ResponseProcessor, IResponseProcessor
     {
-        internal TextResponseProcessor(IOwinContext context) : base(context) { }
+        internal TextResponseProcessor(IOwinContext context) : base(context) {
+            ContentType = "text/plain";
+        }
 
         public override bool CanProcess()
         {
             string contentType = _context.Request.Headers.ContentType;
+            char splitChar = ';';
             if (string.IsNullOrEmpty(contentType))
             {
-                return false;
+                contentType = _context.Request.Headers.Accept;
+                splitChar = ',';
             }
 
-            var contentMimeType = contentType.Split(';')[0];
+            if (string.IsNullOrEmpty(contentType))
+                return false;
+
+            var contentMimeType = contentType.Split(splitChar)[0];
 
             return contentMimeType.Equals("text/plain", StringComparison.OrdinalIgnoreCase);
         }

@@ -10,6 +10,8 @@ namespace YOYO.Mvc.ResponseProcessor
 {
     internal abstract class ResponseProcessor : IResponseProcessor
     {
+        protected string ContentType { set; get; }
+
         protected IOwinContext _context;
         internal ResponseProcessor(IOwinContext context)
         {
@@ -31,7 +33,7 @@ namespace YOYO.Mvc.ResponseProcessor
             {
                 _context.Response.Status = Status.Is.NotFound;
             }
-
+            _context.Response.Headers.ContentType = this.ContentType;
             _context.Response.Write(rawData);
         }
 
