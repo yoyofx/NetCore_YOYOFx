@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using YOYO.Mvc;
+using YOYO.Mvc.Filters;
 
 namespace YOYOFxMvcDemo
 {
@@ -39,7 +40,7 @@ namespace YOYOFxMvcDemo
 
         }
 
-        [Encrypt]
+        [TimeStampEncrypt]
         public dynamic Say()
         {
             var cookie = this.Context.Request.Cookie;
