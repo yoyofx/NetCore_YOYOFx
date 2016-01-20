@@ -18,7 +18,7 @@ namespace YOYO.Mvc.Filters
                     return false;
 
 
-                var requestDateTime = new DateTime(1970, 01, 01).AddMilliseconds(timestamp);
+                var requestDateTime = UnixTimeStampToDateTime(timestamp);
 
                 var time = DateTime.Now.Subtract(requestDateTime);
 
@@ -31,6 +31,15 @@ namespace YOYO.Mvc.Filters
             {
                 return false;
             }
+        }
+
+
+        private static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddMilliseconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
         }
 
 
