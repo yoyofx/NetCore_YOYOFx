@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Index.html" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
@@ -102,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contents\BJUI\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
