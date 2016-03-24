@@ -38,7 +38,7 @@ namespace YOYO.Mvc.Route
 
                 object model = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
                 if (model != null) responseProcessor.Process(model);
-                else context.Response.Status = Status.Is.NotFound;
+                else if(model is View) context.Response.Status = Status.Is.NotFound;
             }
             else
             {
