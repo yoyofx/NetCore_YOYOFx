@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,22 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RazorEngine, Version=3.7.5.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <HintPath>..\packages\RazorEngine.3.7.5\lib\net45\RazorEngine.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="RazorEngine, Version=3.7.5.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a">
+      <HintPath>..\packages\RazorEngine.3.7.5\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RazorEngineTemplate.cs" />
@@ -58,11 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YOYO.Mvc\YOYO.Mvc.csproj">
-      <Project>{69105277-8bd6-404d-b81d-a8b22b08cd5e}</Project>
+      <Project>{69105277-8BD6-404D-B81D-A8B22B08CD5E}</Project>
       <Name>YOYO.Mvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">
-      <Project>{c2026151-9e62-4f53-b80c-ca9585118c18}</Project>
+      <Project>{C2026151-9E62-4F53-B80C-CA9585118C18}</Project>
       <Name>YOYO.Owin</Name>
     </ProjectReference>
   </ItemGroup>

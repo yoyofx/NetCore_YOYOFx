@@ -74,7 +74,7 @@
       <Name>YOYO.Owin</Name>
     </ProjectReference>
     <ProjectReference Include="..\YOYO.ViewEngine.RazorViewEngine\YOYO.ViewEngine.RazorViewEngine.csproj">
-      <Project>{97dde7ff-142f-4b34-afd3-b64cf604eb94}</Project>
+      <Project>{97DDE7FF-142F-4B34-AFD3-B64CF604EB94}</Project>
       <Name>YOYO.ViewEngine.RazorViewEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\YOYOFxMvcDemo\YOYOFxMvcDemo.csproj">
