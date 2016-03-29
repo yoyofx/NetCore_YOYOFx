@@ -51,12 +51,14 @@
       <HintPath>..\packages\IronPython.2.7.5\lib\Net45\Microsoft.Scripting.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mock\MockOwinRequest.cs" />
     <Compile Include="RouteRoleTest.cs" />
     <Compile Include="ActionRuntimeProviderTest.cs" />
     <Compile Include="ViewEngineTest.cs" />
+    <Compile Include="Mock\ppy_video.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -78,6 +80,14 @@
     <ProjectReference Include="..\YOYO.ViewEngine.RazorViewEngine\YOYO.ViewEngine.RazorViewEngine.csproj">
       <Project>{97DDE7FF-142F-4B34-AFD3-B64CF604EB94}</Project>
       <Name>YOYO.ViewEngine.RazorViewEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaxZhang.EasyEntities.Persistence\EasyEntities.Persistence.csproj">
+      <Project>{EDDF8CF9-94D6-4262-B550-42220813A714}</Project>
+      <Name>EasyEntities.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtendPropertyLib\ExtendPropertyLib.csproj">
+      <Project>{77D423C3-8419-4B9D-ACF6-0E349D75B2ED}</Project>
+      <Name>ExtendPropertyLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

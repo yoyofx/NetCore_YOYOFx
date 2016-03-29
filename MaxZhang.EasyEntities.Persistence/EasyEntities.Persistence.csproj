@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDDF8CF9-94D6-4262-B550-42220813A714}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MaxZhang.EasyEntities.Persistence</RootNamespace>
+    <AssemblyName>MaxZhang.EasyEntities.Persistence</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.8.7\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command.cs" />
+    <Compile Include="DataExtension.cs" />
+    <Compile Include="DataOperatorHelper.cs" />
+    <Compile Include="DbSessionExtension.cs" />
+    <Compile Include="IOperatorWhere.cs" />
+    <Compile Include="Mapping\DbMetaDataReader.cs" />
+    <Compile Include="Mapping\DbObject.cs" />
+    <Compile Include="OperatorWhereObject.cs" />
+    <Compile Include="Provider\IDataProvider.cs" />
+    <Compile Include="Linq\LinqEnumerator.cs" />
+    <Compile Include="Linq\LinqQuery.cs" />
+    <Compile Include="Linq\LinqQueryProvider.cs" />
+    <Compile Include="Mapping\DbMetaData.cs" />
+    <Compile Include="Mapping\MetaMember.cs" />
+    <Compile Include="Provider\SQLServer\FieldsFormater.cs" />
+    <Compile Include="Provider\SQLServer\SelectFormater.cs" />
+    <Compile Include="Provider\StoredProcCommandBuilder.cs" />
+    <Compile Include="SqlMap\ParamItem.cs" />
+    <Compile Include="SqlMap\SqlMapCommand.cs" />
+    <Compile Include="TableTemplateMethod.cs" />
+    <Compile Include="TranslateExtendtion.cs" />
+    <Compile Include="Provider\SQLServer\SqlTranslateFormater.cs" />
+    <Compile Include="Parameter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Config\ProviderConfig.cs" />
+    <Compile Include="Config\ProviderConfigItem.cs" />
+    <Compile Include="Provider\ProviderException.cs" />
+    <Compile Include="Provider\ProviderFactory.cs" />
+    <Compile Include="Provider\AccessProvider.cs" />
+    <Compile Include="Provider\OracleProvider.cs" />
+    <Compile Include="Provider\SQLiteProvider.cs" />
+    <Compile Include="Provider\SqlProvider.cs" />
+    <Compile Include="DbSession.cs" />
+    <Compile Include="QueryConditional.cs" />
+    <Compile Include="SelectQuery.cs" />
+    <Compile Include="QueryObjectExtension.cs" />
+    <Compile Include="SQLBuilder.cs" />
+    <Compile Include="Provider\SQLServer\SQLMethod.cs" />
+    <Compile Include="UpdateTableCable.cs" />
+    <Compile Include="Provider\MySQLProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtendPropertyLib\ExtendPropertyLib.csproj">
+      <Project>{77D423C3-8419-4B9D-ACF6-0E349D75B2ED}</Project>
+      <Name>ExtendPropertyLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\sp_getdatapage.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="主类图.cd" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -87,10 +87,6 @@
       <Project>{97DDE7FF-142F-4B34-AFD3-B64CF604EB94}</Project>
       <Name>YOYO.ViewEngine.RazorViewEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MaxZhang.EasyEntities.Persistence\EasyEntities.Persistence.csproj">
-      <Project>{EDDF8CF9-94D6-4262-B550-42220813A714}</Project>
-      <Name>EasyEntities.Persistence</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home.cshtml" />

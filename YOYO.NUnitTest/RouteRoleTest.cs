@@ -3,6 +3,8 @@ using System;
 using YOYO.Mvc.Route;
 using YOYO.Mvc;
 using YOYO.Owin;
+using MaxZhang.EasyEntities.Persistence;
+using MaxZhang.EasyEntities.Persistence.Provider;
 
 namespace YOYO.NUnitTest
 {
@@ -82,6 +84,25 @@ namespace YOYO.NUnitTest
         }
 
 
+
+
+		[Test]
+		public void TestORM()
+		{
+			Console.WriteLine ("ORM test start!");
+			String mysqlStr = "Database=paipaiyuan;Data Source=127.0.0.1;User Id=root;Password=123456;pooling=false;CharSet=utf8;port=3306";
+			var provider = new MySQLProvider (mysqlStr);
+			using (var session = new DbSession (provider)) {
+				var query = session.CreateQuery<ppy_video> ();
+				var list = query.Where( v=>v.Id <= 215 ).ToList ();
+				foreach (ppy_video q in list)
+					Console.WriteLine (q.ToString());
+
+
+			}
+
+			Assert.AreEqual(1, 1);
+		}
 
 
 

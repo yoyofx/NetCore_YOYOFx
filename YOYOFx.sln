@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendPropertyLib", "Extend
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyEntities.Persistence", "MaxZhang.EasyEntities.Persistence\EasyEntities.Persistence.csproj", "{EDDF8CF9-94D6-4262-B550-42220813A714}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YGC", "YGC\YGC.csproj", "{24747D60-A84B-4ECC-9B94-B5FDCD3C47C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{05C7FA52-A0E9-45F3-9570-FC86264D189C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05C7FA52-A0E9-45F3-9570-FC86264D189C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05C7FA52-A0E9-45F3-9570-FC86264D189C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24747D60-A84B-4ECC-9B94-B5FDCD3C47C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24747D60-A84B-4ECC-9B94-B5FDCD3C47C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24747D60-A84B-4ECC-9B94-B5FDCD3C47C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24747D60-A84B-4ECC-9B94-B5FDCD3C47C4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A57E5CE-C784-4DE2-83C2-A5239E5CAFD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A57E5CE-C784-4DE2-83C2-A5239E5CAFD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A57E5CE-C784-4DE2-83C2-A5239E5CAFD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
