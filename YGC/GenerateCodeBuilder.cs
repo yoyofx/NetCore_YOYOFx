@@ -2,6 +2,8 @@
 using System.Data;
 using System.Text;
 using System.Linq;
+using System.Threading;
+using System.Globalization;
 
 namespace YGC
 {
@@ -28,6 +30,7 @@ namespace YGC
 			generateCodeBuilder.AppendLine ("using ExtendPropertyLib;");
 			generateCodeBuilder.AppendLine("using System;");
 			generateCodeBuilder.AppendLine("using MaxZhang.EasyEntities.Persistence;");
+			generateCodeBuilder.AppendLine("using MaxZhang.EasyEntities.Persistence.Mapping;");
 			generateCodeBuilder.AppendLine("using MaxZhang.EasyEntities.Persistence.Provider;");
 			generateCodeBuilder.Append ("namespace").Append(" ").AppendLine(_nameSpace);
 			generateCodeBuilder.AppendLine ("{");
@@ -35,7 +38,7 @@ namespace YGC
 
 		public void BuildClass(string tableName,DataTable tableSchema,DataTable columnsSchema)
 		{
-			generateCodeBuilder.Append ("\tpublic partial class").Append(" ").AppendLine(tableName);
+			generateCodeBuilder.Append ("\tpublic partial class").Append(" ").Append(tableName).AppendLine(" : DbObject");
 			generateCodeBuilder.AppendLine ("\t{");
 			//ctor
 			generateCodeBuilder.Append ("\t\tstatic ").Append(tableName).AppendLine("() {");
@@ -72,13 +75,14 @@ namespace YGC
 				tableName + column.ColumnName, column.ColumnName, strPropertyType, tableName).Append(sb).AppendLine();
 
 			generateCodeBuilder.AppendLine("\t\t///<summary>");
-			generateCodeBuilder.Append ("\t\t///").AppendLine (comment);
+			generateCodeBuilder.Append ("\t\t///").AppendLine (comment.Replace(Environment.NewLine,"\t\t///"));
 			generateCodeBuilder.AppendLine ("\t\t///</summary>");
-			generateCodeBuilder.Append ("\t\tpublic ").Append (strPropertyType).Append (" ").Append (column.ColumnName).AppendLine();
+			TextInfo tInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
+			generateCodeBuilder.Append ("\t\tpublic ").Append (strPropertyType).Append (" ").Append ( tInfo.ToTitleCase(column.ColumnName)).AppendLine();
 			generateCodeBuilder.AppendLine ("\t\t{");
-			generateCodeBuilder.Append ("\t\t\tset { this.SetValue(").Append(tableName).Append(column.ColumnName).Append("Property, value);").AppendLine();
-			generateCodeBuilder.Append ("\t\t\t").Append ("get { return (").Append (strPropertyType).Append (") this.GetValue(").Append (tableName).Append (column.ColumnName).Append ("Property, value);").AppendLine ();
-			generateCodeBuilder.AppendLine ("\t\t}").AppendLine ();;
+			generateCodeBuilder.Append ("\t\t\tset { this.SetValue(").Append(tableName).Append(column.ColumnName).Append("Property, value); }").AppendLine();
+			generateCodeBuilder.Append ("\t\t\t").Append ("get { return (").Append (strPropertyType).Append (") this.GetValue(").Append (tableName).Append (column.ColumnName).Append ("Property); }").AppendLine ();
+			generateCodeBuilder.AppendLine ("\t\t}").AppendLine ();
 		}
 
 

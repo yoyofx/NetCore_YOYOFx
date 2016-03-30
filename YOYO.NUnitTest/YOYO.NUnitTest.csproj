@@ -58,7 +58,7 @@
     <Compile Include="RouteRoleTest.cs" />
     <Compile Include="ActionRuntimeProviderTest.cs" />
     <Compile Include="ViewEngineTest.cs" />
-    <Compile Include="Mock\ppy_video.cs" />
+    <Compile Include="Database.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

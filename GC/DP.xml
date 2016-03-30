@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<providers>
+  <provider name="DefaultProvider">
+    <assembly>MaxZhang.EasyEntities.Persistence</assembly>
+    <clazz>MaxZhang.EasyEntities.Persistence.Provider.MySQLProvider</clazz>
+    <connString>Database=paipaiyuan;Data Source=127.0.0.1;User Id=root;Password=123456;pooling=false;CharSet=utf8;port=3306</connString>
+  </provider>
+</providers>

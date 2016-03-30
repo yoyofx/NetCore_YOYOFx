@@ -15,27 +15,30 @@ namespace YGC
 	{
 		public static void Main (string[] args)
 		{
-				using (var session = DbSession.Default) {
-						session.Provider.DbConnection.Open ();
-						var schemaTables = GetDatabaseSchema (session,"Tables");
-						GenerateCodeBuilder builder = new GenerateCodeBuilder ("com.my.orm");
-						builder.BuildNamespaceStart ();
-						foreach (DataRow dtrow in schemaTables.Rows) {
-							string TableName = dtrow ["TABLE_NAME"].ToString ();
-							var schemaColumns = GetDatabaseSchema (session, "Columns", new string[] { null, null, TableName, null });
-							var tableSchema = GetTableSchema (session,TableName);
-							builder.BuildClass (TableName, tableSchema, schemaColumns);
-							break;
-						}
+			Console.WriteLine ("Start Generate Code ......");
+			string Namespace = ConfigurationManager.AppSettings ["Namespace"].ToString ();
+			using (var session = DbSession.Default)
+			{
+				var schemaTables = GetDatabaseSchema (session,"Tables");
+				GenerateCodeBuilder builder = new GenerateCodeBuilder (Namespace);
+				builder.BuildNamespaceStart ();
+				int index = 1;
+				foreach (DataRow dtrow in schemaTables.Rows) {
+					string TableName = dtrow ["TABLE_NAME"].ToString ();
+					var schemaColumns = GetDatabaseSchema (session, "Columns", new string[] { null, null, TableName, null });
+					var tableSchema = GetTableSchema (session,TableName);
+					builder.BuildClass (TableName, tableSchema, schemaColumns);
+					Console.WriteLine (string.Format ("Table:{0} Complated; {1}/{2}",TableName,index++,schemaTables.Rows.Count) );
 
-						builder.BuildNamespaceEnd();
-						Console.WriteLine (builder.ToString());
 				}
+				builder.BuildNamespaceEnd();
 
-				
+				File.WriteAllText (Path.Combine (Environment.CurrentDirectory, "Database.cs"), builder.ToString());
+
+				Console.WriteLine ("ALL DONE!");
+			}
+
 			Console.WriteLine (Environment.CurrentDirectory);
-
-				Console.WriteLine ("The End!");
 		}
 
 		private static DataTable GetTableSchema(DbSession session,string TableName)
