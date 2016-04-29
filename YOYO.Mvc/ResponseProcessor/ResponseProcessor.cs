@@ -21,7 +21,7 @@ namespace YOYO.Mvc.ResponseProcessor
         public abstract bool CanProcess();
 
 
-        public void Process(object model)
+        public async void Process(object model)
         {
             string rawData = GetRawDataString(model);
           
@@ -34,7 +34,7 @@ namespace YOYO.Mvc.ResponseProcessor
                 _context.Response.Status = Status.Is.NotFound;
             }
             _context.Response.Headers.ContentType = this.ContentType;
-            _context.Response.Write(rawData);
+            await _context.Response.WriteAsync(rawData);
         }
 
         public abstract string GetRawDataString(object model);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using YOYO.Mvc;
 using YOYO.Mvc.Filters;
 
@@ -29,9 +30,9 @@ namespace YOYOFxMvcDemo
 
 
 
-        public string Hello()
+        public async Task<string> Hello()
         {
-            return "hello world!" + DateTime.Now.ToString();
+            return await Task.FromResult("hello world!" + DateTime.Now.ToString());
         }
 
         public int Add(int a,int b)

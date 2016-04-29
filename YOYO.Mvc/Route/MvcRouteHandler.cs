@@ -36,9 +36,18 @@ namespace YOYO.Mvc.Route
                 else
                     context.Items["session"] = session;
 
-                object model = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
-                if (model != null) responseProcessor.Process(model);
-                else if(model is View) context.Response.Status = Status.Is.NotFound;
+                object actionResult = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
+                if (actionResult != null)
+                {
+                    if(actionResult is Task && actionResult.GetType().IsGenericType) //Task<TResult>
+                    {
+                        //get task's result
+                        var taskResultProperty = actionResult.GetType().GetProperty("Result");
+                        actionResult = taskResultProperty.GetValue(actionResult);
+                    }
+                    responseProcessor.Process(actionResult);
+                }
+                //else if (actionResult is View) context.Response.Status = Status.Is.NotFound;
             }
             else
             {

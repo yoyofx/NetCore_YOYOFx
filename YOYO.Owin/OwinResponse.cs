@@ -36,7 +36,7 @@ namespace YOYO.Owin
         public void Write(string text)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(text);
-            this.Body.Write(bytes,0,bytes.Length);
+            this.Write(bytes);
         }
 
         public Task WriteAsync(byte[] bytes)
@@ -48,7 +48,7 @@ namespace YOYO.Owin
         public Task WriteAsync(string text)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(text);
-            return this.Body.WriteAsync(bytes, 0, bytes.Length);
+            return this.WriteAsync(bytes);
         }
 
 

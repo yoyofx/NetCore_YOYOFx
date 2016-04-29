@@ -45,6 +45,7 @@ namespace YOYO.Mvc.ResponseProcessor
             }
             else
             {
+                _context.Response.Status = Status.Is.NotFound;
                 return model!=null?model.ToString():"";
             }
 

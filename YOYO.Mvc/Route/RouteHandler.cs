@@ -27,6 +27,7 @@ namespace YOYO.Mvc.Route
             handlerTask.WhenCompleted(complete => {
                 tcs.SetResult(true);
             }, faulted => {
+                context.Response.Headers.ContentType = "text/html;charset=utf-8";
                 context.Response.Write(faulted.Exception.ToString());
                 tcs.SetException(faulted.Exception);
             });
