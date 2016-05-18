@@ -18,15 +18,20 @@ namespace YOYO.Mvc
             DirectoryInfo dir = new DirectoryInfo(path);
             //if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
             var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
+            string ss = string.Empty;
+
+
             var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
 
             types = TypeList;
 
 
             var query = from type in TypeList
-                        where type.IsSubclassOf(typeof(Controller))
+                        where type.GetTypeInfo().IsSubclassOf(typeof(Controller))
                         select type;
 
+            
+            
 
             foreach (var t in query)
             {
@@ -40,7 +45,7 @@ namespace YOYO.Mvc
         public static IEnumerable<Type> TypesOf(Type type)
         {
             var returnTypes =
-             types.Where(t=> type.IsAssignableFrom(t)  && !t.IsInterface );
+             types.Where(t=> type.IsAssignableFrom(t)  && !t.GetTypeInfo().IsInterface );
 
             return returnTypes;
 

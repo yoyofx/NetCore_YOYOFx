@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System.Reflection;
+//using System.Runtime.Loader;
 namespace YOYO.AspNetCore.Mvc
 {
     // This project can output the Class library as a NuGet Package.
@@ -11,6 +12,28 @@ namespace YOYO.AspNetCore.Mvc
     {
         public Class1()
         {
+
+
+            //TypeInfo t = typeof(int).GetTypeInfo();
+
+            //t.GetMethod("");
+
+            //var assembly = AssemblyLoadContext.Default.;
+
+
+            //PlatformServices.Default.Application.ApplicationBasePath;
+
+#if net451
+            TypeInfo t = typeof(int).GetTypeInfo();
+
+            t.GetMethod("");
+#else
+            string s = "efwefwefwefwefwfe";
+#endif
+
+
+
+
         }
     }
 }

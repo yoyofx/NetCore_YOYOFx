@@ -39,7 +39,7 @@ namespace YOYO.Mvc.Route
                 object actionResult = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
                 if (actionResult != null)
                 {
-                    if(actionResult is Task && actionResult.GetType().IsGenericType) //Task<TResult>
+                    if(actionResult is Task && actionResult.GetType().GetTypeInfo().IsGenericType) //Task<TResult>
                     {
                         //get task's result
                         var taskResultProperty = actionResult.GetType().GetProperty("Result");
