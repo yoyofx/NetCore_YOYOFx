@@ -18,7 +18,7 @@ namespace YOYO.AspNetCore.Mvc
 
             //t.GetMethod("");
 
-            //var assembly = AssemblyLoadContext.Default.;
+            //var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath();
 
 
             //PlatformServices.Default.Application.ApplicationBasePath;

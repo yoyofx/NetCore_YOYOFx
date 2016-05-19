@@ -6,6 +6,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+#if NETCOREAPP1_0
+using System.Runtime.Loader;
+#endif
+
+
 namespace YOYO.Mvc
 {
     public class ApplicationAssemblyLoader
@@ -16,21 +21,35 @@ namespace YOYO.Mvc
         public static void ResolveAssembly(string path)
         {
             DirectoryInfo dir = new DirectoryInfo(path);
-            //if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
+
             var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
-            string ss = string.Empty;
+
+            Func<FileInfo, Type[]> loadAssemblyByPathFunc = null;
+            //loadAssemblyByPathFunc = AssemblyLoadContext.Default
 
 
-            var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
+#if NET451
+            loadAssemblyByPathFunc = (fileInfo) => AppDomain.CurrentDomain.Load(
+                                                        AssemblyName.GetAssemblyName(fileInfo.FullName)
+                                                   ).GetTypes();
+
+#endif
+
+#if NETCOREAPP1_0
+            loadAssemblyByPathFunc = (fileInfo) => AssemblyLoadContext.Default
+                                                       .LoadFromAssemblyPath(fileInfo.FullName).GetTypes();
+            
+#endif
+
+
+            var TypeList = searchFiles.SelectMany(file => loadAssemblyByPathFunc(file) );
 
             types = TypeList;
-
 
             var query = from type in TypeList
                         where type.GetTypeInfo().IsSubclassOf(typeof(Controller))
                         select type;
 
-            
             
 
             foreach (var t in query)
