@@ -64,7 +64,7 @@ namespace YOYO.Mvc
         public static IEnumerable<Type> TypesOf(Type type)
         {
             var returnTypes =
-             types.Where(t=> type.IsAssignableFrom(t)  && !t.GetTypeInfo().IsInterface );
+             types.Where(t=> type.GetTypeInfo().IsAssignableFrom(t)  && !t.GetTypeInfo().IsInterface );
 
             return returnTypes;
 

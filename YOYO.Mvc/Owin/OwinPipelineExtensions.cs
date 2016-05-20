@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Owin;
+
 using YOYO.Mvc.Route;
 using YOYO.Owin;
 using YOYO.Owin.Pipeline;
@@ -12,6 +12,8 @@ namespace YOYO.Mvc.Owin
 {
 
 
+#if NET451
+    using global::Owin;
     public static class OwinPipelineExtensions
     {
         public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null, Action<YOYOFxOptions> configuration = null)
@@ -63,4 +65,7 @@ namespace YOYO.Mvc.Owin
 
 
     }
+#endif
+
+
 }

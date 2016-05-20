@@ -29,7 +29,7 @@ namespace YOYO.Mvc.ResponseProcessor
             var contentMimeType = contentType.Split(splitChar)[0];
             return
                  contentMimeType.Equals("text/html", StringComparison.OrdinalIgnoreCase) ||
-                contentMimeType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase) ||
+                 contentMimeType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase) ||
                  contentMimeType.Equals("multipart/form-data", StringComparison.OrdinalIgnoreCase) ;
         }
 
@@ -40,7 +40,7 @@ namespace YOYO.Mvc.ResponseProcessor
             {
                 string extensionName = System.IO.Path.GetExtension(view.Path);
                 IViewEngine viewEngine = ViewEngineFactory.GetViewEngine(extensionName);
-               return viewEngine.RenderView(_context, view.Path, view.Model, view.ViewBag);
+                return viewEngine.RenderView(_context, view.Path, view.Model, view.ViewBag);
 
             }
             else

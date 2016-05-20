@@ -12,11 +12,11 @@ namespace YOYO.Mvc
     {
         protected IOwinContext Context { set; get; }
 
-        private DynamicDictionary viewBag = new DynamicDictionary();
+        private DynamicDictionary _viewBag = new DynamicDictionary();
         protected dynamic ViewBag {
             get
             {
-                return viewBag;
+                return _viewBag;
             }
         }
 
@@ -24,14 +24,15 @@ namespace YOYO.Mvc
         protected View View(string mapPath , dynamic model)
         {
             return new View(mapPath) {
-                ControllerName = this.GetType().Name , Model = model , ViewBag = this.ViewBag };
+                ControllerName = this.GetType().Name , Model = model , ViewBag = this._viewBag
+            };
         }
 
 
         protected View View(string mapPath)
         {
 
-            return new View(mapPath) { ControllerName = this.GetType().Name, Model = null , ViewBag = ViewBag };
+            return new View(mapPath) { ControllerName = this.GetType().Name, Model = null , ViewBag = _viewBag };
 
         }
 

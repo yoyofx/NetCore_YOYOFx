@@ -1,12 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if NETCOREAPP1_0 || NETSTANDARD1_5
+using Microsoft.Extensions.PlatformAbstractions;
+#endif
+
 
 namespace YOYO.Mvc
 {
     public class HostingEnvronment
     {
-        private static string rootPath = (AppDomain.CurrentDomain.GetData(".appPath") as string) ?? Environment.CurrentDirectory;
+#if NET451
+
+        private static string rootPath = Environment.CurrentDirectory;
+#endif
+
+#if NETCOREAPP1_0 || NETSTANDARD1_5
+        private static string rootPath = PlatformServices.Default.Application.ApplicationBasePath;
+#endif
+
 
         public static string GetRootPath()
         {

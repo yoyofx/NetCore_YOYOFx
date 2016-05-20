@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Owin;
-using YOYO.Owin.Pipeline;
+//using Owin;
+//using YOYO.Owin.Pipeline;
 
 namespace OwinHost
 {
-    using YOYO.Owin;
-    using YOYO.Mvc.Owin;
-    using System.IO;
+    //using YOYO.Owin;
+    //using YOYO.Mvc.Owin;
+    //using System.IO;
 
 
-    public class Startup
-    {
+    //public class Startup
+    //{
 
 
 
-        public void Configuration(IAppBuilder app)
-        {
+    //    public void Configuration(IAppBuilder app)
+    //    {
 
             //app.UseYOYOFx( route => 
             //            route.Map("/api/p-{controller}/{action}/{id}/") );
@@ -41,11 +41,11 @@ namespace OwinHost
 			//}).Use(new YOYOFxOwinMiddleware()));
 
 
-        }
+    //    }
 
        
 
 
 
-    }
+    //}
 }

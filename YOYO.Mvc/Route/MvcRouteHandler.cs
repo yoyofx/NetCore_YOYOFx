@@ -42,7 +42,7 @@ namespace YOYO.Mvc.Route
                     if(actionResult is Task && actionResult.GetType().GetTypeInfo().IsGenericType) //Task<TResult>
                     {
                         //get task's result
-                        var taskResultProperty = actionResult.GetType().GetProperty("Result");
+                        var taskResultProperty = actionResult.GetType().GetTypeInfo().GetProperty("Result");
                         actionResult = taskResultProperty.GetValue(actionResult);
                     }
                     responseProcessor.Process(actionResult);
