@@ -18,3 +18,7 @@
 
 #### 总结：
  >新的项目文件 project.json 主要用于统一管理dotnet的发布、编译、平台、程序集依赖等。
+
+
+
+MySQL CORE :https://coding.net/u/zlzforever/p/share/git/tree/master
