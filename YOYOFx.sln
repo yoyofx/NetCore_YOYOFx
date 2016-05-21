@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "YOYO.AspNetCore.ViewEngine.Razor", "YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj", "{286AC8A2-DB3B-48B1-8BF3-B0066527520A}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.xproj", "{3FBFED6F-8F75-40A1-A783-2F3327C80FD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +100,10 @@ Global
 		{286AC8A2-DB3B-48B1-8BF3-B0066527520A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{286AC8A2-DB3B-48B1-8BF3-B0066527520A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{286AC8A2-DB3B-48B1-8BF3-B0066527520A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FBFED6F-8F75-40A1-A783-2F3327C80FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FBFED6F-8F75-40A1-A783-2F3327C80FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FBFED6F-8F75-40A1-A783-2F3327C80FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FBFED6F-8F75-40A1-A783-2F3327C80FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,5 +114,6 @@ Global
 		{68BCE77C-B1B7-4C13-BDF6-30694D622572} = {087C660C-DA6A-49B3-9B1A-94FCF50D70D0}
 		{217921F0-0DFC-42B1-90BE-D29BC85998C9} = {087C660C-DA6A-49B3-9B1A-94FCF50D70D0}
 		{286AC8A2-DB3B-48B1-8BF3-B0066527520A} = {087C660C-DA6A-49B3-9B1A-94FCF50D70D0}
+		{3FBFED6F-8F75-40A1-A783-2F3327C80FD7} = {087C660C-DA6A-49B3-9B1A-94FCF50D70D0}
 	EndGlobalSection
 EndGlobal

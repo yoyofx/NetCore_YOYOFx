@@ -6,6 +6,7 @@
   "dependencies": {
     "Microsoft.AspNetCore.Razor": "1.0.0-*",
     "NETStandard.Library": "1.5.0-*",
+   
     "YOYO.AspNetCore.Mvc": {
       "target": "project",
       "type": "build"
@@ -18,7 +19,9 @@
 
   "frameworks": {
     "netstandard1.5": {
+
       "imports": "dnxcore50"
+      
     },
 
     "net451": { }
