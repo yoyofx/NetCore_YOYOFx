@@ -30,12 +30,9 @@
         "NETStandard.Library": "1.5.0-*",
         "Microsoft.CSharp": "4.0.1-*",
         "Microsoft.Extensions.PlatformAbstractions": "1.0.0-*",
-        "System.Runtime": "4.1.0-*",
-        "System.Linq": "4.1.0-*",
-        "System.Reflection": "4.1.0-*",
-        "System.Linq.Expressions": "4.0.11-*",
-        "System.Xml.XmlSerializer": "4.0.11-*",
-        "System.Dynamic.Runtime": "4.0.11-*"
+        "System.Runtime.Loader": "4.0.0-*",
+        "System.Xml.XmlSerializer": "4.0.11-*"
+
       },
 
       "imports": "dnxcore50"
