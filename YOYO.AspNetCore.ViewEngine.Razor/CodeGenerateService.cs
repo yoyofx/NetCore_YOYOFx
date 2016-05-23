@@ -12,29 +12,24 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 {
     public class CodeGenerateService
     {
-        public GeneratorResults Generate<T>(string template)
+        public GeneratorResults Generate(Type modelType,string template)
         {
             //准备临时类名，读取模板文件和Razor代码生成器
             var class_name = "c" + Guid.NewGuid().ToString("N");
             var host = new RazorEngineHost(new CSharpRazorCodeLanguage(), () => new HtmlMarkupParser())
             {
-
-                DefaultBaseClass = string.Format("AspNetCore.ViewEngine.Razor.TemplateBase<{0}>", typeof(T).FullName),
+                DefaultBaseClass = string.Format("YOYO.AspNetCore.ViewEngine.Razor.RazorViewTemplate<{0}>", modelType.FullName),
                 DefaultClassName = class_name,
-                DefaultNamespace = "YOYO.Dynamic",
+                DefaultNamespace = "YOYO.AspNetCore.ViewEngine.Razor",
                 GeneratedClassContext =
                                    new GeneratedClassContext("Execute", "Write", "WriteLiteral", "WriteTo",
                                                              "WriteLiteralTo",
-                                                             "YOYO.TemplateBase", new GeneratedTagHelperContext())
+                                                             "RazorViewTemplate.Dynamic", new GeneratedTagHelperContext())
 
             };
             host.NamespaceImports.Add("System");
-
             var engine = new RazorTemplateEngine(host);
-
-            var gc = engine.GenerateCode(new StringReader(template));
-           
-            return gc;
+            return engine.GenerateCode(new StringReader(template)); ;
         }
 
 

@@ -8,17 +8,13 @@ namespace ConsoleApp1
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public  static void Main(string[] args)
         {
 
-            CodeGenerateService codeGenerater = new CodeGenerateService();
-            string code = codeGenerater.Generate<UserInfo>("<p>@Model.Name</p>").GeneratedCode;
+            RazorViewEngine engine = new RazorViewEngine();
+            UserInfo user = new UserInfo() { Name = "Hello world" };
 
-            RoslynCompileService service = new RoslynCompileService();
-            var type = service.Compile(code);
-
-            var tb = (TemplateBase)Activator.CreateInstance(type);
-            tb.Execute();
+            string result =  engine.RenderViewAsync(null, "<p>@Model.Name</p><mydiv name=\"hello tag\"></mydiv>", user, null).Result;
 
 
         }

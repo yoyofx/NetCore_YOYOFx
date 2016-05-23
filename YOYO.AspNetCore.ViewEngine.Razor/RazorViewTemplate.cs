@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using YOYO.Mvc;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {
 
-    public abstract class TemplateBase
+    public abstract class RazorViewTemplate
     {
         public string Layout { get; set; }
 
@@ -15,7 +16,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
         public string Path { get; internal set; }
         public string Result { get { return Writer.ToString(); } }
 
-        protected TemplateBase()
+        protected RazorViewTemplate()
         {
         }
 
@@ -41,6 +42,9 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
         {
             Writer.Flush();
         }
+
+        public abstract void SetModel(object model, DynamicDictionary viewbag = null);
+
 
         public abstract Task Execute();
 
@@ -79,9 +83,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             }
             writer.Write(obj);
         }
+
     }
-    public abstract class TemplateBase<T> : TemplateBase
-    {
-        public T Model { get; set; }
-    }
+
 }

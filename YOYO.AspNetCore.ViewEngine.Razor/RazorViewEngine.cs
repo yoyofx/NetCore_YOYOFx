@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor;
 using YOYO.Mvc;
-using Microsoft.AspNetCore.Razor.CodeGenerators;
-using Microsoft.AspNetCore.Razor.Compilation;
-using Microsoft.AspNetCore.Razor.Parser;
+using YOYO.Owin;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {
@@ -17,10 +14,6 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
     {
         public RazorViewEngine()
         {
-
-
-            var host = new RazorEngineHost(new CSharpRazorCodeLanguage());
-
 
         }
 
@@ -40,13 +33,27 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
         public string RenderView(YOYO.Owin.IOwinContext context, string viewName, object model, DynamicDictionary viewbag)
         {
+            string viewTemplate = viewName; //find view that load cotent;
 
+            IRazorCompileService complileService = new RoslynCompileService();
 
-            throw new NotImplementedException();
+            CodeGenerateService codeGenerater = new CodeGenerateService();
+            string code = codeGenerater.Generate(model.GetType(), viewTemplate).GeneratedCode;
+
+            RoslynCompileService service = new RoslynCompileService();
+            var type = service.Compile(code);
+
+            var tb = (RazorViewTemplate)Activator.CreateInstance(type);
+            tb.SetModel(model,viewbag);
+            tb.Execute().Wait();
+            return tb.Result;
         }
 
 
-
+        public  Task<string> RenderViewAsync(IOwinContext context, string viewName, object model, DynamicDictionary viewbag)
+        {
+            return Task.Factory.StartNew(() => RenderView(context, viewName, model, viewbag) );
+        }
 
        
 

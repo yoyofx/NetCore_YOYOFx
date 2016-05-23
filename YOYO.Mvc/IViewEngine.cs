@@ -11,5 +11,8 @@ namespace YOYO.Mvc
     {
         string ExtensionName { get; }
         string RenderView(IOwinContext context, string viewName, object model , DynamicDictionary viewbag);
+
+        Task<string> RenderViewAsync(IOwinContext context, string viewName, object model, DynamicDictionary viewbag);
+
     }
 }
