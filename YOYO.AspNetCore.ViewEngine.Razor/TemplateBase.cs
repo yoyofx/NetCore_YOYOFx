@@ -42,7 +42,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             Writer.Flush();
         }
 
-        public virtual void Execute() { }
+        public abstract Task Execute();
 
         public void Write(object @object)
         {

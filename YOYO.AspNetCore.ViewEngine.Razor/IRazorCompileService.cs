@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {
-    internal interface IRazorCompileService
+    public interface IRazorCompileService
     {
+
+        Type Compile(string code);
+        
     }
 }
