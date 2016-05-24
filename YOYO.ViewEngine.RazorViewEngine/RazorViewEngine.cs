@@ -84,6 +84,11 @@ namespace YOYO.ViewEngine.RazorViewEngine
             
             
         }
+
+        public Task<string> RenderViewAsync(IOwinContext context, string viewName, object model, DynamicDictionary viewbag)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     //[Serializable]
