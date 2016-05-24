@@ -32,6 +32,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
             };
             host.NamespaceImports.Add("System");
+            host.NamespaceImports.Add("System.Dynamic");
             host.NamespaceImports.Add("System.Linq");
             host.NamespaceImports.Add("System.Collections.Generic");
             

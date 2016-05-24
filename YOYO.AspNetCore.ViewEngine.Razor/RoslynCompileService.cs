@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyModel;
 using System.Reflection.PortableExecutable;
 using Microsoft.CodeAnalysis.Emit;
+using System.Dynamic;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {
@@ -91,6 +92,8 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             var assembly = Assembly.GetEntryAssembly();
 
             metadataReferences.Add(CreateMetadataFileReference(typeof(object).GetTypeInfo().Assembly.Location));
+            metadataReferences.Add(CreateMetadataFileReference(typeof(DynamicObject).GetTypeInfo().Assembly.Location));
+
             metadataReferences.Add(CreateMetadataFileReference(assembly.Location));
 
 
