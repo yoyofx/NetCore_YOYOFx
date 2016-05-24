@@ -63,12 +63,6 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="YOYO.AspNetCore.Mvc">
-      <HintPath>..\YOYO.AspNetCore.Mvc\bin\Debug\net451\YOYO.AspNetCore.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="YOYO.AspNetCore.Owin">
-      <HintPath>..\YOYO.AspNetCore.Mvc\bin\Debug\net451\YOYO.AspNetCore.Owin.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
@@ -95,12 +89,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YOYO.ViewEngine.RazorViewEngine\YOYO.ViewEngine.RazorViewEngine.csproj">
-      <Project>{97DDE7FF-142F-4B34-AFD3-B64CF604EB94}</Project>
-      <Name>YOYO.ViewEngine.RazorViewEngine</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +102,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contents\BJUI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YOYO.Mvc\YOYO.Mvc.csproj">
+      <Project>{69105277-8bd6-404d-b81d-a8b22b08cd5e}</Project>
+      <Name>YOYO.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YOYO.Owin\YOYO.Owin.csproj">
+      <Project>{c2026151-9e62-4f53-b80c-ca9585118c18}</Project>
+      <Name>YOYO.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YOYO.ViewEngine.RazorViewEngine\YOYO.ViewEngine.RazorViewEngine.csproj">
+      <Project>{97dde7ff-142f-4b34-afd3-b64cf604eb94}</Project>
+      <Name>YOYO.ViewEngine.RazorViewEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="true">14.0</VisualStudioVersion>

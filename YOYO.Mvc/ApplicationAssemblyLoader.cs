@@ -22,16 +22,21 @@ namespace YOYO.Mvc
         {
             DirectoryInfo dir = new DirectoryInfo(path);
 
-            var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
+            var searchFiles = dir.GetFiles("*.*", SearchOption.AllDirectories).Where(f => f.Name.EndsWith(".exe") || f.Name.EndsWith(".dll"));
 
             Func<FileInfo, Type[]> loadAssemblyByPathFunc = null;
-            //loadAssemblyByPathFunc = AssemblyLoadContext.Default
-
 
 #if NET451
-            loadAssemblyByPathFunc = (fileInfo) => AppDomain.CurrentDomain.Load(
-                                                        AssemblyName.GetAssemblyName(fileInfo.FullName)
-                                                   ).GetTypes();
+            loadAssemblyByPathFunc = (fileInfo) => {
+                try
+                {
+                    return AppDomain.CurrentDomain.Load(
+                         AssemblyName.GetAssemblyName(fileInfo.FullName)
+                    ).GetTypes();
+                }
+                catch { }
+                return null;
+                };
 
 #endif
 

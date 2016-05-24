@@ -16,6 +16,8 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
         public string Path { get; internal set; }
         public string Result { get { return Writer.ToString(); } }
 
+        public DynamicDictionary ViewBag { set; get; }
+
         protected RazorViewTemplate()
         {
         }
@@ -43,8 +45,16 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             Writer.Flush();
         }
 
-        public abstract void SetModel(object model, DynamicDictionary viewbag = null);
+        public virtual void SetModel(object model, DynamicDictionary viewbag = null)
+        {
 
+        }
+
+
+        public void setViewBag(DynamicDictionary viewbag)
+        {
+            this.ViewBag = viewbag;
+        }
 
         public abstract Task Execute();
 

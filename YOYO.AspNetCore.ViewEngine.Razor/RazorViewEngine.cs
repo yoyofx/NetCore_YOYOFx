@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using YOYO.Mvc;
 using YOYO.Owin;
@@ -33,20 +34,33 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
         public string RenderView(YOYO.Owin.IOwinContext context, string viewName, object model, DynamicDictionary viewbag)
         {
-            string viewTemplate = viewName; //find view that load cotent;
+
+            string templatePath = HostingEnvronment.GetMapPath(viewName);
+
+            if(!File.Exists(templatePath)) return "";
+
+            string viewTemplate = null;
+            using (StreamReader reader = new StreamReader(new FileStream(templatePath, FileMode.Open, FileAccess.Read), Encoding.UTF8))
+            {
+                viewTemplate = reader.ReadToEnd();
+            }
+
 
             IRazorCompileService complileService = new RoslynCompileService();
 
             CodeGenerateService codeGenerater = new CodeGenerateService();
-            string code = codeGenerater.Generate(model.GetType(), viewTemplate).GeneratedCode;
+            string code = codeGenerater.Generate(model?.GetType(), viewTemplate).GeneratedCode;
 
             RoslynCompileService service = new RoslynCompileService();
             var type = service.Compile(code);
 
+            if (type == null) return "";
+            
             var tb = (RazorViewTemplate)Activator.CreateInstance(type);
             tb.SetModel(model,viewbag);
             tb.Execute().Wait();
             return tb.Result;
+           
         }
 
 

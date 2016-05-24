@@ -1,0 +1,13 @@
+﻿{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+    }
+  },
+  "dependencies": {
+    "Microsoft.Owin.StaticFiles": "3.0.1",
+    "YOYO.AspNetCore.Mvc": "0.1.3-*",
+    "YOYO.AspNetCore.Owin": "0.1.3-*",
+    "YOYO.AspNetCore.ViewEngine.Razor": "0.1.3-*"
+  }
+}

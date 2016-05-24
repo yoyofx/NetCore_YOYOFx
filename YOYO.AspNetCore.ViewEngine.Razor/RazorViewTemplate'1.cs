@@ -12,12 +12,13 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
     {
         public T Model { private set; get; }
 
-        public DynamicDictionary ViewBag { private set; get; }
+       
 
 
         public override void SetModel(object model, DynamicDictionary viewbag = null)
         {
             this.Model = (T)model;
+            this.ViewBag = viewbag;
         }
 
     }

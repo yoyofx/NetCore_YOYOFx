@@ -16,6 +16,9 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 {
     public class RoslynCompileService : IRazorCompileService
     {
+
+        public static Assembly viewEngine_Razor_Assembly = typeof(RoslynCompileService).GetTypeInfo().Assembly;
+
         public Type Compile(string compilationContent)
         {
             var assemblyName = Path.GetRandomFileName();
@@ -38,11 +41,9 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
             using (var assemblyStream = new MemoryStream())
             {
-                using (var pdbStream = new MemoryStream())
-                {
+
                     var result = compilation.Emit(
                         assemblyStream,
-                        pdbStream,
                         options: new EmitOptions(debugInformationFormat: DebugInformationFormat.PortablePdb));
 
                     if (!result.Success)
@@ -53,15 +54,17 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
                             // preserveCompilationContext in the app's project.json.
                             throw new InvalidOperationException("project.json preserveCompilationContext");
                         }
+
+                        return null;
                     }
 
                     assemblyStream.Seek(0, SeekOrigin.Begin);
-                    pdbStream.Seek(0, SeekOrigin.Begin);
-                    var assembly = LoadStream(assemblyStream, pdbStream);
+
+                    var assembly = LoadStream(assemblyStream, null);
                     var type = assembly.GetExportedTypes().FirstOrDefault(a => !a.IsNested);
                     return type;
 
-                }
+                
             }
 
         }
@@ -76,9 +79,9 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
         private Assembly LoadStream(MemoryStream assemblyStream, MemoryStream pdbStream)
         {
 #if NET451
-            return Assembly.Load(assemblyStream.ToArray(), pdbStream.ToArray());
+            return Assembly.Load(assemblyStream.ToArray());
 #else
-            return System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(assemblyStream, pdbStream);
+            return System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(assemblyStream);
 #endif
         }
 
@@ -91,8 +94,14 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             metadataReferences.Add(CreateMetadataFileReference(assembly.Location));
 
 
-
             var referencedAssemblies = assembly.GetReferencedAssemblies();
+
+
+            
+            //reference razor view engine by this assembly 
+            if (!referencedAssemblies.Contains(viewEngine_Razor_Assembly.GetName()))
+                metadataReferences.Add(CreateMetadataFileReference(viewEngine_Razor_Assembly.Location));
+
 
             foreach (var refAssemblyName in referencedAssemblies)
             {

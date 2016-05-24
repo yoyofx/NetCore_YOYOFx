@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        input {
+            width: 200px;
+        }
+
+        .form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .label {
+            width: 80px;
+            float: left;
+        }
+    </style>
+
+    <script src="Scripts/jquery-2.2.0.js"></script>
+</head>
+<body>
+    <form class="form" enctype="multipart/form-data" action="http://localhost:9000" method="post">
+        <p><span class="label">id:</span><input type="text" name="id" /></p>
+        <p><span class="label">name:</span><input type="text" id="name" name="name" /></p>
+        <p><span class="label">dsc:</span><input type="text" name="dsc" /></p>
+        <p><span class="label">file:</span><input type="file" name="file1" /></p>
+        <p><span class="label">&nbsp;</span><input type="submit" value="Submit" /></p>
+        <p><input type="button" value="say" onclick="SayMessage();" /></p>
+    </form>
+
+    <script type="text/javascript">
+
+        function SayMessage() {
+            var msg = $('#name').val();
+            var timestarmp = new Date().getTime();
+            var url = '/Home/Say?timestamp=' + timestarmp + '&m=' + msg;
+            $.getJSON(url, function (data) {
+                alert(data.HelloMessage);
+            }).error(function(error){console.log(error);});
+        }
+
+    </script>
+</body>
+</html>
