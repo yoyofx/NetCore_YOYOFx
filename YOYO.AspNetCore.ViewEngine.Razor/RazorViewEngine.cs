@@ -34,33 +34,39 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
         public string RenderView(YOYO.Owin.IOwinContext context, string viewName, object model, DynamicDictionary viewbag)
         {
+            //string viewTemplate = TemplateLocator.LoadTemplateContent(viewName);
 
-            string templatePath = HostingEnvronment.GetMapPath(viewName);
+            //IRazorCompileService complileService = new RoslynCompileService();
 
-            if(!File.Exists(templatePath)) return "";
+            //CodeGenerateService codeGenerater = new CodeGenerateService();
+            //string code = codeGenerater.Generate(model?.GetType(), viewTemplate).GeneratedCode;
 
-            string viewTemplate = null;
-            using (StreamReader reader = new StreamReader(new FileStream(templatePath, FileMode.Open, FileAccess.Read), Encoding.UTF8))
+            //RoslynCompileService service = new RoslynCompileService();
+            //var type = service.Compile(code);
+
+            //if (type == null) return "";
+
+            //var tb = (RazorViewTemplate)Activator.CreateInstance(type);
+            //tb.SetModel(model, viewbag);
+            //tb.Execute().Wait();
+            //return tb.Result;
+
+
+            ITemplateService templateService = new DefaultTemplateService();
+            IRazorView view = templateService.GetTemplate(viewName, model?.GetType());
+
+            TemplateContext tContext = new TemplateContext()
             {
-                viewTemplate = reader.ReadToEnd();
-            }
+                Model = model,
+                ModelType = model?.GetType(),
+                ViewBag = viewbag
+            };
+
+            view.Render(tContext);
+
+            return tContext.Result;
 
 
-            IRazorCompileService complileService = new RoslynCompileService();
-
-            CodeGenerateService codeGenerater = new CodeGenerateService();
-            string code = codeGenerater.Generate(model?.GetType(), viewTemplate).GeneratedCode;
-
-            RoslynCompileService service = new RoslynCompileService();
-            var type = service.Compile(code);
-
-            if (type == null) return "";
-            
-            var tb = (RazorViewTemplate)Activator.CreateInstance(type);
-            tb.SetModel(model,viewbag);
-            tb.Execute().Wait();
-            return tb.Result;
-           
         }
 
 

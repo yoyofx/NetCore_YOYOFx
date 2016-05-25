@@ -11,12 +11,12 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
     public abstract class RazorViewTemplate
     {
         public string Layout { get; set; }
+        public Func<string> RenderBody { set; get; }
 
-        public Func<string> RenderBody { get; set; }
         public string Path { get; internal set; }
         public string Result { get { return Writer.ToString(); } }
 
-        public DynamicDictionary ViewBag { set; get; }
+        public dynamic ViewBag { set; get; }
 
         protected RazorViewTemplate()
         {
@@ -47,7 +47,10 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
         public virtual void SetModel(object model, DynamicDictionary viewbag = null)
         {
-
+            if (viewbag != null)
+                setViewBag(viewbag);
+            else
+                setViewBag(new DynamicDictionary());
         }
 
 
@@ -66,6 +69,21 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             }
             Writer.Write(@object);
         }
+
+
+
+
+        public virtual async Task Run()
+        {
+
+
+
+
+        }
+
+
+
+
 
         public void WriteLiteral(string @string)
         {

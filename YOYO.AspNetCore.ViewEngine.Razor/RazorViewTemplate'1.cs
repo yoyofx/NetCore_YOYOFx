@@ -18,7 +18,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
         public override void SetModel(object model, DynamicDictionary viewbag = null)
         {
             this.Model = (T)model;
-            this.ViewBag = viewbag;
+            base.SetModel(model, viewbag);
         }
 
     }
