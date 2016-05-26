@@ -23,7 +23,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
 
 
-        public void Render(TemplateContext context)
+        public void Render(RenderTemplateContext context)
         {
 
             //not set writer by context , i have result of the template.
@@ -34,7 +34,10 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             if (!string.IsNullOrEmpty(this.Template.Layout))
             {
 
-                var layoutTemplateView = this.TemplateService.GetTemplate(this.Template.Layout, null);
+                var layoutTemplateView = this.TemplateService.GetTemplate(new RenderTemplateContext() {
+                                              TemplateName = this.Template.Layout,
+                                              ModelType = null
+                                         });
 
                 context.IsRenderLayout = true;
 

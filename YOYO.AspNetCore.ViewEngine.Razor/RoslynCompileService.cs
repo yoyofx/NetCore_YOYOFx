@@ -19,6 +19,9 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
     {
 
         public static Assembly viewEngine_Razor_Assembly = typeof(RoslynCompileService).GetTypeInfo().Assembly;
+        private static List<MetadataReference> ApplicationReferences = GetApplicationReferences();
+
+        public CompileResult CompileResult { private set; get; }
 
         public Type Compile(string compilationContent)
         {
@@ -43,27 +46,30 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             using (var assemblyStream = new MemoryStream())
             {
 
-                    var result = compilation.Emit(
-                        assemblyStream,
-                        options: new EmitOptions(debugInformationFormat: DebugInformationFormat.PortablePdb));
+                var result = compilation.Emit(
+                    assemblyStream,
+                    options: new EmitOptions(debugInformationFormat: DebugInformationFormat.PortablePdb));
 
-                    if (!result.Success)
+                this.CompileResult = new CompileResult()
+                {
+                    Success = result.Success,
+                    Errors = result.Diagnostics.Select(d => d.ToString()).ToList()
+                };
+
+                if (!result.Success)
+                {
+                    if (!compilation.References.Any() && !ApplicationReferences.Any())
                     {
-                        if (!compilation.References.Any() && !ApplicationReferences.Any())
-                        {
-                            // DependencyModel had no references specified and the user did not use the
-                            // preserveCompilationContext in the app's project.json.
-                            throw new InvalidOperationException("project.json preserveCompilationContext");
-                        }
-
-                        return null;
+                        throw new InvalidOperationException("project.json preserveCompilationContext");
                     }
 
-                    assemblyStream.Seek(0, SeekOrigin.Begin);
+                    return null;
+                }
 
-                    var assembly = LoadStream(assemblyStream, null);
-                    var type = assembly.GetExportedTypes().FirstOrDefault(a => !a.IsNested);
-                    return type;
+
+                var templateType = LoadTypeForAssemblyStream(assemblyStream, null);
+                
+                return templateType;
 
                 
             }
@@ -77,16 +83,21 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             return DependencyContext.Load(assembly);
         }
 
-        private Assembly LoadStream(MemoryStream assemblyStream, MemoryStream pdbStream)
+        private Type LoadTypeForAssemblyStream(MemoryStream assemblyStream, MemoryStream pdbStream)
         {
+            assemblyStream.Seek(0, SeekOrigin.Begin);
+            Assembly assembly = null;
 #if NET451
-            return Assembly.Load(assemblyStream.ToArray());
+            assembly = Assembly.Load(assemblyStream.ToArray());
 #else
-            return System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(assemblyStream);
+            assembly = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(assemblyStream);
 #endif
+            var type = assembly.GetExportedTypes().FirstOrDefault(a => !a.IsNested);
+            return type;
+
         }
 
-        private List<MetadataReference> GetApplicationReferences()
+        private static List<MetadataReference> GetApplicationReferences()
         {
             var metadataReferences = new List<MetadataReference>();
             var assembly = Assembly.GetEntryAssembly();
@@ -118,7 +129,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             return metadataReferences;
         }
 
-        private MetadataReference CreateMetadataFileReference(string path)
+        private static MetadataReference CreateMetadataFileReference(string path)
         {
             using (var stream = File.OpenRead(path))
             {

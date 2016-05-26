@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {
-    public interface ITemplateService
+    public class CompileResult
     {
+        public bool Success { set; get; }
 
-        IRazorView GetTemplate(RenderTemplateContext context);
+        public List<string> Errors { set; get; }
+
 
     }
 }

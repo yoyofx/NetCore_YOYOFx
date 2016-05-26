@@ -13,60 +13,31 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
     // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
     public class RazorViewEngine : IViewEngine
     {
-        public RazorViewEngine()
+
+        private ITemplateService templateService = new DefaultTemplateService();
+
+        public RenderTemplateContext RenderContext { private set; get; }
+
+        public string ExtensionName {  get { return ".cshtml"; }  }
+
+        public string RenderView(YOYO.Owin.IOwinContext httpContext, string viewName, object model, DynamicDictionary viewbag)
         {
-
-        }
-
-
-        ~RazorViewEngine()
-        {
-            //.Dispose();
-        }
-
-        public string ExtensionName
-        {
-            get
+            using (var context = new RenderTemplateContext() {
+                                            TemplateName = viewName,
+                                            Path = httpContext.Request.Path,
+                                            Model = model,
+                                            ModelType = model?.GetType(),
+                                            ViewBag = viewbag } )
             {
-                return ".cshtml";
+
+                IRazorView view = templateService.GetTemplate(context);
+
+                view.Render(context);
+
+                this.RenderContext = context;
+
+                return context.ToString();
             }
-        }
-
-        public string RenderView(YOYO.Owin.IOwinContext context, string viewName, object model, DynamicDictionary viewbag)
-        {
-            //string viewTemplate = TemplateLocator.LoadTemplateContent(viewName);
-
-            //IRazorCompileService complileService = new RoslynCompileService();
-
-            //CodeGenerateService codeGenerater = new CodeGenerateService();
-            //string code = codeGenerater.Generate(model?.GetType(), viewTemplate).GeneratedCode;
-
-            //RoslynCompileService service = new RoslynCompileService();
-            //var type = service.Compile(code);
-
-            //if (type == null) return "";
-
-            //var tb = (RazorViewTemplate)Activator.CreateInstance(type);
-            //tb.SetModel(model, viewbag);
-            //tb.Execute().Wait();
-            //return tb.Result;
-
-
-            ITemplateService templateService = new DefaultTemplateService();
-            IRazorView view = templateService.GetTemplate(viewName, model?.GetType());
-
-            TemplateContext tContext = new TemplateContext()
-            {
-                Model = model,
-                ModelType = model?.GetType(),
-                ViewBag = viewbag
-            };
-
-            view.Render(tContext);
-
-            return tContext.Result;
-
-
         }
 
 

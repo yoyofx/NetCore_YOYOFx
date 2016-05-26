@@ -9,7 +9,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
     {
         string Content { get; }
         RazorViewTemplate Template { get; }
-        void Render(TemplateContext context);
+        void Render(RenderTemplateContext context);
 
     }
 }
