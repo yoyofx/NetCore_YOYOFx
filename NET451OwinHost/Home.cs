@@ -50,7 +50,7 @@ namespace NET451OwinHost
         }
 
 
-        public dynamic Index()
+        public dynamic Index(string id,string p0)
         {
             var model = new List<MyUser>();
             for (int i = 0; i <= 10; i++)

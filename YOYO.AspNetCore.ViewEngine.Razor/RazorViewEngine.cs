@@ -31,11 +31,8 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             {
 
                 IRazorView view = templateService.GetTemplate(context);
-
-                view.Render(context);
-
+                view.Render();
                 this.RenderContext = context;
-
                 return context.ToString();
             }
         }

@@ -29,11 +29,6 @@ namespace NET451OwinHost
                      route.Map("/{controller}/{action}/{id}/"));
 
 
-
-
-
-            //app.UseYOYOFx();
-
         }
     }
 }

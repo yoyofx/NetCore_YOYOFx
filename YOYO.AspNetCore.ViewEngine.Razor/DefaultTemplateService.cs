@@ -56,10 +56,13 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
                 var tb = (RazorViewTemplate)Activator.CreateInstance(type);
 
-                view = new RazorView(tb, this);
+                view = new RazorView(tb, this, context);
                 viewCache.Add(context.TemplateName,view);
 
             }
+
+            view.SetContext(context);
+
             return view;
         }
     }

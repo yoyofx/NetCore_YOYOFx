@@ -7,60 +7,61 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 {
     public class RazorView : IRazorView
     {
-        public string Content { private set;get; }
-
-
         public RazorViewTemplate Template { private set; get; }
 
         protected ITemplateService TemplateService { set; get; }
 
 
-        public RazorView(RazorViewTemplate template, ITemplateService templateService)
+        public RazorView(RazorViewTemplate template, ITemplateService templateService , RenderTemplateContext context)
         {
             this.Template = template;
             this.TemplateService = templateService;
+            this.Context = context;
         }
 
+        protected RenderTemplateContext Context { set; get; }
 
-
-        public void Render(RenderTemplateContext context)
+        public void Render()
         {
-
             //not set writer by context , i have result of the template.
-            this.Template.SetModel(context.Model, context.ViewBag);
+            this.Template.SetModel(Context.Model, Context.ViewBag);
             this.Template.Execute().Wait();
 
 
             if (!string.IsNullOrEmpty(this.Template.Layout))
             {
 
-                var layoutTemplateView = this.TemplateService.GetTemplate(new RenderTemplateContext() {
-                                              TemplateName = this.Template.Layout,
-                                              ModelType = null
-                                         });
+                using (var layoutContext = new RenderTemplateContext() {
+                                                TemplateName = this.Template.Layout,
+                                                ModelType = null, ViewBag = Context.ViewBag })
+                {
 
-                context.IsRenderLayout = true;
+                    var layoutTemplateView = this.TemplateService.GetTemplate(layoutContext);
 
-                layoutTemplateView.Template.Writer = context.Writer;
+                    Context.IsRenderLayout = true;
 
-                //RenderBody is this template result ;
-                layoutTemplateView.Template.RenderBody = () => this.Template.Result; 
 
-                layoutTemplateView.Template.SetModel(context.Model, context.ViewBag);
+                    //RenderBody is this template result ;
+                    layoutTemplateView.Template.RenderBody = () => this.Template.Result;
 
-                layoutTemplateView.Render(context);
+                    layoutTemplateView.Template.SetModel(null, Context.ViewBag);
+
+                    layoutTemplateView.Render();
+
+                    Context.Result = layoutTemplateView.Template.Result;
+
+                }
 
             }
-            else
-            {
-                context.Writer = this.Template.Writer;
-            }
- 
-
-
 
         }
 
+        public void SetContext(RenderTemplateContext context)
+        {
+            this.Context = null;
+            this.Context = context;
+            this.Template.Writer = context.Writer;
 
+        }
     }
 }

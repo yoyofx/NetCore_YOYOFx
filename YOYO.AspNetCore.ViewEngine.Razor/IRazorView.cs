@@ -7,9 +7,11 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 {
     public interface IRazorView
     {
-        string Content { get; }
         RazorViewTemplate Template { get; }
-        void Render(RenderTemplateContext context);
+
+        void SetContext(RenderTemplateContext context);
+
+        void Render();
 
     }
 }

@@ -4,18 +4,10 @@
     Layout = "/Views/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
-    <div>
-        @foreach (var user in Model)
-        {
-            <p>@user.Name</p>
-        }
+<div>
+    @foreach (var user in Model)
+    {
+        <p>@user.Name</p>
+    }
 
-    </div>
-</body>
-</html>
+</div>

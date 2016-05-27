@@ -25,9 +25,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
 
         public string Result {
-            get {
-                return Writer.ToString(); ;
-            }
+            set;get;
         }
 
 
@@ -55,6 +53,11 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             
             this.Writer.Flush();
             this.Writer.Dispose();
+            this.Writer = null;
+            this.Model = null;
+            this.ViewBag = null;
+            
+
         }
 
 
