@@ -56,7 +56,9 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             this.Writer = null;
             this.Model = null;
             this.ViewBag = null;
-            
+            this.Result = null;
+            this.IsRenderLayout = false;
+            this.ModelType = null;
 
         }
 

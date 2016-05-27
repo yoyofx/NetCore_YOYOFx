@@ -53,6 +53,10 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
                 }
 
             }
+            else
+            {
+                Context.Result = this.Template.Result;
+            }
 
         }
 
