@@ -25,13 +25,26 @@ namespace YOYO.AspNetCore.Builder
 
             Application.CurrentApplication.SetOptions(options);
 
-            if(routebuilderFunc!=null)
+            IRouteBuilder routeBuilder = RouteBuilder.Builder;
+
+            //default route role
+            routeBuilder.Map("/{controller}/{action}/{id}/");
+
+            if (routebuilderFunc!=null)
                 routebuilderFunc(RouteBuilder.Builder);
 
             app.UseOwin(p => p(next => Invoke));
                 
             return app;
         }
+
+        public static IApplicationBuilder UseWorkFolder(this IApplicationBuilder app, string path)
+        {
+            HostingEnvronment.SetRootPath(path);
+            return app;
+        }
+
+
 
 
         public static async Task Invoke(IDictionary<string, object> environment)

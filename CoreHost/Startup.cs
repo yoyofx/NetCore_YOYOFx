@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using YOYO.AspNetCore.Builder;
 using YOYO.Mvc.Route;
 
@@ -23,20 +24,14 @@ namespace CoreHost
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app , IRouteBuilder route)
+        public void Configure(IApplicationBuilder app , IRouteBuilder route , IHostingEnvironment env)
         {
-
-            ConfigureRoute(route);
-
+            app.UseStaticFiles();
             app.UseYOYOFx();
-
+           
         }
 
 
-        private void ConfigureRoute(IRouteBuilder route)
-        {
-            route.Map("/{controller}/{action}/{id}/");
-        }
 
     }
 }

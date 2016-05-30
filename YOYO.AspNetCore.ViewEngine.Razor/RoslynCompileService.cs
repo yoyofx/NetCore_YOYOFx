@@ -35,8 +35,6 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
                 );
 
 
-            var ApplicationReferences = GetApplicationReferences();
-
             var compilation = CSharpCompilation.Create(assemblyName,
                     options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary),
                     syntaxTrees: new[] { syntaxTree },

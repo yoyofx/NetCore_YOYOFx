@@ -22,10 +22,11 @@ namespace YOYO.Mvc
         {
             DirectoryInfo dir = new DirectoryInfo(path);
 
-            var searchFiles = dir.GetFiles("*.*", SearchOption.AllDirectories).Where(f => f.Name.EndsWith(".exe") || f.Name.EndsWith(".dll"));
+            var searchFiles = dir.GetFiles("*.*", SearchOption .TopDirectoryOnly).
+                                            Where(f => f.Name.EndsWith(".exe") || f.Name.EndsWith(".dll"));
 
             Func<FileInfo, Type[]> loadAssemblyByPathFunc = null;
-
+            
 #if NET451
             loadAssemblyByPathFunc = (fileInfo) => {
                 try
@@ -45,8 +46,13 @@ namespace YOYO.Mvc
              loadAssemblyByPathFunc = (fileInfo) => {
                 try
                 {
-                    return AssemblyLoadContext.Default
-                              .LoadFromAssemblyPath(fileInfo.FullName).GetTypes();
+                    //return AssemblyLoadContext.Default
+                    //          .LoadFromAssemblyPath(fileInfo.FullName).GetTypes();
+
+
+                    string assemblyName = fileInfo.Name.Replace(".dll","").Replace(".exe","");
+
+                    return Assembly.Load(new AssemblyName(assemblyName)).GetTypes();
                 }
                 catch(Exception ex) { }
                     return new Type[] { typeof(object) };
@@ -55,7 +61,7 @@ namespace YOYO.Mvc
            
             
 #endif
-            
+
 
             var TypeList = searchFiles.SelectMany(file => loadAssemblyByPathFunc(file) );
 
