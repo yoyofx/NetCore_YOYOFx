@@ -73,15 +73,6 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
 
 
-        public virtual async Task Run()
-        {
-
-
-
-
-        }
-
-
 
 
 
