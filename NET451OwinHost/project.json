@@ -1,8 +1,14 @@
 ﻿{
   "version": "1.0.0-*",
   "buildOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "copyToOutput": [
+      "Views/*.*"
+    ]
   },
+
+
+
   "frameworks": {
     "net451": {
       "dependencies": {

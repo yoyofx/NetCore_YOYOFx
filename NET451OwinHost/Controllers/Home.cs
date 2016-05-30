@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using YOYO.Mvc;
 using YOYO.Mvc.Filters;
 
-namespace NET451OwinHost
+namespace NET451OwinHost.Controlers
 {
     public class Home : Controller
     {
