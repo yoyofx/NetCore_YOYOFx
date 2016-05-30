@@ -1,0 +1,13 @@
+﻿@inherits YOYO.AspNetCore.ViewEngine.Razor.RazorViewTemplate<List<NET451OwinHost.MyUser>>
+
+@{
+    Layout = "/Views/_Layout.cshtml";
+}
+
+<div>
+    @foreach (var user in Model)
+    {
+        <p>@user.Name</p>
+    }
+
+</div>

@@ -3,7 +3,10 @@
 
   "dependencies": {
     "Newtonsoft.Json": "8.0.3",
-    "YOYO.AspNetCore.Owin": { "target": "project" , "type": "build"}
+    "YOYO.AspNetCore.Owin": {
+      "target": "project",
+      "type": "build"
+    }
   },
 
   "buildOptions": {
@@ -30,6 +33,7 @@
         "NETStandard.Library": "1.5.0-*",
         "Microsoft.CSharp": "4.0.1-*",
         "Microsoft.Extensions.PlatformAbstractions": "1.0.0-*",
+        "System.Runtime":"4.1.0-*",
         "System.Runtime.Loader": "4.0.0-*",
         "System.Xml.XmlSerializer": "4.0.11-*"
 

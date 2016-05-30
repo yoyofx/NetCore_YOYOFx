@@ -35,24 +35,34 @@ namespace YOYO.Mvc
                     ).GetTypes();
                 }
                 catch { }
-                return null;
+                    return new Type[] { typeof(object) };
                 };
 
 #endif
 
 #if NETCOREAPP1_0 || NETSTANDARD1_5
-            loadAssemblyByPathFunc = (fileInfo) => AssemblyLoadContext.Default
-                                                       .LoadFromAssemblyPath(fileInfo.FullName).GetTypes();
+
+             loadAssemblyByPathFunc = (fileInfo) => {
+                try
+                {
+                    return AssemblyLoadContext.Default
+                              .LoadFromAssemblyPath(fileInfo.FullName).GetTypes();
+                }
+                catch(Exception ex) { }
+                    return new Type[] { typeof(object) };
+                };
+
+           
             
 #endif
-
+            
 
             var TypeList = searchFiles.SelectMany(file => loadAssemblyByPathFunc(file) );
 
             types = TypeList;
 
             var query = from type in TypeList
-                        where type.GetTypeInfo().IsSubclassOf(typeof(Controller))
+                        where type!=null && type.GetTypeInfo().IsSubclassOf(typeof(Controller))
                         select type;
 
             
