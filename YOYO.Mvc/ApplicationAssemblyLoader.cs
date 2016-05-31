@@ -36,7 +36,7 @@ namespace YOYO.Mvc
                     ).GetTypes();
                 }
                 catch { }
-                    return new Type[] { typeof(object) };
+                    return new Type[0] ;
                 };
 
 #endif
@@ -54,8 +54,8 @@ namespace YOYO.Mvc
 
                     return Assembly.Load(new AssemblyName(assemblyName)).GetTypes();
                 }
-                catch(Exception ex) { }
-                    return new Type[] { typeof(object) };
+                catch{ }
+                    return new Type[0];
                 };
 
            
