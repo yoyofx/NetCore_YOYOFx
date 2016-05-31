@@ -60,7 +60,7 @@ namespace YOYO.Mvc.Session
 
 
 
-        public ISession AccessSession(IOwinContext context)
+        public Task<ISession> AccessAsync(IOwinContext context)
         {
             OnSessionRequest();
 
@@ -77,7 +77,7 @@ namespace YOYO.Mvc.Session
             session.RefreshSessionAccessTime();
             store.SetSession(session.ID, session);
 
-            return session;
+            return Task.FromResult((ISession)session);
         }
 
 

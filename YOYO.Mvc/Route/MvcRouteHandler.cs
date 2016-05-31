@@ -29,7 +29,9 @@ namespace YOYO.Mvc.Route
             if (responseProcessor != null && provider != null)
             {
                 ISessionProvider sessionProvider = DefaultSessionProvider.DefaultProvider;
-                ISession session = sessionProvider.AccessSession(context);
+
+                ISession session = await sessionProvider.AccessAsync(context);
+
                 if (!context.Items.ContainsKey("session"))
                     context.Items.Add("session", session);
                 else

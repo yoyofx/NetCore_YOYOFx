@@ -9,7 +9,7 @@ namespace YOYO.Mvc.Session
 {
     internal interface ISessionProvider
     {
-        ISession AccessSession(IOwinContext context);
+        Task<ISession> AccessAsync(IOwinContext context);
 
     }
 }
