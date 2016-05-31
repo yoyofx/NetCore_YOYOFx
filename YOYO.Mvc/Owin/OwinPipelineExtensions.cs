@@ -36,6 +36,12 @@ namespace YOYO.Mvc.Owin
             return app;
         }
 
+        public static IAppBuilder UseWorkFolder(this IAppBuilder app ,string path)
+        {
+            HostingEnvronment.SetRootPath(path);
+            return app;
+        }
+
 
         public static void UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilder = null, Action<YOYOFxOptions> configuration = null)
         {

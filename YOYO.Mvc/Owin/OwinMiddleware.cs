@@ -19,7 +19,7 @@ namespace YOYO.Mvc.Owin
             if (route != null)
             {
                 IRouteHandler handler = RouteHandlerFactory.Default.CreateRouteHandler(context, route);
-                await handler.Process(context, context.CancellationToken).ConfigureAwait(false);
+                await handler.ProcessAsync(context, context.CancellationToken).ConfigureAwait(false);
             }
             if(next!=null)
                 await next(context.Environment);

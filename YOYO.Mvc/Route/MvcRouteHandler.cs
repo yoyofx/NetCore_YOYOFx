@@ -20,14 +20,13 @@ namespace YOYO.Mvc.Route
 
         public MvcRouteHandler(RouteResolveResult result):base(result) {  }
 
-        protected override  void RequestHanderProcess(IOwinContext context)
+        public override async Task ProcessAsync(IOwinContext context, CancellationToken cancellationToken)
         {
-
-			IActionRuntimeProvider provider = 
-				Application.CurrentApplication.Options.Bootstrapper.RuntimeManager.FindRuntimeByName (_resolveResult.ControllerName);
+            IActionRuntimeProvider provider =
+             Application.CurrentApplication.Options.Bootstrapper.RuntimeManager.FindRuntimeByName(_resolveResult.ControllerName);
 
             var responseProcessor = ResponseProcessorFactory.GetResponseProcessor(context);
-            if (responseProcessor != null && provider!=null)
+            if (responseProcessor != null && provider != null)
             {
                 ISessionProvider sessionProvider = DefaultSessionProvider.DefaultProvider;
                 ISession session = sessionProvider.AccessSession(context);
@@ -39,7 +38,7 @@ namespace YOYO.Mvc.Route
                 object actionResult = provider.ExecuteAsync(_resolveResult.ControllerName, _resolveResult.ActionName, context);
                 if (actionResult != null)
                 {
-                    if(actionResult is Task && actionResult.GetType().GetTypeInfo().IsGenericType) //Task<TResult>
+                    if (actionResult is Task && actionResult.GetType().GetTypeInfo().IsGenericType) //Task<TResult>
                     {
                         //get task's result
                         var taskResultProperty = actionResult.GetType().GetTypeInfo().GetProperty("Result");
@@ -51,10 +50,12 @@ namespace YOYO.Mvc.Route
             }
             else
             {
-                throw new NullReferenceException(string.Format("Can't found the response processor process the request! The ContentType ={0}",context.Request.Headers.ContentType));
+                throw new NullReferenceException(string.Format("Can't found the response processor process the request! The ContentType ={0}", context.Request.Headers.ContentType));
             }
-
         }
+
+
+        
 
 
 

@@ -18,31 +18,7 @@ namespace YOYO.Mvc.Route
         }
 
 
-        public Task Process(IOwinContext context, CancellationToken cancellationToken)
-        {
-            var tcs = new TaskCompletionSource<bool>();
-            Task handlerTask = Task.Factory.StartNew(asyncProcessHander, context, cancellationToken);
-
-
-            handlerTask.WhenCompleted(complete => {
-                tcs.SetResult(true);
-            }, faulted => {
-                context.Response.Headers.ContentType = "text/html;charset=utf-8";
-                context.Response.Write(faulted.Exception.ToString());
-                tcs.SetException(faulted.Exception);
-            });
-
-
-            return tcs.Task;
-        }
-
-        private void asyncProcessHander(object contextobj)
-        {
-            var context = contextobj as IOwinContext;
-            RequestHanderProcess(context);
-        }
-
-        protected abstract void RequestHanderProcess(IOwinContext context);
+        public abstract Task ProcessAsync(IOwinContext context, CancellationToken cancellationToken);
 
     }
 }

@@ -25,6 +25,8 @@ namespace NET451OwinHost
                 FileSystem = new PhysicalFileSystem(@"."),
             });
 
+            app.UseWorkFolder(AppDomain.CurrentDomain.BaseDirectory);
+
             app.UseYOYOFx(route =>
                      route.Map("/{controller}/{action}/{id}/"));
 
