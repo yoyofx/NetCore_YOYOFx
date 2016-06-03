@@ -35,13 +35,21 @@ namespace YOYO.Mvc.ResponseProcessor
 
         public override string GetRawDataString(object model)
         {
+            string renderedView = string.Empty;
             var view = model as View;
             if(view!=null)
             {
                 string extensionName = System.IO.Path.GetExtension(view.Path);
                 IViewEngine viewEngine = ViewEngineFactory.GetViewEngine(extensionName);
-                return viewEngine.RenderView(_context, view.Path, view.Model, view.ViewBag);
-
+                try
+                {
+                    renderedView = viewEngine.RenderView(_context, view.Path, view.Model, view.ViewBag);
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                }
+                return renderedView;
             }
             else
             {

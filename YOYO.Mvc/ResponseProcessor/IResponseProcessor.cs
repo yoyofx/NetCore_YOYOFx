@@ -11,7 +11,7 @@ namespace YOYO.Mvc.ResponseProcessor
     {
         bool CanProcess();
 
-        void Process(object model);
+        Task ProcessAsync(object model);
 
       
 

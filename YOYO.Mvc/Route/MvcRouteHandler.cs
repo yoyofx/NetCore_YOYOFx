@@ -46,9 +46,11 @@ namespace YOYO.Mvc.Route
                         var taskResultProperty = actionResult.GetType().GetTypeInfo().GetProperty("Result");
                         actionResult = taskResultProperty.GetValue(actionResult);
                     }
-                    responseProcessor.Process(actionResult);
+
+                    await responseProcessor.ProcessAsync(actionResult);
+                    
+
                 }
-                //else if (actionResult is View) context.Response.Status = Status.Is.NotFound;
             }
             else
             {

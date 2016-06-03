@@ -21,7 +21,7 @@ namespace YOYO.Mvc.ResponseProcessor
         public abstract bool CanProcess();
 
 
-        public async void Process(object model)
+        public async Task ProcessAsync(object model)
         {
             string rawData = GetRawDataString(model);
           
