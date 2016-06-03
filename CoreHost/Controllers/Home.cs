@@ -35,6 +35,7 @@ namespace CoreHost.Controllers
 
         public int Add(int a, int b)
         {
+            throw new NotSupportedException(a.ToString());
             return a + b;
 
         }

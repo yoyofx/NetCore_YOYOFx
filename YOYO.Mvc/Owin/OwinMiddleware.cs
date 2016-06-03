@@ -26,7 +26,10 @@ namespace YOYO.Mvc.Owin
                 }
                 catch (Exception ex)
                 {
-
+                    context.Response.Status = Status.Is.InternalServerError;
+                    string message = string.Format("Error Message: {0} {1} StackTrace: {2}", 
+                        ex.Message, Environment.NewLine, ex.StackTrace);
+                    await context.Response.WriteAsync(message);
                 }
             }
             if(next!=null)
