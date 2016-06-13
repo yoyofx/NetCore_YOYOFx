@@ -25,8 +25,7 @@ namespace YOYO.Mvc.Route
             IActionRuntimeProvider provider =
              Application.CurrentApplication.Options.Bootstrapper.RuntimeManager.FindRuntimeByName(_resolveResult.ControllerName);
 
-            var responseProcessor = ResponseProcessorFactory.GetResponseProcessor(context);
-            if (responseProcessor != null && provider != null)
+            if (provider != null)
             {
                 ISessionProvider sessionProvider = DefaultSessionProvider.DefaultProvider;
 
@@ -47,14 +46,23 @@ namespace YOYO.Mvc.Route
                         actionResult = taskResultProperty.GetValue(actionResult);
                     }
 
-                    await responseProcessor.ProcessAsync(actionResult);
+                    if (actionResult is IActionResult)
+                        await ((IActionResult)actionResult).ProcessAsync(context);
+                    else
+                    {
+                        var responseProcessor = ResponseProcessorFactory.GetResponseProcessor(context);
+                        if (responseProcessor != null)
+                            await responseProcessor.ProcessAsync(actionResult);
+                        else
+                            throw new NullReferenceException(string.Format("Can't found the response processor process the request! The ContentType ={0}", context.Request.Headers.ContentType));
+                    }
                     
 
                 }
             }
             else
             {
-                throw new NullReferenceException(string.Format("Can't found the response processor process the request! The ContentType ={0}", context.Request.Headers.ContentType));
+                throw new NullReferenceException("Not Action Runtime Provider!");
             }
         }
 

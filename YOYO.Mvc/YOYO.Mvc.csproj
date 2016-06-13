@@ -58,9 +58,11 @@
     <Compile Include="DefaultBootstrapper.cs" />
     <Compile Include="DynamicDictionary.cs" />
     <Compile Include="Extensions\ParameterInfoExtensions.cs" />
+    <Compile Include="FileResult.cs" />
     <Compile Include="Filters\TimeStampEncryptAttribute.cs" />
     <Compile Include="HostingEnvronment.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="IActionResult.cs" />
     <Compile Include="Session\DefaultSessionProvider.cs" />
     <Compile Include="Session\ISession.cs" />
     <Compile Include="Session\ISessionProvider.cs" />

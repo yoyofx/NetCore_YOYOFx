@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YOYO.Mvc.ResponseProcessor;
+using YOYO.Owin;
 
 namespace YOYO.Mvc
 {
-    public class View
+    public class View : IActionResult
     {
         public View(string path) { Path = path; }
 
@@ -20,5 +22,9 @@ namespace YOYO.Mvc
 
         public DynamicDictionary ViewBag { set; get; }
 
+        public Task ProcessAsync(IOwinContext context)
+        {
+            return new ViewResponseProcessor(context).ProcessAsync(this);
+        }
     }
 }

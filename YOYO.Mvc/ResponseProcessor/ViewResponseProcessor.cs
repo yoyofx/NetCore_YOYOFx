@@ -26,9 +26,11 @@ namespace YOYO.Mvc.ResponseProcessor
             if (string.IsNullOrEmpty(contentType))
                 return false;
             //post form data
+            
             var contentMimeType = contentType.Split(splitChar)[0];
             return
                  contentMimeType.Equals("text/html", StringComparison.OrdinalIgnoreCase) ||
+                 contentMimeType.Equals("application/x-ms-application", StringComparison.OrdinalIgnoreCase) ||
                  contentMimeType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase) ||
                  contentMimeType.Equals("multipart/form-data", StringComparison.OrdinalIgnoreCase) ;
         }

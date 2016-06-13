@@ -11,7 +11,9 @@ namespace YOYO.Mvc.ResponseProcessor
     {
         internal static IResponseProcessor GetResponseProcessor(IOwinContext context)
         {
-            IResponseProcessor responseProcessor = null;
+           IResponseProcessor responseProcessor = null;
+
+           //get formater
            var createProcessors =  CreateProcessorsFunc();
            var processorList = createProcessors(context);
            foreach(var processor in processorList)
@@ -27,8 +29,10 @@ namespace YOYO.Mvc.ResponseProcessor
 
         }
 
-
-
+        /// <summary>
+        /// get formater,一般只处理
+        /// </summary>
+        /// <returns></returns>
         private static Func<IOwinContext,List<IResponseProcessor>> CreateProcessorsFunc()
         {
             return _ =>
@@ -39,7 +43,6 @@ namespace YOYO.Mvc.ResponseProcessor
                     new XmlResponseProcessor( _ ),
                     new TextResponseProcessor( _ ),
                     new ViewResponseProcessor( _ )
-
                 };
             };
         }
