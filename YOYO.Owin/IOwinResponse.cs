@@ -32,6 +32,8 @@ namespace YOYO.Owin
 
         Task WriteAsync(byte[] bytes);
 
+        Task WriteAsync(byte[] bytes,int length);
+
         Task WriteAsync(string text);
 
         void Redirect(string location);

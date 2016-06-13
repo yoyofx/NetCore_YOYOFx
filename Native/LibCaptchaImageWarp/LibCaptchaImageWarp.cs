@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.PlatformAbstractions;
+using System.IO;
 
 namespace YOYO.DotnetCore
 {
@@ -17,7 +18,7 @@ namespace YOYO.DotnetCore
         public static extern void libCaptcha(string file_o, string captcha_text, int count, int width, int height, int offset, int quality, int isjpeg, int fontSize);
 
 
-        [DllImport("CaptchaImage.dll", EntryPoint = "GCaptcha")]
+        [DllImport("libcaptchaimage.dll", EntryPoint = "GCaptcha")]
         public static extern void GCaptcha(string file_o, string captcha_text, int count, int width, int height, int offset, int quality, int isjpeg, int fontSize);
 
         public string Text { set; get; }
@@ -42,15 +43,32 @@ namespace YOYO.DotnetCore
             
         }
 
+        public MemoryStream GetStream(string fileName)
+        {
+            this.Save(fileName);
+            MemoryStream ms = new MemoryStream();
+            using (var fileStream = new FileStream(fileName, FileMode.Open))
+            {
+                fileStream.CopyTo(ms);
+            }
+            try
+            {
+                File.Delete(fileName);
+            }
+            catch { }
+            return ms;
+
+        }
+
+
         public void Save(string fileName)
         {
-            
-
-
             if (string.IsNullOrEmpty(fileName))
                 throw new NullReferenceException("file name is null");
-            if(string.IsNullOrEmpty(this.Text))
-                throw new NullReferenceException("Text is null");
+            if (string.IsNullOrEmpty(this.Text))
+                this.Text = this.GenerateCheckCode();
+
+
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -64,6 +82,31 @@ namespace YOYO.DotnetCore
             }
         }
 
+        public string GenerateCheckCode()
+        {
+            int number;
+            char code;
+            string checkCode = String.Empty;
+
+            System.Random random = new Random();
+
+            for (int i = 0; i < 5; i++)
+            {
+                number = random.Next();
+
+                if (number % 2 == 0)
+                    //生成'0'-'9'字符
+                    code = (char)('0' + (char)(number % 10));
+                else
+                    //生成'A'-'Z'字符
+                    code = (char)('A' + (char)(number % 26));
+
+                checkCode += code.ToString();
+            }
+
+            return checkCode;
+            //两个字符相加等于=asicc码加
+        }
 
 
 

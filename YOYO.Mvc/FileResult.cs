@@ -10,41 +10,46 @@ namespace YOYO.Mvc
 {
     public class FileResult : IActionResult
     {
-        private Stream _fileStream;
+        private MemoryStream _fileStream;
         private string _fileName;
-
-        public FileResult(string fileName)
+        private string _contentType;
+        public FileResult(string fileName,string contentType)
         {
             this._fileName = fileName;
+            this._contentType = contentType;
         }
 
-        public FileResult(Stream stream)
+        public FileResult(string fileName, string contentType,MemoryStream stream) : this(fileName,contentType)
         {
             this._fileStream = stream;
         }
 
         public async Task ProcessAsync(IOwinContext context)
         {
-            
-            context.Response.Headers.ContentType = "application/octet-stream";
-            context.Response.Headers.Add("Content-Disposition", "attachment; filename=" + this._fileName);
+            context.Response.Headers.ContentType = _contentType;
+            string fileName = System.IO.Path.GetFileName(this._fileName);
+            context.Response.Headers.Add("Content-Disposition", "attachment; filename=" + fileName);
+
             if (this._fileStream == null)
             {
                 using (Stream input = File.OpenRead(this._fileName))
                 {
+                    context.Response.Headers.ContentLength = input.Length;
                     byte[] buffer = new byte[8192];
                     int bytesRead;
                     while ((bytesRead = input.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        await context.Response.WriteAsync(buffer);
+                        await context.Response.WriteAsync(buffer, buffer.Length);
                     }
 
                 }
             }
             else
             {
-                
-                //await context.Response.WriteAsync(buffer);
+                long length = this._fileStream.Length;
+                context.Response.Headers.ContentLength = length;
+                await context.Response.WriteAsync(this._fileStream.ToArray(),(int)length);
+                this._fileStream.Dispose();
             }
 
         }

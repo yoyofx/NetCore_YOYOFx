@@ -6,6 +6,7 @@
     },
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
+    "Microsoft.AspNetCore.Owin":"1.0.0-*" ,
     "YOYO.AspNetCore.Builder": {
       "version": "0.1.3-*",
       "target": "project",
@@ -25,8 +26,8 @@
       "version": "0.1.3-*",
       "target": "project",
       "type": "build"
-    }
-
+    },
+    "LibCaptchaImageWarp": "1.0.0-*"
   },
   "frameworks": {
     "netcoreapp1.0": {

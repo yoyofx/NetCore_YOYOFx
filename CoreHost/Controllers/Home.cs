@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using YOYO.Mvc;
 using YOYO.Mvc.Filters;
+using YOYO.DotnetCore;
 
 namespace CoreHost.Controllers
 {
@@ -14,12 +15,12 @@ namespace CoreHost.Controllers
             return View("/Views/Login.cshtml");
         }
 
-        public dynamic UserLoginAction(string name, string password)
+        public dynamic UserLoginAction(string name, string password,string code)
         {
-            if (name == "maxzhang" && password == "123")
+            if (name == "maxzhang" && password == "123" && code == Session["captchacode"].ToString())
             {
                 this.Session["username"] = "maxzhang";
-                return Redirect("/Home/Index");
+                return Redirect("/Home/Index/1");
             }
             else
                 return View("/Views/Login.cshtml");
@@ -48,7 +49,7 @@ namespace CoreHost.Controllers
         }
 
 
-        public dynamic Index(string id,string p0)
+        public dynamic Index(string id)
         {
             var model = new List<MyUser>();
             for (int i = 0; i <= 10; i++)
@@ -62,12 +63,23 @@ namespace CoreHost.Controllers
             return View("/Views/Home.cshtml", model);
         }
 
+
+        public dynamic Captcha()
+        {
+            string fileName = Guid.NewGuid().ToString() + ".bmp";
+            string filePath = HostingEnvronment.GetMapPath("/wwwroot/images/" + fileName);
+            CaptchaImageCore image = new CaptchaImageCore(220,60,57);
+            var stream = image.GetStream(filePath);
+            this.Session["captchacode"] = image.Text;
+            return new FileResult(filePath, "image/jpg", stream);
+        }
+
     }
 
 
 
     public class MyUser
-    {
+    {  
         public string Name { set; get; }
 
     }

@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1025C28-F4F2-4755-84EA-329D98A2E1F3}"
 	ProjectSection(SolutionItems) = preProject
 		Notepad\ASP.NET Core 总结1.md = Notepad\ASP.NET Core 总结1.md
+		global.json = global.json
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "YOYO.AspNetCore.ViewEngine.Razor", "YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj", "{286AC8A2-DB3B-48B1-8BF3-B0066527520A}"

@@ -45,6 +45,12 @@ namespace YOYO.Owin
             return this.Body.WriteAsync(bytes, 0, bytes.Length);
         }
 
+        public Task WriteAsync(byte[] bytes,int length)
+        {
+            return this.Body.WriteAsync(bytes, 0, length);
+        }
+
+
         public Task WriteAsync(string text)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(text);
