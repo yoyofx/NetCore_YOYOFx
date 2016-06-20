@@ -13,3 +13,12 @@ YOYOFx的Mvc是基于Owin跑在Core的Web Framework
 
 ### Owin与Core
 YOYOFx的所为Http实现都是基于Owin协议的，并提供两个独立版本NETSTANDRD1.x和NET45x版本。
+
+目前完成：
+1.  封装Owin协议的HttpContext（IOwinContext），包括Request、Response、Http Headers、Cookie等；
+2.  路由机制，通过添加自定义路由表为框架添加处理事件；
+3.  基于IOwinContext的MVC框架，支持多语言扩展；支持Session和自定义的Action拦截器；
+4.  可替换的视图引擎，目前实现Razor视图引擎，加入了缓存机制；
+
+接下来的工作：
+1.  完成框架整体的DI，将框架级依赖对象全部通过依赖注入的方式构建和对象创建工厂；首先完成Controller的创建工厂。
