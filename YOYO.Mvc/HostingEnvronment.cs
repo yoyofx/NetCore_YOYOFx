@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-#if NETCOREAPP1_0 || NETSTANDARD1_5
+#if NETCOREAPP1_0 || NETSTANDARD1_6
 using Microsoft.Extensions.PlatformAbstractions;
 #endif
 
@@ -15,7 +15,7 @@ namespace YOYO.Mvc
         private static string rootPath = Environment.CurrentDirectory;
 #endif
 
-#if NETCOREAPP1_0 || NETSTANDARD1_5
+#if NETCOREAPP1_0 || NETSTANDARD1_6
         private static string rootPath = PlatformServices.Default.Application.ApplicationBasePath;
 #endif
 

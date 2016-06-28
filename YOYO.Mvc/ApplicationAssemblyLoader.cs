@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-#if NETCOREAPP1_0 || NETSTANDARD1_5
+#if NETCOREAPP1_0 || NETSTANDARD1_6
 using System.Runtime.Loader;
 #endif
 
@@ -41,7 +41,7 @@ namespace YOYO.Mvc
 
 #endif
 
-#if NETCOREAPP1_0 || NETSTANDARD1_5
+#if NETCOREAPP1_0 || NETSTANDARD1_6
 
              loadAssemblyByPathFunc = (fileInfo) => {
                 try

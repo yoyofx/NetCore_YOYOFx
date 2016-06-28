@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using YOYO.Mvc;
-using YOYO.ViewEngine.RazorViewEngine;
 
 namespace YOYO.NUnitTest
 {
@@ -16,7 +15,7 @@ namespace YOYO.NUnitTest
         [Test]
         public void TestRazorViewEngine()
         {
-            IViewEngine engine = new RazorViewEngine();
+            //IViewEngine engine = new RazorViewEngine();
 
             //engine.RenderView(“”，“”，)
 

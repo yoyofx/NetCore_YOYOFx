@@ -1,0 +1,37 @@
+{
+
+  "description": "",
+  
+  "version": "0.1.3-*",
+
+  "dependencies": {
+
+  },
+
+  "buildOptions": {
+
+    "compile": [
+      "*.cs",
+      "../../YOYO.Owin/**.cs"
+    ],
+    "defines": [  ]
+  },
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "System.Xml.XmlSerializer": "4.0.0"
+      }
+    },
+
+    "netstandard1.6": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "System.Security.Principal": "4.0.1-*"
+
+      },
+
+      "imports": "dnxcore50"
+    }
+
+  }
+}

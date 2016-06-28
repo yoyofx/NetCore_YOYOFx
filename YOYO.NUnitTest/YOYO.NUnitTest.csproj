@@ -66,6 +66,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ORM\ExtendPropertyLib\ExtendPropertyLib.csproj">
+      <Project>{77d423c3-8419-4b9d-acf6-0e349d75b2ed}</Project>
+      <Name>ExtendPropertyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ORM\MaxZhang.EasyEntities.Persistence\EasyEntities.Persistence.csproj">
+      <Project>{eddf8cf9-94d6-4262-b550-42220813a714}</Project>
+      <Name>EasyEntities.Persistence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YOYO.Mvc\YOYO.Mvc.csproj">
       <Project>{69105277-8BD6-404D-B81D-A8B22B08CD5E}</Project>
       <Name>YOYO.Mvc</Name>
@@ -77,18 +85,6 @@
     <ProjectReference Include="..\YOYO.ActionRuntime.Python\YOYO.ActionRuntime.Python.csproj">
       <Project>{05C7FA52-A0E9-45F3-9570-FC86264D189C}</Project>
       <Name>YOYO.ActionRuntime.Python</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YOYO.ViewEngine.RazorViewEngine\YOYO.ViewEngine.RazorViewEngine.csproj">
-      <Project>{97DDE7FF-142F-4B34-AFD3-B64CF604EB94}</Project>
-      <Name>YOYO.ViewEngine.RazorViewEngine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MaxZhang.EasyEntities.Persistence\EasyEntities.Persistence.csproj">
-      <Project>{EDDF8CF9-94D6-4262-B550-42220813A714}</Project>
-      <Name>EasyEntities.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExtendPropertyLib\ExtendPropertyLib.csproj">
-      <Project>{77D423C3-8419-4B9D-ACF6-0E349D75B2ED}</Project>
-      <Name>ExtendPropertyLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

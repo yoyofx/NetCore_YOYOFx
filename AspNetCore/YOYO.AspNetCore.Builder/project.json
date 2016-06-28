@@ -1,0 +1,25 @@
+{
+  "version": "0.1.3-*",
+
+  "dependencies": {
+    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
+    "Microsoft.AspNetCore.Owin": "1.0.0",
+    "NETStandard.Library": "1.6.0",
+    "YOYO.AspNetCore.Mvc": {
+      "version": "0.1.3-*",
+      "target": "project",
+      "type": "build"
+    },
+    "YOYO.AspNetCore.Owin": {
+      "version": "0.1.3-*",
+      "target": "project",
+      "type": "build"
+    }
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
