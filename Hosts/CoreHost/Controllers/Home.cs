@@ -67,7 +67,7 @@ namespace CoreHost.Controllers
         public dynamic Captcha()
         {
             string fileName = Guid.NewGuid().ToString() + ".bmp";
-            string filePath = HostingEnvronment.GetMapPath("/wwwroot/images/" + fileName);
+            string filePath = HostingEnvronment.GetMapPath("/wwwroot/" + fileName);
             CaptchaImageCore image = new CaptchaImageCore(220,60,57);
             var stream = image.GetStream(filePath);
             this.Session["captchacode"] = image.Text;

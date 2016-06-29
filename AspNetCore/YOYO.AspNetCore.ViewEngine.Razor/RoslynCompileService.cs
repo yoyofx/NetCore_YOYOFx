@@ -100,6 +100,13 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             var metadataReferences = new List<MetadataReference>();
             var assembly = Assembly.GetEntryAssembly();
 
+            string runtimePath = System.IO.Path.GetDirectoryName(typeof(object).GetTypeInfo().Assembly.Location);
+
+            var mscorlibFile = Path.Combine(runtimePath, "mscorlib.dll");
+            if(File.Exists(mscorlibFile))
+                metadataReferences.Add(CreateMetadataFileReference(mscorlibFile));
+            else
+                metadataReferences.Add(CreateMetadataFileReference(Path.Combine(runtimePath, "mscorlib.ni.dll")));
 
             metadataReferences.Add(CreateMetadataFileReference(typeof(object).GetTypeInfo().Assembly.Location));
             metadataReferences.Add(CreateMetadataFileReference(typeof(DynamicObject).GetTypeInfo().Assembly.Location));
@@ -134,7 +141,6 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
             {
                 var moduleMetadata = ModuleMetadata.CreateFromStream(stream, PEStreamOptions.PrefetchMetadata);
                 var assemblyMetadata = AssemblyMetadata.Create(moduleMetadata);
-
                 return assemblyMetadata.GetReference(filePath: path);
             }
         }
