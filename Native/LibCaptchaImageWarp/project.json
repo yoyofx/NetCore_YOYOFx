@@ -6,7 +6,11 @@
     "Microsoft.Extensions.PlatformAbstractions": "1.0.0-*"
   },
 
-  
+  "buildOptions": {
+    "copyToOutput": [
+      "libcaptchaimage.so",
+      "libcaptchaimage.dll"
+    ] },
 
   "frameworks": {
     "netstandard1.6": {
