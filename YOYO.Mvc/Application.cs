@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YOYO.Mvc.ResponseProcessor;
+
 
 namespace YOYO.Mvc
 {
@@ -36,6 +38,10 @@ namespace YOYO.Mvc
         {
             this.Options = options;
         }
+
+
+        public IServiceProvider ServiceProvider { set; get; }
+
 
 
         public  YOYOFxOptions Options {private set; get; }

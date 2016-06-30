@@ -2,6 +2,8 @@
   "version": "0.1.3-*",
 
   "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.Extensions.DependencyInjection": "1.0.0",
     "Newtonsoft.Json": "8.0.3",
     "YOYO.AspNetCore.Owin": {
       "target": "project",
@@ -30,7 +32,6 @@
    
     "netstandard1.6": {
       "dependencies": {
-        "NETStandard.Library": "1.6.0",
         "Microsoft.CSharp": "4.0.1-*",
         "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
         "System.Runtime":"4.1.0",

@@ -8,6 +8,7 @@ using YOYO.Mvc;
 using YOYO.Owin.Pipeline;
 using YOYO.Owin;
 using YOYO.Mvc.Owin;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace YOYO.AspNetCore.Builder
 {
@@ -55,7 +56,11 @@ namespace YOYO.AspNetCore.Builder
         }
 
 
-
+        public static void AddYOYOFx(this IServiceCollection services)
+        {
+            services.AddSingleton<IRouteBuilder>(RouteBuilder.Builder);
+            Application.CurrentApplication.ServiceProvider = services.BuildServiceProvider();
+        }
 
 
     }

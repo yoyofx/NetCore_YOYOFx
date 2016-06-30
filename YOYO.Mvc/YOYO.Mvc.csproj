@@ -49,8 +49,10 @@
     <Compile Include="ActionFilterAttribute.cs" />
     <Compile Include="ActionRuntime\ActionRuntimeManager.cs" />
     <Compile Include="ActionRuntime\ActionRuntimeParameter.cs" />
+    <Compile Include="ActionRuntime\DefaultControllerFactory.cs" />
     <Compile Include="ActionRuntime\DotnetActionRuntimeProvider.cs" />
     <Compile Include="ActionRuntime\IActionRuntimeProvider.cs" />
+    <Compile Include="ActionRuntime\IControllerFacotry.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="ApplicationAssemblyLoader.cs" />
     <Compile Include="Controller.cs" />

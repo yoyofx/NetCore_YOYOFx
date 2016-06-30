@@ -11,7 +11,10 @@ namespace YOYO.Mvc
     public class Controller
     {
         protected IOwinContext Context { set; get; }
-
+        public void SetHttpContext(IOwinContext context)
+        {
+            this.Context = context;
+        }
         private DynamicDictionary _viewBag = new DynamicDictionary();
         protected dynamic ViewBag {
             get
