@@ -13,8 +13,7 @@
 
   "buildOptions": {
     "compile": [
-      "*.cs",
-      "../../YOYO.Mvc/**.cs"
+      "**.cs"
     ]
 
   },

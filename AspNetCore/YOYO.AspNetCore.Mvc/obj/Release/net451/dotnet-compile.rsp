@@ -1,0 +1,82 @@
+--temp-output:F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\obj\Release\net451\
+--out:F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\bin\Release\net451\YOYO.AspNetCore.Mvc.dll
+--define:RELEASE
+--define:TRACE
+--define:NET451
+--suppress-warning:CS1701
+--suppress-warning:CS1702
+--suppress-warning:CS1705
+--optimize:True
+--output-name:YOYO.AspNetCore.Mvc
+--file-version:0.1.3.0
+--version:0.1.3.0
+--informational-version:0.1.3
+--target-framework:.NETFramework,Version=v4.5.1
+--reference:C:\Users\zhanglei13\.nuget\packages\Newtonsoft.Json\8.0.3\lib\net45\Newtonsoft.Json.dll
+--reference:C:\Users\zhanglei13\.nuget\packages\Owin\1.0.0\lib\net40\Owin.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Xml.XmlSerializer.dll
+--reference:F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\bin\Release\net451\YOYO.AspNetCore.Owin.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Xml.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Xml.Serialization.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\mscorlib.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Core.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Microsoft.CSharp.dll
+F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\Properties\AssemblyInfo.cs
+F:\self\YOYOFx\YOYO.Mvc\ActionExecuteContext.cs
+F:\self\YOYOFx\YOYO.Mvc\ActionFilterAttribute.cs
+F:\self\YOYOFx\YOYO.Mvc\Application.cs
+F:\self\YOYOFx\YOYO.Mvc\ApplicationAssemblyLoader.cs
+F:\self\YOYOFx\YOYO.Mvc\Controller.cs
+F:\self\YOYOFx\YOYO.Mvc\ControllerLoader.cs
+F:\self\YOYOFx\YOYO.Mvc\DefaultBootstrapper.cs
+F:\self\YOYOFx\YOYO.Mvc\DynamicDictionary.cs
+F:\self\YOYOFx\YOYO.Mvc\FileResult.cs
+F:\self\YOYOFx\YOYO.Mvc\HostingEnvronment.cs
+F:\self\YOYOFx\YOYO.Mvc\IActionResult.cs
+F:\self\YOYOFx\YOYO.Mvc\IViewEngine.cs
+F:\self\YOYOFx\YOYO.Mvc\IYOYOBootstrapper.cs
+F:\self\YOYOFx\YOYO.Mvc\View.cs
+F:\self\YOYOFx\YOYO.Mvc\ViewEngineFactory.cs
+F:\self\YOYOFx\YOYO.Mvc\YOYOFxOptions.cs
+F:\self\YOYOFx\YOYO.Mvc\ActionRuntime\ActionRuntimeManager.cs
+F:\self\YOYOFx\YOYO.Mvc\ActionRuntime\ActionRuntimeParameter.cs
+F:\self\YOYOFx\YOYO.Mvc\ActionRuntime\DotnetActionRuntimeProvider.cs
+F:\self\YOYOFx\YOYO.Mvc\ActionRuntime\IActionRuntimeProvider.cs
+F:\self\YOYOFx\YOYO.Mvc\Extensions\ParameterInfoExtensions.cs
+F:\self\YOYOFx\YOYO.Mvc\Extensions\StringExtensions.cs
+F:\self\YOYOFx\YOYO.Mvc\Filters\NoCacheAttribute.cs
+F:\self\YOYOFx\YOYO.Mvc\Filters\TimeStampEncryptAttribute.cs
+F:\self\YOYOFx\YOYO.Mvc\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+F:\self\YOYOFx\YOYO.Mvc\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+F:\self\YOYOFx\YOYO.Mvc\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+F:\self\YOYOFx\YOYO.Mvc\obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+F:\self\YOYOFx\YOYO.Mvc\obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+F:\self\YOYOFx\YOYO.Mvc\obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+F:\self\YOYOFx\YOYO.Mvc\Owin\OwinMiddleware.cs
+F:\self\YOYOFx\YOYO.Mvc\Owin\OwinPipelineExtensions.cs
+F:\self\YOYOFx\YOYO.Mvc\Reflection\DynamicMethodInvoker.cs
+F:\self\YOYOFx\YOYO.Mvc\Reflection\ReflectionUtils .cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\IResponseProcessor.cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\JsonResponseProcessor.cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\ResponseProcessor.cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\ResponseProcessorFactory.cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\TextResponseProcessor.cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\ViewResponseProcessor.cs
+F:\self\YOYOFx\YOYO.Mvc\ResponseProcessor\XmlResponseProcessor.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\HttpMethod.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\IRouteBuilder.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\IRouteHandler.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\MvcRouteHandler.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\RouteBuilder.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\RouteHandler.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\RouteHandlerFactory.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\RouteResolveResult.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\RouteRole.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\RouteSegment.cs
+F:\self\YOYOFx\YOYO.Mvc\Route\SegmentType.cs
+F:\self\YOYOFx\YOYO.Mvc\Session\CookieSession.cs
+F:\self\YOYOFx\YOYO.Mvc\Session\DefaultSessionProvider.cs
+F:\self\YOYOFx\YOYO.Mvc\Session\ISession.cs
+F:\self\YOYOFx\YOYO.Mvc\Session\ISessionProvider.cs
+F:\self\YOYOFx\YOYO.Mvc\Session\SessionsStore.cs
