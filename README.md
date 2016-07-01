@@ -15,7 +15,7 @@ YOYOFx的Mvc是基于Owin跑在Core的Web框架 , YOYOFx并没有基于Asp.Net C
 *   通过dotnet publish将Core版本进行打包后，可支持绿色部署，不需要运行时。
 
 ### Owin与Core
-YOYOFx的所为Http实现都是基于Owin协议的，并提供两个独立版本NETSTANDRD1.x和NET45x版本。
+YOYOFx的Http实现都是基于Owin协议的，并提供两个独立版本NETSTANDRD1.x和NET45x版本。
 
 ###目前完成：
 1.  封装Owin协议的HttpContext（IOwinContext），包括Request、Response、Http Headers、Cookie等；
