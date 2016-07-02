@@ -14,15 +14,20 @@ namespace YOYO.Mvc.ActionRuntime
         {
             Controller activeController = null;
 
-            var constructors = controllerType.GetConstructors();
-            if(constructors.Length > 0 )
+            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+            var constructors = controllerType.GetConstructors(flags);
+            if(constructors.Length > 1 )
             {
+                var ctorInfo = constructors.Where(constructor => 
+                                                                            constructor.GetParameters().Length > 0).First();
 
+                var ctorParamList = ctorInfo.GetParameters();
+                var iocParamtersArray = ctorParamList.Select(cp=> serverProvider.GetService( cp.ParameterType ) ).ToArray();
+                activeController = (Controller)Activator.CreateInstance(controllerType,iocParamtersArray);
             }
             else
             {
                 activeController = (Controller)Activator.CreateInstance(controllerType);
-
             }
           
             
