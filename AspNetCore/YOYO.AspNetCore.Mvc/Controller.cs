@@ -11,7 +11,7 @@ namespace YOYO.Mvc
     public class Controller
     {
         protected IOwinContext Context { set; get; }
-        public void SetHttpContext(IOwinContext context)
+        internal void SetHttpContext(IOwinContext context)
         {
             this.Context = context;
         }

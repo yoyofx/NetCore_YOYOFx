@@ -20,13 +20,23 @@ namespace YOYO.Mvc.ActionRuntime
 
 		public object ExecuteAsync(string controllerName,string actionName,IOwinContext context)
 		{
-			var controllerType = ApplicationAssemblyLoader.FindControllerTypeByName(controllerName);
+            var serviceProvider = Application.CurrentApplication.ServiceProvider;
+
+            var controllerType = ApplicationAssemblyLoader.FindControllerTypeByName(controllerName);
 			if (controllerType == null) throw new NullReferenceException("Not Found Controller Name by" + controllerName);
 
-			var controller = (Controller)Activator.CreateInstance(controllerType);
-            var pi = controllerType.GetTypeInfo().GetProperty("Context",BindingFlags.NonPublic | BindingFlags.Public  | BindingFlags.Instance | BindingFlags.Static);
-            pi.SetValue(controller, context);
-			var actionMethodInfo = controllerType.GetTypeInfo().GetMethod(actionName);
+            //         var pi = controllerType.GetTypeInfo().GetProperty("Context",BindingFlags.NonPublic | BindingFlags.Public  | BindingFlags.Instance | BindingFlags.Static);
+            //         pi.SetValue(controller, context);
+
+            var controllerFactory = (IControllerFacotry)serviceProvider.
+                                            GetService(typeof(IControllerFacotry));
+           
+
+            var controller = controllerFactory.CreateController(controllerType, serviceProvider);
+           
+            controller.SetHttpContext(context);
+
+            var actionMethodInfo = controllerType.GetTypeInfo().GetMethod(actionName);
 			if (actionMethodInfo == null) throw new NullReferenceException("Not Found Action Name by" + actionName);
 
 			IDynamicMethodInvoker invoker = null;

@@ -10,10 +10,13 @@ using YOYO.Owin.Pipeline;
 
 namespace YOYO.Mvc.Owin
 {
+    using ActionRuntime;
 
 
 #if NET451
     using global::Owin;
+    using Microsoft.Extensions.DependencyInjection;
+
     public static class OwinPipelineExtensions
     {
         public static IAppBuilder UseYOYOFx(this IAppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<Pipeline> setup = null, Action<YOYOFxOptions> configuration = null)
@@ -68,7 +71,12 @@ namespace YOYO.Mvc.Owin
 
         }
 
-
+        public static void AddYOYOFx(this IServiceCollection services)
+        {
+            services.AddSingleton<IControllerFacotry, DefaultControllerFactory>();
+            services.AddSingleton<IRouteBuilder>(RouteBuilder.Builder);
+            Application.CurrentApplication.ServiceProvider = services.BuildServiceProvider();
+        }
 
     }
 #endif

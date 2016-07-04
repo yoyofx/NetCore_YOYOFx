@@ -1,4 +1,7 @@
-#:C:\Users\zlhxd\Documents\YOYOFx\Tests\Tests.xproj
-C:\Users\zlhxd\Documents\YOYOFx\Tests\Tests.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
-C:\Users\zlhxd\Documents\YOYOFx\Tests\Tests.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+#:C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj
+C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
+C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj
 C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
+C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
