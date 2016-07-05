@@ -1,7 +1,10 @@
-#:C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj
-C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
-C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
-C:\Users\zlhxd\Documents\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj
-C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
-C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
-C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj|C:\Users\zlhxd\Documents\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+#:F:\self\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj
+F:\self\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
+F:\self\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+F:\self\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj
+F:\self\YOYOFx\Hosts\NET451OwinHost\NET451_Core_OwinHost.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Builder\YOYO.AspNetCore.Builder.xproj
+F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
+F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.ViewEngine.Razor\YOYO.AspNetCore.ViewEngine.Razor.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj
+F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Builder\YOYO.AspNetCore.Builder.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.xproj
+F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Builder\YOYO.AspNetCore.Builder.xproj|F:\self\YOYOFx\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.xproj

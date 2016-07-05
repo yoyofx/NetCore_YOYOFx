@@ -21,7 +21,7 @@
   "frameworks": {
     "net451": {
       "dependencies": {
-        "Owin": "1.0.0"
+      
       },
       "frameworkAssemblies": {
         "System.Xml": "4.0.0.0",

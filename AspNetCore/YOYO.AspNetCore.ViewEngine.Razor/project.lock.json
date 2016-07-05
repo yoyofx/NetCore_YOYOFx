@@ -155,15 +155,6 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "Owin/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Owin.dll": {}
-        }
-      },
       "System.Collections/4.0.11": {
         "type": "package",
         "frameworkAssemblies": [
@@ -557,8 +548,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "1.0.0",
           "NETStandard.Library": "1.6.0",
-          "Newtonsoft.Json": "8.0.3",
-          "Owin": "1.0.0"
+          "Newtonsoft.Json": "8.0.3"
         },
         "frameworkAssemblies": [
           "System.Xml",
@@ -2560,15 +2550,6 @@
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "tools/install.ps1"
-      ]
-    },
-    "Owin/1.0.0": {
-      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
-      "type": "package",
-      "files": [
-        "Owin.1.0.0.nupkg.sha512",
-        "Owin.nuspec",
-        "lib/net40/Owin.dll"
       ]
     },
     "runtime.native.System/4.0.0": {

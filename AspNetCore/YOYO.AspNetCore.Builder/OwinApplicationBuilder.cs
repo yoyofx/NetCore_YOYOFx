@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using YOYO.Mvc.Route;
 using YOYO.Mvc;
-using YOYO.Owin.Pipeline;
 using YOYO.Owin;
 using YOYO.Mvc.Owin;
 using Microsoft.Extensions.DependencyInjection;
 using YOYO.Mvc.ActionRuntime;
+
+#if NET451
+using AppBuilder = Owin.IAppBuilder;
+#else
+using AppBuilder = Microsoft.AspNetCore.Builder.IApplicationBuilder;
+#endif
 
 namespace YOYO.AspNetCore.Builder
 {
@@ -17,7 +22,7 @@ namespace YOYO.AspNetCore.Builder
     {
         private static YOYOFxOwinMiddleware Middleware = new YOYOFxOwinMiddleware();
 
-        public static IApplicationBuilder UseYOYOFx(this IApplicationBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<YOYOFxOptions> configuration = null)
+        private static AppBuilder UseYOYOFx(this AppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<YOYOFxOptions> configuration = null)
         {
             YOYOFxOptions options = new YOYOFxOptions();
             if (configuration != null)
@@ -35,20 +40,42 @@ namespace YOYO.AspNetCore.Builder
             if (routebuilderFunc!=null)
                 routebuilderFunc(RouteBuilder.Builder);
 
-            app.UseOwin(p => p(next => Invoke));
-                
+
+            if (Application.CurrentApplication.ServiceProvider == null)
+            {
+                IServiceCollection sc = new ServiceCollection();
+                sc.AddYOYOFx();
+            }
+
+
             return app;
         }
 
-        public static IApplicationBuilder UseWorkFolder(this IApplicationBuilder app, string path)
+
+#if NET451
+         public static AppBuilder UseYOYOFxOwin(this AppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<YOYOFxOptions> configuration = null)
+        {
+            UseYOYOFx(app, routebuilderFunc, configuration);
+            app.Use(new Func<AppFunc,AppFunc>(next => Invoke));
+            return app;
+        }
+#else
+        public static AppBuilder UseYOYOFxCore(this AppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<YOYOFxOptions> configuration = null)
+        {
+            UseYOYOFx(app, routebuilderFunc, configuration);
+            app.UseOwin(p => p(next => Invoke));
+            return app;
+        }
+#endif
+
+
+        public static AppBuilder UseWorkFolder(this AppBuilder app, string path)
         {
             HostingEnvronment.SetRootPath(path);
             return app;
         }
 
-
-
-
+        
         public static async Task Invoke(IDictionary<string, object> environment)
         {
             var context = await OwinContext.GetContextAsync(environment);

@@ -92,15 +92,6 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "Owin/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Owin.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Owin.dll": {}
-        }
-      },
       "System.Collections/4.0.11": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1949,15 +1940,6 @@
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
         "tools/install.ps1"
-      ]
-    },
-    "Owin/1.0.0": {
-      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
-      "type": "package",
-      "files": [
-        "Owin.1.0.0.nupkg.sha512",
-        "Owin.nuspec",
-        "lib/net40/Owin.dll"
       ]
     },
     "runtime.native.System/4.0.0": {
@@ -5205,7 +5187,6 @@
       "YOYO.AspNetCore.Owin"
     ],
     ".NETFramework,Version=v4.5.1": [
-      "Owin >= 1.0.0",
       "System.Xml >= 4.0.0",
       "System.Xml.Serialization >= 4.0.0"
     ],

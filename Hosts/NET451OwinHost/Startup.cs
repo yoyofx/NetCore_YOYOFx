@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using YOYO.Mvc.Owin;
-using Microsoft.Extensions.DependencyInjection;
+using YOYO.AspNetCore.Builder;
 
 namespace NET451OwinHost
 {
@@ -28,10 +28,7 @@ namespace NET451OwinHost
 
             app.UseWorkFolder(AppDomain.CurrentDomain.BaseDirectory);
 
-            IServiceCollection sc = new ServiceCollection();
-            sc.AddYOYOFx();
-
-            app.UseYOYOFx(route =>
+            app.UseYOYOFxOwin(route =>
                      route.Map("/{controller}/{action}/{id}/"));
 
 

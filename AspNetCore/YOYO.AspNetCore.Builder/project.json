@@ -18,8 +18,13 @@
   },
 
   "frameworks": {
-    "netstandard1.6": {
-      "imports": "dnxcore50"
+      "netstandard1.6": {
+        "imports": "dnxcore50"
+      },
+      "net451": {
+        "dependencies": {
+          "Owin": "1.0.0"
+        }
+      }
     }
   }
-}
