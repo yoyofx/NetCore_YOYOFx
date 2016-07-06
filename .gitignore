@@ -30,3 +30,8 @@
 /AspNetCore/YOYO.AspNetCore.Builder/obj
 /ORM/MaxZhang.EasyEntities.Persistence/obj/Release
 /YOYOFx.VC.db
+.vs/YOYOFx/v14/.suo
+AspNetCore/YOYO.AspNetCore.Mvc/obj/Debug/net451/.IncrementalCache
+*.IncrementalCache
+AspNetCore/YOYO.AspNetCore.Mvc/obj/Debug/net451/.IncrementalCache
+AspNetCore/YOYO.AspNetCore.Mvc/obj/Debug/net451/dotnet-compile-csc.rsp

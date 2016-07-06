@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace YOYO.Mvc.ActionRuntime
 {
@@ -14,23 +15,7 @@ namespace YOYO.Mvc.ActionRuntime
         {
             Controller activeController = null;
 
-            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
-            var constructors = controllerType.GetConstructors(flags);
-            if(constructors.Length > 1 )
-            {
-                var ctorInfo = constructors.Where(constructor => 
-                                                                            constructor.GetParameters().Length > 0).First();
-
-                var ctorParamList = ctorInfo.GetParameters();
-                var iocParamtersArray = ctorParamList.Select(cp=> serverProvider.GetService( cp.ParameterType ) ).ToArray();
-                activeController = (Controller)Activator.CreateInstance(controllerType,iocParamtersArray);
-            }
-            else
-            {
-                activeController = (Controller)Activator.CreateInstance(controllerType);
-            }
-          
-            
+            activeController = (Controller)ActivatorUtilities.CreateInstance(serverProvider, controllerType);
 
             return activeController;
         }
