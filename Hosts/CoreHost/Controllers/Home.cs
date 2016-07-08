@@ -5,11 +5,20 @@ using System.Threading.Tasks;
 using YOYO.Mvc;
 using YOYO.Mvc.Filters;
 using YOYO.DotnetCore;
+using YOYO.Extensions.DI;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreHost.Controllers
 {
     public class Home : Controller
     {
+        public Home(IUser user)
+        {
+
+
+        }
+
+
         public dynamic Login()
         {
             return View("/Views/Login.cshtml");
@@ -76,9 +85,13 @@ namespace CoreHost.Controllers
 
     }
 
+    public interface IUser
+    {
+        string Name { set; get; }
+    }
 
-
-    public class MyUser
+    [ServiceDescriptor(typeof(IUser),ServiceLifetime.Transient)]
+    public class MyUser : IUser
     {  
         public string Name { set; get; }
 

@@ -12,6 +12,7 @@ namespace YOYO.Mvc
         ActionRuntimeManager RuntimeManager { get; }
         void Initialise();
 
+        Task InitialiseAsync();
 
         IEnumerable<Type> ViewEngines { get; }
     }

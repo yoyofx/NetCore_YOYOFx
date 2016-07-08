@@ -23,6 +23,12 @@ namespace YOYO.Mvc
             ViewEngineFactory.LoadViewEngine();
         }
 
+        public virtual Task InitialiseAsync()
+        {
+            return Task.Factory.StartNew(() => Initialise());
+        }
+
+
         public virtual string GetRootPath()
         {
             return HostingEnvronment.GetRootPath();

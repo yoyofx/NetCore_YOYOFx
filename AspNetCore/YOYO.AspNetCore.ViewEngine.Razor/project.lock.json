@@ -548,7 +548,8 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "1.0.0",
           "NETStandard.Library": "1.6.0",
-          "Newtonsoft.Json": "8.0.3"
+          "Newtonsoft.Json": "8.0.3",
+          "YOYO.Extensions.DI": "1.0.0"
         },
         "frameworkAssemblies": [
           "System.Xml",
@@ -572,6 +573,20 @@
         },
         "runtime": {
           "net451/YOYO.AspNetCore.Owin.dll": {}
+        }
+      },
+      "YOYO.Extensions.DI/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "net451/YOYO.Extensions.DI.dll": {}
+        },
+        "runtime": {
+          "net451/YOYO.Extensions.DI.dll": {}
         }
       }
     },
@@ -2255,7 +2270,8 @@
           "Newtonsoft.Json": "8.0.3",
           "System.Runtime": "4.1.0",
           "System.Runtime.Loader": "4.0.0",
-          "System.Xml.XmlSerializer": "4.0.11"
+          "System.Xml.XmlSerializer": "4.0.11",
+          "YOYO.Extensions.DI": "1.0.0"
         },
         "compile": {
           "netstandard1.6/YOYO.AspNetCore.Mvc.dll": {}
@@ -2276,6 +2292,20 @@
         },
         "runtime": {
           "netstandard1.6/YOYO.AspNetCore.Owin.dll": {}
+        }
+      },
+      "YOYO.Extensions.DI/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/YOYO.Extensions.DI.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/YOYO.Extensions.DI.dll": {}
         }
       }
     }
@@ -6175,6 +6205,11 @@
       "type": "project",
       "path": "../YOYO.AspNetCore.Owin/project.json",
       "msbuildProject": "../YOYO.AspNetCore.Owin/YOYO.AspNetCore.Owin.xproj"
+    },
+    "YOYO.Extensions.DI/1.0.0": {
+      "type": "project",
+      "path": "../YOYO.Extensions.DI/project.json",
+      "msbuildProject": "../YOYO.Extensions.DI/YOYO.Extensions.DI.xproj"
     }
   },
   "projectFileDependencyGroups": {

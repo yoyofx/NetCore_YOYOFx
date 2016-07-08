@@ -8,7 +8,8 @@
     "YOYO.AspNetCore.Owin": {
       "target": "project",
       "type": "build"
-    }
+    },
+    "YOYO.Extensions.DI": "1.0.0-*"
   },
 
   "buildOptions": {

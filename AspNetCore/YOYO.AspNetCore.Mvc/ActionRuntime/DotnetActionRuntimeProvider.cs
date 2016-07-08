@@ -25,9 +25,6 @@ namespace YOYO.Mvc.ActionRuntime
             var controllerType = ApplicationAssemblyLoader.FindControllerTypeByName(controllerName);
 			if (controllerType == null) throw new NullReferenceException("Not Found Controller Name by" + controllerName);
 
-            //         var pi = controllerType.GetTypeInfo().GetProperty("Context",BindingFlags.NonPublic | BindingFlags.Public  | BindingFlags.Instance | BindingFlags.Static);
-            //         pi.SetValue(controller, context);
-
             var controllerFactory = (IControllerFacotry)serviceProvider.
                                             GetService(typeof(IControllerFacotry));
            

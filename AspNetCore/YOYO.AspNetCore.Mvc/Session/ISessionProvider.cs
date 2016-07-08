@@ -7,7 +7,7 @@ using YOYO.Owin;
 
 namespace YOYO.Mvc.Session
 {
-    internal interface ISessionProvider
+    public interface ISessionProvider
     {
         Task<ISession> AccessAsync(IOwinContext context);
 

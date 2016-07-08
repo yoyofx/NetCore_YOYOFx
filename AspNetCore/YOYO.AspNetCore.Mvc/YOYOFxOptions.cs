@@ -8,13 +8,6 @@ namespace YOYO.Mvc
 {
     public class YOYOFxOptions
     {
-        public YOYOFxOptions()
-        {
-            this.Bootstrapper = new DefaultBootstrapper();
-        }
-
-
-        public IYOYOBootstrapper Bootstrapper { set; get; }
 
 
     }

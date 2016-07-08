@@ -91,6 +91,10 @@ namespace YOYO.Mvc
 
         }
 
+        public static IEnumerable<Type> GetAllTypes()
+        {
+            return types;
+        }
 
         public static string[] GetControllerNames()
 		{

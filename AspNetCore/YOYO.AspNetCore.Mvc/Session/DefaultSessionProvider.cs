@@ -7,7 +7,7 @@ using YOYO.Owin;
 
 namespace YOYO.Mvc.Session
 {
-    internal class DefaultSessionProvider : ISessionProvider
+    public class DefaultSessionProvider : ISessionProvider
     {
         private static DefaultSessionProvider _manager;
 
@@ -76,6 +76,12 @@ namespace YOYO.Mvc.Session
             }
             session.RefreshSessionAccessTime();
             store.SetSession(session.ID, session);
+
+            if (!context.Items.ContainsKey("session"))
+                context.Items.Add("session", session);
+            else
+                context.Items["session"] = session;
+
 
             return Task.FromResult((ISession)session);
         }
