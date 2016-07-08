@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using YOYO.Mvc.Route;
 using YOYO.Mvc;
+using YOYO.Mvc.Session;
 using YOYO.Owin;
 using YOYO.Mvc.Owin;
-using Microsoft.Extensions.DependencyInjection;
 using YOYO.Mvc.ActionRuntime;
+using Microsoft.Extensions.DependencyInjection;
+using YOYO.Extensions.DI;
 
 #if NET451
 using AppBuilder = Owin.IAppBuilder;
@@ -24,11 +25,15 @@ namespace YOYO.AspNetCore.Builder
 
         private static AppBuilder UseYOYOFx(this AppBuilder app, Action<IRouteBuilder> routebuilderFunc = null, Action<YOYOFxOptions> configuration = null)
         {
+            if (Application.CurrentApplication.ServiceProvider == null)
+            {
+                IServiceCollection sc = new ServiceCollection();
+                sc.AddYOYOFx();
+            }
+
             YOYOFxOptions options = new YOYOFxOptions();
             if (configuration != null)
                 configuration(options);
-
-            options.Bootstrapper.Initialise();
 
             Application.CurrentApplication.SetOptions(options);
 
@@ -39,14 +44,6 @@ namespace YOYO.AspNetCore.Builder
 
             if (routebuilderFunc!=null)
                 routebuilderFunc(RouteBuilder.Builder);
-
-
-            if (Application.CurrentApplication.ServiceProvider == null)
-            {
-                IServiceCollection sc = new ServiceCollection();
-                sc.AddYOYOFx();
-            }
-
 
             return app;
         }
@@ -88,6 +85,18 @@ namespace YOYO.AspNetCore.Builder
         {
             services.AddSingleton<IControllerFacotry,DefaultControllerFactory>();
             services.AddSingleton<IRouteBuilder>(RouteBuilder.Builder);
+
+            IYOYOBootstrapper bootStrapper = new DefaultBootstrapper();
+            bootStrapper.Initialise();
+
+            services.AddSingleton<IYOYOBootstrapper>(bootStrapper);
+
+            services.Scan(scan =>  scan.FromAssembliesOf(ApplicationAssemblyLoader.GetAllTypes())
+                        .AddClasses()
+                        .UsingAttributes());
+
+            services.AddSingleton<ISessionProvider, DefaultSessionProvider>();
+
             Application.CurrentApplication.ServiceProvider = services.BuildServiceProvider();
         }
 

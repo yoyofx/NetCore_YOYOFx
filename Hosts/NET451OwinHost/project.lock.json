@@ -773,7 +773,8 @@
           "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Owin": "1.0.0",
           "NETStandard.Library": "1.6.0",
-          "Owin": "1.0.0"
+          "Owin": "1.0.0",
+          "YOYO.Extensions.DI": "1.0.0"
         },
         "compile": {
           "net451/YOYO.AspNetCore.Builder.dll": {}
@@ -788,7 +789,8 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "1.0.0",
           "NETStandard.Library": "1.6.0",
-          "Newtonsoft.Json": "8.0.3"
+          "Newtonsoft.Json": "8.0.3",
+          "YOYO.Extensions.DI": "1.0.0"
         },
         "frameworkAssemblies": [
           "System.Xml",
@@ -831,6 +833,20 @@
         },
         "runtime": {
           "net451/YOYO.AspNetCore.ViewEngine.Razor.dll": {}
+        }
+      },
+      "YOYO.Extensions.DI/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "net451/YOYO.Extensions.DI.dll": {}
+        },
+        "runtime": {
+          "net451/YOYO.Extensions.DI.dll": {}
         }
       }
     }
@@ -3453,6 +3469,11 @@
       "type": "project",
       "path": "../../AspNetCore/YOYO.AspNetCore.ViewEngine.Razor/project.json",
       "msbuildProject": "../../AspNetCore/YOYO.AspNetCore.ViewEngine.Razor/YOYO.AspNetCore.ViewEngine.Razor.xproj"
+    },
+    "YOYO.Extensions.DI/1.0.0": {
+      "type": "project",
+      "path": "../../AspNetCore/YOYO.Extensions.DI/project.json",
+      "msbuildProject": "../../AspNetCore/YOYO.Extensions.DI/YOYO.Extensions.DI.xproj"
     }
   },
   "projectFileDependencyGroups": {
