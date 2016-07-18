@@ -16,7 +16,7 @@
     "compile": [
       "**.cs"
     ]
-
+    ,"debugType": "portable"
   },
 
   "frameworks": {

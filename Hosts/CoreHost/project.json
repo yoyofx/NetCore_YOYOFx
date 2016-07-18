@@ -27,6 +27,7 @@
       "Views/*.*",
       "web.config"
     ]
+    ,"debugType": "portable"
   },
 
   "runtimeOptions": {

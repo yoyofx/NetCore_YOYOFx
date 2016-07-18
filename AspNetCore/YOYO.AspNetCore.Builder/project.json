@@ -1,6 +1,8 @@
 {
   "version": "0.1.3-*",
-
+  "buildOptions": {
+    "debugType": "portable"
+  },
   "dependencies": {
     "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
     "Microsoft.AspNetCore.Owin": "1.0.0",

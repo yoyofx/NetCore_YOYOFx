@@ -13,7 +13,8 @@
     "compile": [
       "**.cs"
     ],
-    "defines": [  ]
+    "defines": [  ],
+    "debugType": "portable"
   },
   "frameworks": {
     "net451": {
