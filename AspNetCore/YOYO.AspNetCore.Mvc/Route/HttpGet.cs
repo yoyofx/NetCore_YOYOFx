@@ -10,7 +10,7 @@ using YOYO.Extensions.DI;
 namespace YOYO.Mvc.Route
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class HttpGet : HttpRole
+    public class HttpGetAttribute : HttpRouteAttribute
     {
         public HttpGet(string urlRole) : base(urlRole) { }
 

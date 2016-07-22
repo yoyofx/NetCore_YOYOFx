@@ -10,9 +10,9 @@ using YOYO.Extensions.DI;
 namespace YOYO.Mvc.Route
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class HttpPost : HttpRoute
+    public class HttpPostAttribute : HttpRouteAttribute
     {
-        public HttpPost(string urlRole): base(urlRole){}
+        public HttpPostAttribute(string urlRole): base(urlRole){}
 
 
     }
