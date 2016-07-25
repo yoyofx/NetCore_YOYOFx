@@ -12,7 +12,7 @@ namespace YOYO.Mvc.Route
     [AttributeUsage(AttributeTargets.Method)]
     public class HttpGetAttribute : HttpRouteAttribute
     {
-        public HttpGet(string urlRole) : base(urlRole) { }
+        public HttpGetAttribute(string urlRole) : base(urlRole) { }
 
 
     }
