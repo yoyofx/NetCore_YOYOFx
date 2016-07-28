@@ -73,6 +73,18 @@ namespace CoreHost.Controllers
         }
 
 
+        public dynamic Demo()
+        {
+            var model = new List<MyUser>();
+            for (int i = 0; i <= 10; i++)
+                model.Add(new MyUser() { Name = "maxzhang 张磊" + i.ToString() });
+
+            ViewBag.userList = model;
+            return View("/Views/Home.cshtml");
+        }
+
+
+
         public dynamic Captcha()
         {
             string fileName = Guid.NewGuid().ToString() + ".bmp";

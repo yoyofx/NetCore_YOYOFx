@@ -8,6 +8,7 @@ using YOYO.Mvc.Reflection;
 using System.Reflection;
 using YOYO.Owin;
 using YOYO.Mvc.Extensions;
+using YOYO.Mvc.Route;
 
 namespace YOYO.Mvc.ActionRuntime
 {
@@ -83,7 +84,10 @@ namespace YOYO.Mvc.ActionRuntime
 
         public void LoadRuntime(string path)
         {
-            //ApplicationAssemblyLoader.ResolveAssembly(path);
+            IRouteBuilder routeBuilder = RouteBuilder.Builder;
+             ApplicationAssemblyLoader.GetControllerNames();
+
+
         }
     }
 }
