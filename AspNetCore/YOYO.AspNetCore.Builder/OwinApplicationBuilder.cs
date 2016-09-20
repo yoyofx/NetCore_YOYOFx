@@ -91,7 +91,7 @@ namespace YOYO.AspNetCore.Builder
 
             services.AddSingleton<IYOYOBootstrapper>(bootStrapper);
 
-            services.Scan(scan =>  scan.FromAssembliesOf(ApplicationAssemblyLoader.GetAllTypes())
+            services.Scan(scan =>  scan.FromAssemblies(ApplicationAssemblyLoader.GetLoadedAssemblies())
                         .AddClasses()
                         .UsingAttributes());
 

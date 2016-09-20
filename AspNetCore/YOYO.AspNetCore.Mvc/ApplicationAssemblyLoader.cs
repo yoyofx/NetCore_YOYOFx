@@ -17,7 +17,7 @@ namespace YOYO.Mvc
     {
         private static IEnumerable<Type> types = null;
         private static IDictionary<string, Type> mvcControllers = new Dictionary<string, Type>();
-
+        private static List<Assembly> _assemblies = new List<Assembly>(100);
         public static void ResolveAssembly(string path)
         {
             DirectoryInfo dir = new DirectoryInfo(path);
@@ -25,45 +25,8 @@ namespace YOYO.Mvc
             var searchFiles = dir.GetFiles("*.*", SearchOption .TopDirectoryOnly).
                                             Where(f => f.Name.EndsWith(".exe") || f.Name.EndsWith(".dll"));
 
-            Func<FileInfo, Type[]> loadAssemblyByPathFunc = null;
-            
-#if NET451
-            loadAssemblyByPathFunc = (fileInfo) => {
-                try
-                {
-                    return AppDomain.CurrentDomain.Load(
-                         AssemblyName.GetAssemblyName(fileInfo.FullName)
-                    ).GetTypes();
-                }
-                catch { }
-                    return new Type[0] ;
-                };
 
-#endif
-
-#if NETCOREAPP1_0 || NETSTANDARD1_6
-
-             loadAssemblyByPathFunc = (fileInfo) => {
-                try
-                {
-                    //return AssemblyLoadContext.Default
-                    //          .LoadFromAssemblyPath(fileInfo.FullName).GetTypes();
-
-
-                    string assemblyName = fileInfo.Name.Replace(".dll","").Replace(".exe","");
-
-                    return Assembly.Load(new AssemblyName(assemblyName)).GetTypes();
-                }
-                catch{ }
-                    return new Type[0];
-                };
-
-           
-            
-#endif
-
-
-            var TypeList = searchFiles.SelectMany(file => loadAssemblyByPathFunc(file) );
+            var TypeList = searchFiles.SelectMany(file => getAssemblyofTypes(loadAssembly(file)) ).ToList();
 
             types = TypeList;
 
@@ -82,6 +45,46 @@ namespace YOYO.Mvc
 
         }
 
+        private static Type[] getAssemblyofTypes(Assembly assembly)
+        {
+            Type[] ret = new Type[0];
+            try
+            {
+                if (assembly != null)
+                {
+                    ret = assembly?.GetTypes();
+                    _assemblies.Add(assembly);
+                }
+            }
+            catch{}
+
+            return ret;
+        }
+
+
+        /// <summary>
+        /// 加载程序集
+        /// </summary>
+        /// <param name="fileInfo"></param>
+        /// <returns></returns>
+        private static Assembly loadAssembly(FileInfo fileInfo)
+        {
+            try
+            {
+#if NET451
+                return AppDomain.CurrentDomain.Load(
+                    AssemblyName.GetAssemblyName(fileInfo.FullName)
+                );
+#else
+                string assemblyName = fileInfo.Name.Replace(".dll","").Replace(".exe","");
+                return Assembly.Load(new AssemblyName(assemblyName));
+#endif
+            }
+            catch {}
+            return null;
+        }
+
+
         public static IEnumerable<Type> TypesOf(Type type)
         {
             var returnTypes =
@@ -91,10 +94,16 @@ namespace YOYO.Mvc
 
         }
 
-        public static IEnumerable<Type> GetAllTypes()
+        public static IEnumerable<Type> GetLoadedTypes()
         {
             return types;
         }
+
+        public static List<Assembly> GetLoadedAssemblies()
+        {
+            return _assemblies;
+        }
+
 
         public static string[] GetControllerNames()
 		{
