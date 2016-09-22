@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using YOYO.Owin;
+using YOYO.Mvc.Extensions;
 
 namespace YOYO.Mvc.ActionRuntime
 {
@@ -16,31 +18,29 @@ namespace YOYO.Mvc.ActionRuntime
         public static List<object> GetValuesByRequest(List<ActionRuntimeParameter> parameters , IOwinRequest request)
         {
             int pindex = 0;
+            //返回值
             List<object> pv = new List<object>();
             var routeValues = request.RouteValues.Values.ToList();
           
             foreach(var p in parameters)
             {
+                //get type default value
+                object pvItem = p.ParameterType.GetTypeDefaultValue();
+
                 var requestValue = request[p.Name];
                 if(!string.IsNullOrEmpty(requestValue))
-                {
-                    object value = Convert.ChangeType(requestValue, p.ParameterType);
-                    pv.Add(value);
-                }
+                    pvItem = Convert.ChangeType(requestValue, p.ParameterType);
                 else
                 {
-                    if (routeValues.Count > pindex)
-                    {
+                    if (routeValues.Count > pindex){
                         string routeValue = request.RouteValues.Values.ToList()[pindex];
-                        object value = Convert.ChangeType(routeValue, p.ParameterType);
-                        pv.Add(value);
+                        pvItem = Convert.ChangeType(routeValue, p.ParameterType);
                         pindex++;
                     }
-                    else
-                    {
-                        break;
-                    }
                 }
+
+                pv.Add(pvItem);
+               
             }
 
             if (parameters.Count != pv.Count)
