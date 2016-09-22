@@ -29,6 +29,8 @@ namespace YOYO.Mvc.Owin
                     context.Response.Status = Status.Is.InternalServerError;
                     string message = string.Format("Error Message: {0} {1} StackTrace: {2}", 
                         ex.Message, Environment.NewLine, ex.StackTrace);
+
+                    context.Response.Headers.ContentType = "text/html; charset=UTF-8";
                     await context.Response.WriteAsync(message);
                 }
             }
