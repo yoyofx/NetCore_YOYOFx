@@ -1,0 +1,32 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (CaptchaImage.vcxproj, Win32Project1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  stdafx.cpp
+  dllmain.cpp
+  CaptchaImage.cpp
+f:\self\yoyofx\native\libcaptchaimage\captchaimage.cpp(21): warning C4018: '<': signed/unsigned mismatch
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(14230): warning C4319: '~': zero extending 'unsigned long' to 'double' of greater size
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(14229): note: while compiling class template member function 'double cimg_library::CImg<float>::_cimg_math_parser::mp_bitwise_not(void)'
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(14564): note: see reference to function template instantiation 'double cimg_library::CImg<float>::_cimg_math_parser::mp_bitwise_not(void)' being compiled
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(15764): note: see reference to class template instantiation 'cimg_library::CImg<float>::_cimg_math_parser' being compiled
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(15762): note: while compiling class template member function 'double cimg_library::CImg<float>::eval(const char *const ,const double,const double,const double,const double) const'
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(46145): note: see reference to function template instantiation 'double cimg_library::CImg<float>::eval(const char *const ,const double,const double,const double,const double) const' being compiled
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(46144): note: see reference to class template instantiation 'cimg_library::CImg<float>' being compiled
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18837): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(18831): note: while compiling class template member function 'cimg_library::CImg<char> &cimg_library::CImg<char>::_system_strescape(void)'
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(41143): note: see reference to function template instantiation 'cimg_library::CImg<char> &cimg_library::CImg<char>::_system_strescape(void)' being compiled
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(13680): note: see reference to class template instantiation 'cimg_library::CImg<char>' being compiled
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18837): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18838): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18838): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18839): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18839): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18840): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18840): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18841): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18841): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(18843): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
+f:\self\yoyofx\native\libcaptchaimage\cimg.h(17021): warning C4267: 'argument': conversion from 'size_t' to 'const unsigned int', possible loss of data
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(17019): note: while compiling class template member function 'cimg_library::CImg<char> cimg_library::CImg<char>::string(const char *const ,const bool)'
+  f:\self\yoyofx\native\libcaptchaimage\cimg.h(41143): note: see reference to function template instantiation 'cimg_library::CImg<char> cimg_library::CImg<char>::string(const char *const ,const bool)' being compiled
+     Creating library F:\self\YOYOFx\x64\Debug\libcaptchaimage.lib and object F:\self\YOYOFx\x64\Debug\libcaptchaimage.exp
+  LibCaptchaImage.vcxproj -> F:\self\YOYOFx\x64\Debug\libcaptchaimage.dll
+  LibCaptchaImage.vcxproj -> F:\self\YOYOFx\x64\Debug\libcaptchaimage.pdb (Full PDB)

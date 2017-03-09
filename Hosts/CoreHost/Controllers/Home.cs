@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using YOYO.Mvc;
 using YOYO.Mvc.Filters;
-using YOYO.DotnetCore;
 using YOYO.Extensions.DI;
 using Microsoft.Extensions.DependencyInjection;
+using LibCaptchaImageWarp;
 
 namespace CoreHost.Controllers
 {
