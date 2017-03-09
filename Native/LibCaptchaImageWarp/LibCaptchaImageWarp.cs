@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.PlatformAbstractions;
 using System.IO;
 
-namespace YOYO.DotnetCore
+namespace LibCaptchaImageWarp
 {
 
    
