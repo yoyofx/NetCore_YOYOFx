@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Concurrent;
 
-namespace YOYO.Mvc.ActionRuntime
+namespace YOYO.AspNetCore.Mvc.ActionRuntime
 {
 	public class ActionRuntimeManager: IDisposable
     {

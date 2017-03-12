@@ -1,4 +1,4 @@
-﻿namespace YOYO.Owin
+﻿namespace YOYO.AspNetCore.Owin
 {
     /// <summary>
     /// Provides string constants for HTTP Header keys

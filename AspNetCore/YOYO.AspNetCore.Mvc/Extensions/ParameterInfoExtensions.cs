@@ -4,9 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc.ActionRuntime;
+using YOYO.AspNetCore.Mvc.ActionRuntime;
 
-namespace YOYO.Mvc.Extensions
+namespace YOYO.AspNetCore.Mvc.Extensions
 {
     public static class ParameterInfoExtensions
     {

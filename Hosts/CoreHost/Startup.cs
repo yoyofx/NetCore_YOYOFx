@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using YOYO.AspNetCore.Builder;
-using YOYO.Mvc.Route;
+using YOYO.AspNetCore.Mvc.Route;
 
 namespace CoreHost
 {

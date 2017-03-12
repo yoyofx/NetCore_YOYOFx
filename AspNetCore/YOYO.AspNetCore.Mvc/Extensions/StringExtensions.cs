@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc.Extensions
+namespace YOYO.AspNetCore.Mvc.Extensions
 {
     public static class StringExtensions
     {

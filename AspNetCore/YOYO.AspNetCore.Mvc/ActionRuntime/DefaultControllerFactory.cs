@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YOYO.Mvc.ActionRuntime
+namespace YOYO.AspNetCore.Mvc.ActionRuntime
 {
     public class DefaultControllerFactory : IControllerFacotry
     {

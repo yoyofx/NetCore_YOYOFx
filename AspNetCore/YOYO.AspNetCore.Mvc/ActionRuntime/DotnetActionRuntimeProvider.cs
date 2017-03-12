@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc.Reflection;
+using YOYO.AspNetCore.Mvc.Reflection;
 using System.Reflection;
-using YOYO.Owin;
-using YOYO.Mvc.Extensions;
-using YOYO.Mvc.Route;
+using YOYO.AspNetCore.Owin;
+using YOYO.AspNetCore.Mvc.Extensions;
+using YOYO.AspNetCore.Mvc.Route;
 
-namespace YOYO.Mvc.ActionRuntime
+namespace YOYO.AspNetCore.Mvc.ActionRuntime
 {
     public class DotnetActionRuntimeProvider : IActionRuntimeProvider
 

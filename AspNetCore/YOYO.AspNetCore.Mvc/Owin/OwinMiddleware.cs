@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc.Route;
-using YOYO.Owin;
-using YOYO.Owin.Pipeline;
+using YOYO.AspNetCore.Mvc.Route;
+using YOYO.AspNetCore.Owin;
+using YOYO.AspNetCore.Owin.Pipeline;
 
-namespace YOYO.Mvc.Owin
+namespace YOYO.AspNetCore.Mvc.Owin
 {
     public class YOYOFxOwinMiddleware : PipelineComponent
     {

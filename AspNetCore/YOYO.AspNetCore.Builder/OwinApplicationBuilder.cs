@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using YOYO.Mvc.Route;
-using YOYO.Mvc;
-using YOYO.Mvc.Session;
-using YOYO.Owin;
-using YOYO.Mvc.Owin;
-using YOYO.Mvc.ActionRuntime;
+using YOYO.AspNetCore.Mvc.Route;
+using YOYO.AspNetCore.Mvc;
+using YOYO.AspNetCore.Mvc.Session;
+using YOYO.AspNetCore.Owin;
+using YOYO.AspNetCore.Mvc.Owin;
+using YOYO.AspNetCore.Mvc.ActionRuntime;
 using Microsoft.Extensions.DependencyInjection;
 using YOYO.Extensions.DI;
 

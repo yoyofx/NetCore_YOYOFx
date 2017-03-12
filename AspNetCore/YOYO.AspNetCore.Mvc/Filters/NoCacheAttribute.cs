@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc.Filters
+namespace YOYO.AspNetCore.Mvc.Filters
 {
     public class NoCacheAttribute: ActionFilterAttribute
     {

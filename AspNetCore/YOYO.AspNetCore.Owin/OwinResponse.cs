@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.IO;
-using YOYO.Owin.Helper;
+using YOYO.AspNetCore.Owin.Helper;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     internal class OwinResponse : IOwinResponse
     {

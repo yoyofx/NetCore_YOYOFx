@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace YOYO.Owin.Helper
+namespace YOYO.AspNetCore.Owin.Helper
 {
 
 	public static class TaskExtensions

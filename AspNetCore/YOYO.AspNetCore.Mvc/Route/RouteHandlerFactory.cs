@@ -1,8 +1,8 @@
 ﻿using System;
-using YOYO.Mvc.Route;
-using YOYO.Owin;
+using YOYO.AspNetCore.Mvc.Route;
+using YOYO.AspNetCore.Owin;
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
 	public class RouteHandlerFactory
 	{

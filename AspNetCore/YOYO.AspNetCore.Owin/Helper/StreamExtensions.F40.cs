@@ -2,9 +2,9 @@
 //using System.IO;
 //using System.Threading;
 //using System.Threading.Tasks;
-//using YOYO.Owin;
+//using YOYO.AspNetCore.Owin;
 
-//namespace YOYO.Owin.Helper
+//namespace YOYO.AspNetCore.Owin.Helper
 //{
 //    internal static partial class StreamExtensions
 //    {

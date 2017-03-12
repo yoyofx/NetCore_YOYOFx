@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     internal class OwinResponseHeaders : HttpHeaders, IResponseHeaders
     {

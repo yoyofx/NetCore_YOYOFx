@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc;
+using YOYO.AspNetCore.Mvc;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {

@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc;
-using YOYO.Owin;
+using YOYO.AspNetCore.Mvc;
+using YOYO.AspNetCore.Owin;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {
@@ -20,7 +20,7 @@ namespace YOYO.AspNetCore.ViewEngine.Razor
 
         public string ExtensionName {  get { return ".cshtml"; }  }
 
-        public string RenderView(YOYO.Owin.IOwinContext httpContext, string viewName, object model, DynamicDictionary viewbag)
+        public string RenderView(YOYO.AspNetCore.Owin.IOwinContext httpContext, string viewName, object model, DynamicDictionary viewbag)
         {
             using (var context = new RenderTemplateContext() {
                                             TemplateName = viewName,

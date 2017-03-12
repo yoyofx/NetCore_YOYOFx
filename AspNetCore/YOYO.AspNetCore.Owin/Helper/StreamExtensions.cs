@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin.Helper
+namespace YOYO.AspNetCore.Owin.Helper
 {
     internal static partial class StreamExtensions
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc.ActionRuntime;
+using YOYO.AspNetCore.Mvc.ActionRuntime;
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class DefaultBootstrapper : IYOYOBootstrapper
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc.Filters
+namespace YOYO.AspNetCore.Mvc.Filters
 {
-    public class TimeStampEncryptAttribute : YOYO.Mvc.ActionFilterAttribute
+    public class TimeStampEncryptAttribute : YOYO.AspNetCore.Mvc.ActionFilterAttribute
     {
         public override bool OnActionExecuting(ActionExecuteContext context)
         {

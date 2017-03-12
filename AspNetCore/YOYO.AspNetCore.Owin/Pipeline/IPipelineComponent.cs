@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin;
-namespace YOYO.Owin.Pipeline
+using YOYO.AspNetCore.Owin;
+namespace YOYO.AspNetCore.Owin.Pipeline
 {
     using Env = IDictionary<string, object>;
     //using AppFunc = Func< //

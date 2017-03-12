@@ -4,12 +4,12 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin.Helper;
+using YOYO.AspNetCore.Owin.Helper;
 using System.IO;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     internal class OwinRequest : IOwinRequest
     {

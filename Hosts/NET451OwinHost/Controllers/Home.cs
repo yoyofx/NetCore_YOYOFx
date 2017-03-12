@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YOYO.Mvc;
-using YOYO.Mvc.Filters;
+using YOYO.AspNetCore.Mvc;
+using YOYO.AspNetCore.Mvc.Filters;
 
 namespace NET451OwinHost.Controlers
 {

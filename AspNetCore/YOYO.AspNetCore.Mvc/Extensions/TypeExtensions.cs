@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc.Extensions
+namespace YOYO.AspNetCore.Mvc.Extensions
 {
     public static class TypeExtensions
     {

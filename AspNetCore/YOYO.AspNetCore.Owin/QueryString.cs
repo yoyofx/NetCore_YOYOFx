@@ -2,9 +2,9 @@
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
-using YOYO.Owin.Helper;
+using YOYO.AspNetCore.Owin.Helper;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     public class QueryString
     {

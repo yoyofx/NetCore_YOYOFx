@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin;
+using YOYO.AspNetCore.Owin;
 
-namespace YOYO.Mvc.Session
+namespace YOYO.AspNetCore.Mvc.Session
 {
     public class DefaultSessionProvider : ISessionProvider
     {

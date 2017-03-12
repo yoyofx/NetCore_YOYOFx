@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc.ActionRuntime
+namespace YOYO.AspNetCore.Mvc.ActionRuntime
 {
     public interface IControllerFacotry
     {

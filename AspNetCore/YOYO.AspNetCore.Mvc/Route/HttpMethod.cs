@@ -1,4 +1,4 @@
-﻿namespace YOYO.Mvc.Route
+﻿namespace YOYO.AspNetCore.Mvc.Route
 {
     public enum HttpMethod
     {

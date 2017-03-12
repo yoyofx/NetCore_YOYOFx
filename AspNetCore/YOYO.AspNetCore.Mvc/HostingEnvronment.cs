@@ -6,7 +6,7 @@ using Microsoft.Extensions.PlatformAbstractions;
 #endif
 
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class HostingEnvronment
     {

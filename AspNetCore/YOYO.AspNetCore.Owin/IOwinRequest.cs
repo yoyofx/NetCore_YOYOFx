@@ -6,7 +6,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     public interface IOwinRequest
     {

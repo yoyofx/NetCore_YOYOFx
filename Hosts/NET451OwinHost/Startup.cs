@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YOYO.Mvc.Owin;
+using YOYO.AspNetCore.Mvc.Owin;
 using YOYO.AspNetCore.Builder;
 
 namespace NET451OwinHost

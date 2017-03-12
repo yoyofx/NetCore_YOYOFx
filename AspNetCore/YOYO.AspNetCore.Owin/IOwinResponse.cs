@@ -1,7 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     /// <summary>
     /// Abstraction for an HTTP response, to be implemented by hosting.

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using YOYO.Mvc.Extensions;
+using YOYO.AspNetCore.Mvc.Extensions;
 
-namespace YOYO.Mvc.Route
+namespace YOYO.AspNetCore.Mvc.Route
 {
     public class RouteRole
     {

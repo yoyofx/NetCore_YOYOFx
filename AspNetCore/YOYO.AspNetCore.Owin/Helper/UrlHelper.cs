@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin.Helper
+namespace YOYO.AspNetCore.Owin.Helper
 {
     internal static class UrlHelper
     {

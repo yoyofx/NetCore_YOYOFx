@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin;
+using YOYO.AspNetCore.Owin;
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class FileResult : IActionResult
     {

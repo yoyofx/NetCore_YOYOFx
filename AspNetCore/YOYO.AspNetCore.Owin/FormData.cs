@@ -4,10 +4,10 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using YOYO.Owin.Helper;
+using YOYO.AspNetCore.Owin.Helper;
 
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     internal class FormData : IFormData
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Linq.Expressions;
 
-namespace YOYO.Mvc.Reflection
+namespace YOYO.AspNetCore.Mvc.Reflection
 {
     public interface IDynamicMethodInvoker
     {

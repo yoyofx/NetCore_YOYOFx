@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using YOYO.Owin;
-using YOYO.Owin.Helper;
+using YOYO.AspNetCore.Owin;
+using YOYO.AspNetCore.Owin.Helper;
 
-namespace YOYO.Mvc.Route
+namespace YOYO.AspNetCore.Mvc.Route
 {
     internal abstract class RouteHandler : IRouteHandler
     {

@@ -1,4 +1,4 @@
-﻿namespace YOYO.Owin
+﻿namespace YOYO.AspNetCore.Owin
 {
     public interface IRequestHeaders : IHttpHeaders
     {

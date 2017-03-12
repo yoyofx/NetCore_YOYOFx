@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace YOYO.Mvc.Route
+namespace YOYO.AspNetCore.Mvc.Route
 {
 	public class RouteSegment
 	{

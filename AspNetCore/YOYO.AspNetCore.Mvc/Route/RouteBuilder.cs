@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin;
-using YOYO.Mvc.Extensions;
+using YOYO.AspNetCore.Owin;
+using YOYO.AspNetCore.Mvc.Extensions;
 
-namespace YOYO.Mvc.Route
+namespace YOYO.AspNetCore.Mvc.Route
 {
     public class RouteBuilder : IRouteBuilder
     {

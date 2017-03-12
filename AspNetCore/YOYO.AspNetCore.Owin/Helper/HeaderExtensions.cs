@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace YOYO.Owin.Helper
+namespace YOYO.AspNetCore.Owin.Helper
 {
     internal static class HeaderExtensions
     {

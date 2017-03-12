@@ -11,7 +11,7 @@ using System.Runtime.Loader;
 #endif
 
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class ApplicationAssemblyLoader
     {

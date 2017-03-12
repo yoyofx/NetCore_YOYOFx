@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     /// <summary>
     /// Represents the HTTP Status Code returned by a Handler.

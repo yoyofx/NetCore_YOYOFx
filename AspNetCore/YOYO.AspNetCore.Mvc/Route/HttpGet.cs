@@ -1,13 +1,13 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using YOYO.Owin;
+using YOYO.AspNetCore.Owin;
 using System.Reflection;
-using YOYO.Mvc.ResponseProcessor;
-using YOYO.Mvc.Session;
+using YOYO.AspNetCore.Mvc.ResponseProcessor;
+using YOYO.AspNetCore.Mvc.Session;
 using YOYO.Extensions.DI;
 
-namespace YOYO.Mvc.Route
+namespace YOYO.AspNetCore.Mvc.Route
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class HttpGetAttribute : HttpRouteAttribute

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin;
+using YOYO.AspNetCore.Owin;
 using Newtonsoft.Json;
 
-namespace YOYO.Mvc.ResponseProcessor
+namespace YOYO.AspNetCore.Mvc.ResponseProcessor
 {
     internal class JsonResponseProcessor : ResponseProcessor , IResponseProcessor
     {

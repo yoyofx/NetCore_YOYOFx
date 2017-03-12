@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using YOYO.AspNetCore.ViewEngine.Razor;
-using YOYO.Mvc;
+using YOYO.AspNetCore.Mvc;
 
 namespace YOYO.AspNetCore.ViewEngine.Razor
 {

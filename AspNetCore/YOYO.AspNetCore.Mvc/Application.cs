@@ -4,10 +4,10 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc.ResponseProcessor;
+using YOYO.AspNetCore.Mvc.ResponseProcessor;
 
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class Application
     {

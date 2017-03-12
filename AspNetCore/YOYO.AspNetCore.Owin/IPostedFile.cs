@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     /// <summary>
     /// Represents a file uploaded over HTTP.

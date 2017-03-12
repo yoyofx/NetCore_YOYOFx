@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
 	public enum SegmentType
 	{

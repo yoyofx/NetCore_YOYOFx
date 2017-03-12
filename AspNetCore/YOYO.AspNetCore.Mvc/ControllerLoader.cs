@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class ControllerLoader
     {

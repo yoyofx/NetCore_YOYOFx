@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Mvc.ResponseProcessor;
-using YOYO.Owin;
+using YOYO.AspNetCore.Mvc.ResponseProcessor;
+using YOYO.AspNetCore.Owin;
 
-namespace YOYO.Mvc
+namespace YOYO.AspNetCore.Mvc
 {
     public class View : IActionResult
     {

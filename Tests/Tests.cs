@@ -1,8 +1,8 @@
 ﻿using System;
 using Xunit;
-using YOYO.Mvc;
-using YOYO.Mvc.Route;
-using YOYO.Owin;
+using YOYO.AspNetCore.Mvc;
+using YOYO.AspNetCore.Mvc.Route;
+using YOYO.AspNetCore.Owin;
 
 namespace Tests
 {

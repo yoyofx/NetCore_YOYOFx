@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     public interface IResponseHeaders : IHttpHeaders
     {

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using YOYO.Owin.Helper;
+using YOYO.AspNetCore.Owin.Helper;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     public class OwinContext : IOwinContext, IDictionary<String, object>
     {

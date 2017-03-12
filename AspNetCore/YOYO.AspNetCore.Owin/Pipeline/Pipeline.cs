@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin.Pipeline
+namespace YOYO.AspNetCore.Owin.Pipeline
 {
 
     using Env = IDictionary<string, object>;

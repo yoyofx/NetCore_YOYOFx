@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using YOYO.Owin;
-using YOYO.Mvc.Extensions;
+using YOYO.AspNetCore.Owin;
+using YOYO.AspNetCore.Mvc.Extensions;
 
-namespace YOYO.Mvc.ActionRuntime
+namespace YOYO.AspNetCore.Mvc.ActionRuntime
 {
     public class ActionRuntimeParameter
     {

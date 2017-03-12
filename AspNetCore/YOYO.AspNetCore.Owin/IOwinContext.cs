@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     public interface IOwinContext
     {

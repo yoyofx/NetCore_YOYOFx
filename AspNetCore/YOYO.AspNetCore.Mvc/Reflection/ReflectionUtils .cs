@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Mvc.Reflection
+namespace YOYO.AspNetCore.Mvc.Reflection
 {
     public class ReflectionUtils
     {

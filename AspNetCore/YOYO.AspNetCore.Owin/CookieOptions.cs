@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YOYO.Owin
+namespace YOYO.AspNetCore.Owin
 {
     /// <summary>
     /// Options used to create a new cookie.

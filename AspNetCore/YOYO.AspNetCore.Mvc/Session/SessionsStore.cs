@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
-namespace YOYO.Mvc.Session
+namespace YOYO.AspNetCore.Mvc.Session
 {
     internal class SessionsStore
     {
