@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <DebugType>portable</DebugType>
     <AssemblyName>Tests</AssemblyName>
     <PackageId>Tests</PackageId>
@@ -11,8 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspNetCore\YOYO.AspNetCore.Mvc\YOYO.AspNetCore.Mvc.csproj" />
-    <ProjectReference Include="..\AspNetCore\YOYO.AspNetCore.Owin\YOYO.AspNetCore.Owin.csproj" />
     <ProjectReference Include="..\AspNetCore\YOYO.Extensions.DI\YOYO.Extensions.DI.csproj" />
   </ItemGroup>
 

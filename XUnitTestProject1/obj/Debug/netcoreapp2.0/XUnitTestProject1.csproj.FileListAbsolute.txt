@@ -1,0 +1,16 @@
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\XUnitTestProject1.deps.json
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\XUnitTestProject1.runtimeconfig.json
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\XUnitTestProject1.runtimeconfig.dev.json
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\XUnitTestProject1.dll
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\XUnitTestProject1.pdb
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\obj\Debug\netcoreapp2.0\XUnitTestProject1.csprojResolveAssemblyReference.cache
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\obj\Debug\netcoreapp2.0\XUnitTestProject1.csproj.CoreCompileInputs.cache
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\obj\Debug\netcoreapp2.0\XUnitTestProject1.AssemblyInfoInputs.cache
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\obj\Debug\netcoreapp2.0\XUnitTestProject1.AssemblyInfo.cs
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\obj\Debug\netcoreapp2.0\XUnitTestProject1.dll
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\obj\Debug\netcoreapp2.0\XUnitTestProject1.pdb
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\YOYO.Extensions.DI.dll
+D:\Sources\YOYOFx\YOYOFx\XUnitTestProject1\bin\Debug\netcoreapp2.0\YOYO.Extensions.DI.pdb

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using YOYO.Extensions.DI.Registration;
 
 namespace YOYO.Extensions.DI
 {
