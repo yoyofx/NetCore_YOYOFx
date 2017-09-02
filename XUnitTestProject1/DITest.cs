@@ -21,6 +21,7 @@ namespace XUnitTestProject1
                     .AsImplementedInterfaces()
                     .WithTransientLifetime());
 
+
             var services = Collection.GetDescriptors<ITransientService>();
 
             Assert.Equal(services, Collection);

@@ -32,7 +32,7 @@ namespace YOYO.Extensions.DI
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            ((IDisposable)serviceProvider)?.Dispose();
         }
 
     }

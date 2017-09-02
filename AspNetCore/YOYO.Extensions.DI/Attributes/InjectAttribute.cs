@@ -4,7 +4,9 @@ using System.Text;
 
 namespace YOYO.Extensions.DI.Attributes
 {
-    class InjectAttribute
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
+
+    public class InjectAttribute : Attribute
     {
     }
 }
