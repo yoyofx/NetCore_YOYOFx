@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using YOYO.Extensions.DI.Attributes;
-using YOYO.Extensions.DI.Registration;
+using YOYOFx.Extensions.DependencyInjection.Attributes;
+using YOYOFx.Extensions.DependencyInjection.Registration;
 
 namespace XUnitTestProject1
 {

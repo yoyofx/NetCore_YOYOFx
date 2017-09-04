@@ -9,7 +9,7 @@
       "XUnitTestProject1/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "15.3.0-preview-20170628-02",
-          "YOYO.Extensions.DI": "1.0.0",
+          "YOYOFx.Extensions.DependencyInjection": "2.0.0",
           "xunit": "2.2.0",
           "xunit.runner.visualstudio": "2.2.0"
         },
@@ -1038,12 +1038,12 @@
           "System.Threading.ThreadPool": "4.3.0"
         }
       },
-      "YOYO.Extensions.DI/1.0.0": {
+      "YOYOFx.Extensions.DependencyInjection/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0"
         },
         "runtime": {
-          "YOYO.Extensions.DI.dll": {}
+          "YOYOFx.Extensions.DependencyInjection.dll": {}
         }
       }
     }
@@ -1593,7 +1593,7 @@
       "path": "xunit.runner.visualstudio/2.2.0",
       "hashPath": "xunit.runner.visualstudio.2.2.0.nupkg.sha512"
     },
-    "YOYO.Extensions.DI/1.0.0": {
+    "YOYOFx.Extensions.DependencyInjection/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

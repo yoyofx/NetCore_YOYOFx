@@ -1,0 +1,11 @@
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\net451\YOYO.Extensions.DI.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\net451\YOYO.Extensions.DI.pdb
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\net451\Microsoft.Extensions.DependencyInjection.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\net451\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\net451\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\net451\YOYO.Extensions.DI.csproj.CoreCompileInputs.cache
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\net451\YOYO.Extensions.DI.AssemblyInfo.cs
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\net451\YOYO.Extensions.DI.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\net451\YOYO.Extensions.DI.pdb
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\net451\YOYO.Extensions.DI.csprojResolveAssemblyReference.cache
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\net451\YOYO.Extensions.DI.AssemblyInfoInputs.cache

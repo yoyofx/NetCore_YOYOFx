@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspNetCore\YOYO.Extensions.DI\YOYO.Extensions.DI.csproj" />
+    <ProjectReference Include="..\AspNetCore\YOYOFx.Extensions.DependencyInjection\YOYOFx.Extensions.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

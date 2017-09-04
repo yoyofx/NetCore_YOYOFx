@@ -1,0 +1,9 @@
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\netstandard1.6\YOYO.Extensions.DI.deps.json
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\netstandard1.6\YOYO.Extensions.DI.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\bin\Debug\netstandard1.6\YOYO.Extensions.DI.pdb
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\netstandard1.6\YOYO.Extensions.DI.csproj.CoreCompileInputs.cache
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\netstandard1.6\YOYO.Extensions.DI.AssemblyInfo.cs
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\netstandard1.6\YOYO.Extensions.DI.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\netstandard1.6\YOYO.Extensions.DI.pdb
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\netstandard1.6\YOYO.Extensions.DI.csprojResolveAssemblyReference.cache
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYO.Extensions.DI\obj\Debug\netstandard1.6\YOYO.Extensions.DI.AssemblyInfoInputs.cache

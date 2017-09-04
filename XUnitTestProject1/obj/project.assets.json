@@ -1681,17 +1681,17 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "YOYO.Extensions.DI/1.0.0": {
+      "YOYOFx.Extensions.DependencyInjection/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0"
         },
         "compile": {
-          "bin/placeholder/YOYO.Extensions.DI.dll": {}
+          "bin/placeholder/YOYOFx.Extensions.DependencyInjection.dll": {}
         },
         "runtime": {
-          "bin/placeholder/YOYO.Extensions.DI.dll": {}
+          "bin/placeholder/YOYOFx.Extensions.DependencyInjection.dll": {}
         }
       }
     }
@@ -5661,17 +5661,17 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "YOYO.Extensions.DI/1.0.0": {
+    "YOYOFx.Extensions.DependencyInjection/2.0.0": {
       "type": "project",
-      "path": "../AspNetCore/YOYO.Extensions.DI/YOYO.Extensions.DI.csproj",
-      "msbuildProject": "../AspNetCore/YOYO.Extensions.DI/YOYO.Extensions.DI.csproj"
+      "path": "../AspNetCore/YOYOFx.Extensions.DependencyInjection/YOYOFx.Extensions.DependencyInjection.csproj",
+      "msbuildProject": "../AspNetCore/YOYOFx.Extensions.DependencyInjection/YOYOFx.Extensions.DependencyInjection.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
-      "YOYO.Extensions.DI >= 1.0.0",
+      "YOYOFx.Extensions.DependencyInjection >= 2.0.0",
       "xunit >= 2.2.0",
       "xunit.runner.visualstudio >= 2.2.0"
     ]
@@ -5710,8 +5710,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYO.Extensions.DI\\YOYO.Extensions.DI.csproj": {
-              "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYO.Extensions.DI\\YOYO.Extensions.DI.csproj"
+            "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj": {
+              "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj"
             }
           }
         }
