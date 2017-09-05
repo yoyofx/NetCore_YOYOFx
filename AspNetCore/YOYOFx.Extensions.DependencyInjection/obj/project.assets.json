@@ -46,6 +46,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "YOYOFx.Extensions.Utils/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/YOYOFx.Extensions.Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/YOYOFx.Extensions.Utils.dll": {}
+        }
       }
     }
   },
@@ -212,12 +222,18 @@
         "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "YOYOFx.Extensions.Utils/1.0.0": {
+      "type": "project",
+      "path": "../YOYOFx.Extensions.Utils/YOYOFx.Extensions.Utils.csproj",
+      "msbuildProject": "../YOYOFx.Extensions.Utils/YOYOFx.Extensions.Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Microsoft.Extensions.DependencyInjection >= 2.0.0",
-      "NETStandard.Library >= 2.0.0"
+      "NETStandard.Library >= 2.0.0",
+      "YOYOFx.Extensions.Utils >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -253,7 +269,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj": {
+              "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

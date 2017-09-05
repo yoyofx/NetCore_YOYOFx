@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
+using YOYOFx.Extensions.DependencyInjection;
 using YOYOFx.Extensions.DependencyInjection.Attributes;
 using YOYOFx.Extensions.DependencyInjection.Registration;
 
@@ -31,6 +32,15 @@ namespace XUnitTestProject1
                 Assert.Equal(ServiceLifetime.Transient, service.Lifetime);
                 Assert.Equal(typeof(ITransientService), service.ServiceType);
             });
+
+
+            var sp = Collection.BuildServiceProvider();
+            var sp1 = new InjectServiceProvider(sp);
+
+            var dd = sp1.GetService(typeof(List<ITransientService>));
+
+            //IEnumerable<ITransientService> ts = (IEnumerable<ITransientService>)sp.GetServices(typeof(ITransientService));
+
         }
 
 

@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestProject1", "XUnitT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YOYOFx.Extensions.DependencyInjection", "AspNetCore\YOYOFx.Extensions.DependencyInjection\YOYOFx.Extensions.DependencyInjection.csproj", "{67AB6004-7FC5-488B-A8D0-0C41A8EE1E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YOYOFx.Extensions.Utils", "AspNetCore\YOYOFx.Extensions.Utils\YOYOFx.Extensions.Utils.csproj", "{CFA304CF-5441-4685-85D8-F0C900A249EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,18 @@ Global
 		{67AB6004-7FC5-488B-A8D0-0C41A8EE1E2B}.Release|x64.Build.0 = Release|Any CPU
 		{67AB6004-7FC5-488B-A8D0-0C41A8EE1E2B}.Release|x86.ActiveCfg = Release|Any CPU
 		{67AB6004-7FC5-488B-A8D0-0C41A8EE1E2B}.Release|x86.Build.0 = Release|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Debug|x64.Build.0 = Debug|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Debug|x86.Build.0 = Debug|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Release|x64.ActiveCfg = Release|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Release|x64.Build.0 = Release|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Release|x86.ActiveCfg = Release|Any CPU
+		{CFA304CF-5441-4685-85D8-F0C900A249EF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +100,7 @@ Global
 		{D26C8DC9-8F97-4768-A55B-A85D879150CD} = {E0D93C33-C347-4143-9D46-2F22732081DA}
 		{12987F35-1810-48B4-AFAA-D9990BC5B982} = {E0D93C33-C347-4143-9D46-2F22732081DA}
 		{67AB6004-7FC5-488B-A8D0-0C41A8EE1E2B} = {087C660C-DA6A-49B3-9B1A-94FCF50D70D0}
+		{CFA304CF-5441-4685-85D8-F0C900A249EF} = {087C660C-DA6A-49B3-9B1A-94FCF50D70D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2721D951-A47B-4B9F-97A5-FFDD3C17DC31}

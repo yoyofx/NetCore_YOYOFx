@@ -15,3 +15,5 @@ D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYOFx.Extensions.DependencyInjection\obj\De
 D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYOFx.Extensions.DependencyInjection\obj\Debug\netstandard2.0\YOYOFx.Extensions.DependencyInjection.AssemblyInfo.cs
 D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYOFx.Extensions.DependencyInjection\obj\Debug\netstandard2.0\YOYOFx.Extensions.DependencyInjection.dll
 D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYOFx.Extensions.DependencyInjection\obj\Debug\netstandard2.0\YOYOFx.Extensions.DependencyInjection.pdb
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYOFx.Extensions.DependencyInjection\bin\Debug\netstandard2.0\YOYOFx.Extensions.Utils.dll
+D:\Sources\YOYOFx\YOYOFx\AspNetCore\YOYOFx.Extensions.DependencyInjection\bin\Debug\netstandard2.0\YOYOFx.Extensions.Utils.pdb

@@ -9,6 +9,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YOYOFx.Extensions.Utils\YOYOFx.Extensions.Utils.csproj" />
+  </ItemGroup>
+
 
  
 </Project>

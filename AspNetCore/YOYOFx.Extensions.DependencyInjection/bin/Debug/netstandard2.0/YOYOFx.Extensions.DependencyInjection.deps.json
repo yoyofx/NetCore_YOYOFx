@@ -10,7 +10,8 @@
       "YOYOFx.Extensions.DependencyInjection/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
-          "NETStandard.Library": "2.0.0"
+          "NETStandard.Library": "2.0.0",
+          "YOYOFx.Extensions.Utils": "1.0.0"
         },
         "runtime": {
           "YOYOFx.Extensions.DependencyInjection.dll": {}
@@ -33,6 +34,11 @@
       "NETStandard.Library/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "YOYOFx.Extensions.Utils/1.0.0": {
+        "runtime": {
+          "YOYOFx.Extensions.Utils.dll": {}
         }
       }
     }
@@ -70,6 +76,11 @@
       "sha512": "sha512-7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
       "path": "netstandard.library/2.0.0",
       "hashPath": "netstandard.library.2.0.0.nupkg.sha512"
+    },
+    "YOYOFx.Extensions.Utils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
