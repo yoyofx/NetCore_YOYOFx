@@ -116,6 +116,18 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             return AddSelector(Types.Select(t => new TypeMap(t, types)));
         }
 
+        public ILifetimeSelector AsImplementedInterfacesOrDefault()
+        {
+            return AsTypeInfo(t => {
+                var implementedInterfaces = t.ImplementedInterfaces;
+                if (implementedInterfaces != null && implementedInterfaces.Count() > 0)
+                    return implementedInterfaces;
+                else
+                    return  new Type[] { t.AsType() };
+            });
+        }
+
+
         public ILifetimeSelector AsImplementedInterfaces()
         {
             return AsTypeInfo(t => t.ImplementedInterfaces);

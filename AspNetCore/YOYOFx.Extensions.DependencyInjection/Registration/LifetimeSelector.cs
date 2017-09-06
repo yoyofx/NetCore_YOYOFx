@@ -104,6 +104,11 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             return ServiceTypeSelector.As(types);
         }
 
+        public ILifetimeSelector AsImplementedInterfacesOrDefault()
+        {
+            return ServiceTypeSelector.AsImplementedInterfacesOrDefault();
+        }
+
         public ILifetimeSelector AsImplementedInterfaces()
         {
             return ServiceTypeSelector.AsImplementedInterfaces();

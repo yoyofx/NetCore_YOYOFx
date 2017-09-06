@@ -15,6 +15,26 @@ namespace XUnitTestProject1
         private IServiceCollection Collection { get; } = new ServiceCollection();
 
         [Fact]
+        public void CanInjectTypesForServiceProvider()
+        {
+            Collection.Scan(scan => scan.FromAssemblyOf<ITransientService>()
+               .AddClasses()
+               .AsImplementedInterfacesOrDefault()
+            );
+            var sp = Collection.BuildServiceProvider();
+            var sp1 = new InjectServiceProvider(sp);
+
+            var helloService = (HelloController)sp1.GetService(typeof(HelloController));
+
+            //IEnumerable<ITransientService> ts = (IEnumerable<ITransientService>)sp.GetServices(typeof(ITransientService));
+
+            Assert.Equal(helloService.UserService.Name, "hello");
+            Assert.Equal(helloService.TransienServices.Count(), 3);
+        }
+
+
+
+        [Fact]
         public void CanFilterTypesToScan()
         {
             Collection.Scan(scan => scan.FromAssemblyOf<ITransientService>()
@@ -34,12 +54,7 @@ namespace XUnitTestProject1
             });
 
 
-            var sp = Collection.BuildServiceProvider();
-            var sp1 = new InjectServiceProvider(sp);
-
-            var dd = sp1.GetService(typeof(List<ITransientService>));
-
-            //IEnumerable<ITransientService> ts = (IEnumerable<ITransientService>)sp.GetServices(typeof(ITransientService));
+          
 
         }
 
@@ -132,10 +147,33 @@ namespace XUnitTestProject1
 
     }
 
+    public class HelloController
+    {
+        [Inject]
+        public IUserService UserService { set; get; }
+
+        [Inject]
+        public IEnumerable<ITransientService> TransienServices { set; get; }
+
+    }
+
+    
+    public interface IUserService {
+        string Name { set; get; }
+    }
+
+    
+    public class UserService: IUserService
+    {
+       
+        public string Name { set; get; } = "hello";
+
+    }
+
+
 
     public interface ITransientService { }
 
-    [ServiceDescriptor(typeof(ITransientService))]
     public class TransientService1 : ITransientService { }
 
     public class TransientService2 : ITransientService { }

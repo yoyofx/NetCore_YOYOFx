@@ -59,7 +59,8 @@ namespace YOYOFx.Extensions.DependencyInjection
                     break;
                 case TypeDef.Object:
                     result = this.serviceProvider.GetService(serviceType);
-                    this.GetInjectService(result, serviceType);
+                    if(result != null)
+                        this.GetInjectService(result, serviceType);
                     break;
             }
 

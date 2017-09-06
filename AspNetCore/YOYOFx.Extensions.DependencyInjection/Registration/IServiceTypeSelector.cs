@@ -39,6 +39,9 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
         /// </summary>
         ILifetimeSelector AsImplementedInterfaces();
 
+        ILifetimeSelector AsImplementedInterfacesOrDefault();
+
+
         /// <summary>
         /// 注册多对多的类型映射关系根据 <paramref name="selector"/> function，确定自定义的映射关系.
         /// </summary>
