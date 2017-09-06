@@ -47,6 +47,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "System.Reflection.DispatchProxy/4.4.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Reflection.DispatchProxy.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reflection.DispatchProxy.dll": {}
+        }
+      },
       "YOYOFx.Extensions.Utils/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -223,6 +232,50 @@
         "netstandard.library.nuspec"
       ]
     },
+    "System.Reflection.DispatchProxy/4.4.0": {
+      "sha512": "xK6JE0mpsBD+T0qu3V6dmVRa06PxAvIIM/zSjouqP7Sk6X+FQj+9XFRz9GmZk9aJGMU1LX6AgTZIlsYZ64QKsw==",
+      "type": "package",
+      "path": "system.reflection.dispatchproxy/4.4.0",
+      "files": [
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Reflection.DispatchProxy.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/System.Reflection.DispatchProxy.dll",
+        "lib/netstandard2.0/System.Reflection.DispatchProxy.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.3/System.Reflection.DispatchProxy.dll",
+        "ref/netstandard1.3/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/de/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/es/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/fr/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/it/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/ja/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/ko/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/ru/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/zh-hans/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard1.3/zh-hant/System.Reflection.DispatchProxy.xml",
+        "ref/netstandard2.0/System.Reflection.DispatchProxy.dll",
+        "ref/netstandard2.0/System.Reflection.DispatchProxy.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/aot/lib/netcore50/System.Reflection.DispatchProxy.dll",
+        "system.reflection.dispatchproxy.4.4.0.nupkg.sha512",
+        "system.reflection.dispatchproxy.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "YOYOFx.Extensions.Utils/1.0.0": {
       "type": "project",
       "path": "../YOYOFx.Extensions.Utils/YOYOFx.Extensions.Utils.csproj",
@@ -233,6 +286,7 @@
     ".NETStandard,Version=v2.0": [
       "Microsoft.Extensions.DependencyInjection >= 2.0.0",
       "NETStandard.Library >= 2.0.0",
+      "System.Reflection.DispatchProxy >= 4.4.0",
       "YOYOFx.Extensions.Utils >= 1.0.0"
     ]
   },
@@ -294,6 +348,10 @@
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
+          },
+          "System.Reflection.DispatchProxy": {
+            "target": "Package",
+            "version": "4.4.0"
           }
         },
         "imports": [
