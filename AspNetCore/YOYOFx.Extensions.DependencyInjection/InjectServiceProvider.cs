@@ -9,6 +9,7 @@ using YOYOFx.Extensions.DependencyInjection.Attributes;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.FastReflection;
+using YOYOFx.Extensions.DependencyInjection.AOP;
 
 namespace YOYOFx.Extensions.DependencyInjection
 {
@@ -36,19 +37,28 @@ namespace YOYOFx.Extensions.DependencyInjection
         public object GetService(Type serviceType)
         {
             TypeDef def = TypeDef.Object;
+
+            Type genericType = null;
+            if (serviceType.IsGenericType) {  genericType = serviceType.GetGenericTypeDefinition();  }
+
             if (!serviceType.IsGenericType){}
-            else if (serviceType.GetGenericTypeDefinition() == typeof(List<>))
+            else if (genericType == typeof(List<>))
             {
                 serviceType = serviceType.GetGenericArguments()[0];
                 def = TypeDef.List;
             }
-            else if (serviceType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            else if (genericType == typeof(IEnumerable<>))
             {
                 serviceType = serviceType.GetGenericArguments()[0];
                 def = TypeDef.IEnumerable;
             }
+            else if (genericType == typeof(IInvocation<>) || genericType == typeof(IInvocation<,>))
+            {
+                def = TypeDef.Proxy;
+            }
 
             object result = null;
+
             switch (def)
             {
                 case TypeDef.IEnumerable:
@@ -61,6 +71,27 @@ namespace YOYOFx.Extensions.DependencyInjection
                     result = this.serviceProvider.GetService(serviceType);
                     if(result != null)
                         this.GetInjectService(result, serviceType);
+                    break;
+                case TypeDef.Proxy:
+                    Type proxyType = null;
+                    object proxy = null;
+                    if (genericType == typeof(IInvocation<>))
+                    {
+                        proxyType = serviceType.GetGenericArguments()[0];
+                        proxy = DynamicProxy.Create(proxyType);
+                        result = InvocationProxyFactory.CreateInvocation(proxyType, proxy);
+                    }
+                    else if(genericType == typeof(IInvocation<,>))
+                    {
+                        proxyType = serviceType.GetGenericArguments()[0];
+                        var interceptorType = serviceType.GetGenericArguments()[1];
+                        IMethodInterceptor methodInterceptor = (IMethodInterceptor)
+                                         this.serviceProvider.GetRequiredService(interceptorType);
+
+                        proxy = DynamicProxy.CreateWithInterceptor(proxyType, methodInterceptor);
+                        result = InvocationProxyFactory.CreateInvocationWithInterceptor(proxyType, proxy, methodInterceptor);
+                    }
+                   
                     break;
             }
 
@@ -115,7 +146,8 @@ namespace YOYOFx.Extensions.DependencyInjection
     {
         List,
         IEnumerable,
-        Object
+        Object,
+        Proxy
     }
 
 }

@@ -1,10 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Xunit;
 using YOYOFx.Extensions.DependencyInjection;
+using YOYOFx.Extensions.DependencyInjection.AOP;
 using YOYOFx.Extensions.DependencyInjection.Attributes;
 using YOYOFx.Extensions.DependencyInjection.Registration;
 
@@ -13,6 +16,33 @@ namespace XUnitTestProject1
     public class YOYO_DI_Test
     {
         private IServiceCollection Collection { get; } = new ServiceCollection();
+
+
+        [Fact]
+        public void CanAopTypesForServiceProvider()
+        {
+            Collection.Scan(scan => scan.FromAssemblyOf<ITransientService>()
+             .AddClasses()
+             .AsImplementedInterfacesOrDefault());
+
+
+            Collection.AddScoped<HttpService>();
+
+            var sp = Collection.BuildServiceProvider();
+            var sp1 = new InjectServiceProvider(sp);
+
+            
+
+
+            var invocation = sp1.GetService<IInvocation<IUserService, HttpService>>();
+
+            //invocation.Proxy.Name = "hello world";
+
+            invocation.Proxy.Register("max zhang");
+
+            Assert.Equal(invocation.Proxy.Name, "max zhang");
+        }
+
 
         [Fact]
         public void CanInjectTypesForServiceProvider()
@@ -157,17 +187,44 @@ namespace XUnitTestProject1
 
     }
 
-    
-    public interface IUserService {
+
+
+
+    public interface IUserService
+    {
         string Name { set; get; }
+
+        [DisplayName("IUserService.Register")]
+        void Register(string name);
+
     }
 
-    
+    public class HttpService : MethodInterceptorAttribute
+    {
+        public override object OnAfter(Type targetType, object target, object returnValue, MethodInfo targetMethod, object[] args)
+        {
+
+
+
+            return base.OnAfter(targetType, target, returnValue, targetMethod, args);
+        }
+    }
+
+
+
+
+
+
+
     public class UserService: IUserService
     {
        
         public string Name { set; get; } = "hello";
 
+        public void Register(string name)
+        {
+            this.Name = name;
+        }
     }
 
 

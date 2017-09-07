@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "985b01278ad98fdee0c1475b1c9c6bd1c62852e3"
+    "signature": "46ee8bdc4fd62e4a2d596021fc1d18f154e1ad56"
   },
   "compilationOptions": {},
   "targets": {
@@ -707,6 +707,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Reflection.DispatchProxy/4.4.0": {},
       "System.Reflection.Emit/4.3.0": {
         "dependencies": {
           "System.IO": "4.3.0",
@@ -1041,6 +1042,7 @@
       "YOYOFx.Extensions.DependencyInjection/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "System.Reflection.DispatchProxy": "4.4.0",
           "YOYOFx.Extensions.Utils": "1.0.0"
         },
         "runtime": {
@@ -1339,6 +1341,13 @@
       "sha512": "sha512-/OU0qWQOvSViJFMhO0cQCw1DbtAOWAtR8C90YwnvoB5fRtXWyj7reKp6B0hbJMsW9bHmqzxEHmDwdLPjUVaaBw==",
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.DispatchProxy/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xK6JE0mpsBD+T0qu3V6dmVRa06PxAvIIM/zSjouqP7Sk6X+FQj+9XFRz9GmZk9aJGMU1LX6AgTZIlsYZ64QKsw==",
+      "path": "system.reflection.dispatchproxy/4.4.0",
+      "hashPath": "system.reflection.dispatchproxy.4.4.0.nupkg.sha512"
     },
     "System.Reflection.Emit/4.3.0": {
       "type": "package",
