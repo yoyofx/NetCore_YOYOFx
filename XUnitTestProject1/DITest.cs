@@ -26,21 +26,16 @@ namespace XUnitTestProject1
              .AsImplementedInterfacesOrDefault());
 
 
-            Collection.AddScoped<HttpService>();
+            Collection.AddScoped<HttpInterceptor>();
 
-            var sp = Collection.BuildServiceProvider();
-            var sp1 = new InjectServiceProvider(sp);
+            var sp1 = new InjectServiceProvider(Collection);
 
-            
+            var invocation = sp1.GetService<IInvocation<IUserService, HttpInterceptor>>();
 
+            //[DisplayName("IUserService.Register")]
+            string name = invocation.Proxy.Register("max zhang");
 
-            var invocation = sp1.GetService<IInvocation<IUserService, HttpService>>();
-
-            //invocation.Proxy.Name = "hello world";
-
-            invocation.Proxy.Register("max zhang");
-
-            Assert.Equal(invocation.Proxy.Name, "max zhang");
+            Assert.Equal(name, $"Call Interface . Get DisplayName Attribute by:  IUserService.Register , args: max zhang");
         }
 
 
@@ -195,18 +190,18 @@ namespace XUnitTestProject1
         string Name { set; get; }
 
         [DisplayName("IUserService.Register")]
-        void Register(string name);
+        string Register(string name);
 
     }
 
-    public class HttpService : MethodInterceptorAttribute
+    public class HttpInterceptor : MethodInterceptorAttribute
     {
         public override object OnAfter(Type targetType, object target, object returnValue, MethodInfo targetMethod, object[] args)
         {
 
+            var attr = targetMethod.GetCustomAttribute<DisplayNameAttribute>();
 
-
-            return base.OnAfter(targetType, target, returnValue, targetMethod, args);
+            return $"Call Interface . Get DisplayName Attribute by:  {attr.DisplayName} , args: {args[0]}";
         }
     }
 
@@ -221,9 +216,10 @@ namespace XUnitTestProject1
        
         public string Name { set; get; } = "hello";
 
-        public void Register(string name)
+        public string Register(string name)
         {
             this.Name = name;
+            return name;
         }
     }
 
