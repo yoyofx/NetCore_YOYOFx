@@ -1,0 +1,8 @@
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\bin\Debug\netstandard2.0\YOYOFx.Boot.deps.json
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\bin\Debug\netstandard2.0\YOYOFx.Boot.dll
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\bin\Debug\netstandard2.0\YOYOFx.Boot.pdb
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.csproj.CoreCompileInputs.cache
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.AssemblyInfoInputs.cache
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.AssemblyInfo.cs
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.dll
+d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.pdb

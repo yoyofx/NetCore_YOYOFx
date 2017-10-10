@@ -12,6 +12,8 @@
 /AspNetCore/YOYO.AspNetCore.ViewEngine.Razor/obj/
 /AspNetCore/YOYO.Extensions.DI/bin/
 /AspNetCore/YOYO.Extensions.DI/obj/
+/AspNetCore/YOYOFx.Extensions.DependencyInjection/bin
+/AspNetCore/YOYOFx.Extensions.DependencyInjection/obj
 /Hosts/CoreHost/bin/
 /Hosts/CoreHost/obj/
 /Hosts/NET451OwinHost/bin/

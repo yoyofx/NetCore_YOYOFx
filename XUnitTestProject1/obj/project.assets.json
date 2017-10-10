@@ -5752,15 +5752,12 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "D:\\Sources\\YOYOFx\\YOYOFx\\XUnitTestProject1\\XUnitTestProject1.csproj",
+      "projectUniqueName": "d:\\Sources\\YOYOFx\\YOYOFx\\XUnitTestProject1\\XUnitTestProject1.csproj",
       "projectName": "XUnitTestProject1",
-      "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\XUnitTestProject1\\XUnitTestProject1.csproj",
+      "projectPath": "d:\\Sources\\YOYOFx\\YOYOFx\\XUnitTestProject1\\XUnitTestProject1.csproj",
       "packagesPath": "C:\\Users\\zlhxd\\.nuget\\packages\\",
-      "outputPath": "D:\\Sources\\YOYOFx\\YOYOFx\\XUnitTestProject1\\obj\\",
+      "outputPath": "d:\\Sources\\YOYOFx\\YOYOFx\\XUnitTestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5780,8 +5777,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj": {
-              "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj"
+            "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj": {
+              "projectPath": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj"
             }
           }
         }
@@ -5795,22 +5792,23 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "xunit.runner.visualstudio": {
-            "target": "Package",
-            "version": "2.2.0"
-          },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
+          },
+          "Microsoft.NET.Test.Sdk": {
+            "target": "Package",
+            "version": "15.3.0-preview-20170628-02"
           },
           "xunit": {
             "target": "Package",
             "version": "2.2.0"
           },
-          "Microsoft.NET.Test.Sdk": {
+          "xunit.runner.visualstudio": {
             "target": "Package",
-            "version": "15.3.0-preview-20170628-02"
+            "version": "2.2.0"
           }
         },
         "imports": [
