@@ -296,12 +296,15 @@
   },
   "project": {
     "version": "2.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj",
+      "projectUniqueName": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj",
       "projectName": "YOYOFx.Extensions.DependencyInjection",
-      "projectPath": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj",
+      "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\YOYOFx.Extensions.DependencyInjection.csproj",
       "packagesPath": "C:\\Users\\zlhxd\\.nuget\\packages\\",
-      "outputPath": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\obj\\",
+      "outputPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.DependencyInjection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -321,8 +324,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj": {
-              "projectPath": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj"
+            "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj": {
+              "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj"
             }
           }
         }
@@ -336,15 +339,15 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "2.0"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
-          },
-          "Microsoft.Extensions.DependencyInjection": {
-            "target": "Package",
-            "version": "2.0"
           },
           "System.Reflection.DispatchProxy": {
             "target": "Package",

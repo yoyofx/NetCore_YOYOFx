@@ -14,6 +14,9 @@
 /AspNetCore/YOYO.Extensions.DI/obj/
 /AspNetCore/YOYOFx.Extensions.DependencyInjection/bin
 /AspNetCore/YOYOFx.Extensions.DependencyInjection/obj
+/Boot/YOYOFx.Boot/bin
+/Boot/YOYOFx.Boot/obj
+
 /Hosts/CoreHost/bin/
 /Hosts/CoreHost/obj/
 /Hosts/NET451OwinHost/bin/
@@ -38,3 +41,5 @@
 /.vscode/
 /packages
 /YOYOFx.VC.VC.opendb
+/YOYOFx.ConsoleSample/bin/
+/YOYOFx.ConsoleSample/obj

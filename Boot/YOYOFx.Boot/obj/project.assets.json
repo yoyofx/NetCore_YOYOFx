@@ -182,12 +182,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "d:\\Sources\\YOYOFx\\YOYOFx\\Boot\\YOYOFx.Boot\\YOYOFx.Boot.csproj",
+      "projectUniqueName": "D:\\Sources\\YOYOFx\\YOYOFx\\Boot\\YOYOFx.Boot\\YOYOFx.Boot.csproj",
       "projectName": "YOYOFx.Boot",
-      "projectPath": "d:\\Sources\\YOYOFx\\YOYOFx\\Boot\\YOYOFx.Boot\\YOYOFx.Boot.csproj",
+      "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\Boot\\YOYOFx.Boot\\YOYOFx.Boot.csproj",
       "packagesPath": "C:\\Users\\zlhxd\\.nuget\\packages\\",
-      "outputPath": "d:\\Sources\\YOYOFx\\YOYOFx\\Boot\\YOYOFx.Boot\\obj\\",
+      "outputPath": "D:\\Sources\\YOYOFx\\YOYOFx\\Boot\\YOYOFx.Boot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -6,3 +6,4 @@ d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.A
 d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.AssemblyInfo.cs
 d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.dll
 d:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.pdb
+D:\Sources\YOYOFx\YOYOFx\Boot\YOYOFx.Boot\obj\Debug\netstandard2.0\YOYOFx.Boot.csprojResolveAssemblyReference.cache

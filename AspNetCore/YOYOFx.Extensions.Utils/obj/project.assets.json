@@ -182,12 +182,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj",
+      "projectUniqueName": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj",
       "projectName": "YOYOFx.Extensions.Utils",
-      "projectPath": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj",
+      "projectPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\YOYOFx.Extensions.Utils.csproj",
       "packagesPath": "C:\\Users\\zlhxd\\.nuget\\packages\\",
-      "outputPath": "d:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\obj\\",
+      "outputPath": "D:\\Sources\\YOYOFx\\YOYOFx\\AspNetCore\\YOYOFx.Extensions.Utils\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
