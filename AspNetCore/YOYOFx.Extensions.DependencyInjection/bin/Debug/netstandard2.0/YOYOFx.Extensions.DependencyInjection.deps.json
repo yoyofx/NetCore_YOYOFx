@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "4ed67e85bc7f897bd84022766946ccd6b7097617"
+    "signature": "f8e7d5e670dcfafc93d2d5675e88dc1199a5d4f1"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,7 +10,7 @@
       "YOYOFx.Extensions.DependencyInjection/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
-          "NETStandard.Library": "2.0.0",
+          "NETStandard.Library": "2.0.1",
           "System.Reflection.DispatchProxy": "4.4.0",
           "YOYOFx.Extensions.Utils": "1.0.0"
         },
@@ -32,7 +32,7 @@
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
-      "NETStandard.Library/2.0.0": {
+      "NETStandard.Library/2.0.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
@@ -76,12 +76,12 @@
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
-    "NETStandard.Library/2.0.0": {
+    "NETStandard.Library/2.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
-      "path": "netstandard.library/2.0.0",
-      "hashPath": "netstandard.library.2.0.0.nupkg.sha512"
+      "sha512": "sha512-oA6nwv9MhEKYvLpjZ0ggSpb1g4CQViDVQjLUcDWg598jtvJbpfeP2reqwI1GLW2TbxC/Ml7xL6BBR1HmKPXlTg==",
+      "path": "netstandard.library/2.0.1",
+      "hashPath": "netstandard.library.2.0.1.nupkg.sha512"
     },
     "System.Reflection.DispatchProxy/4.4.0": {
       "type": "package",

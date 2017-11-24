@@ -42,5 +42,12 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
         /// <param name="assemblies">The assemblies to should be scanned.</param>
         /// <exception cref="ArgumentNullException">If the <paramref name="assemblies"/> argument is <c>null</c>.</exception>
         IImplementationTypeSelector FromAssemblies(IEnumerable<Assembly> assemblies);
+
+        /// <summary>
+        /// Will scan for types in each <see cref="Assembly"/> in <paramref name="assemblies"/>.
+        /// </summary>
+        /// <param name="predicate">The AssemblyName to should be scanned.</param>
+        /// <exception cref="ArgumentNullException">If the <paramref name="predicate"/> argument is <c>null</c>.</exception>
+        IImplementationTypeSelector FromRuntimeAssemblies(Func<AssemblyName, bool> predicate = null);
     }
 }

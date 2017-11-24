@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 
 namespace YOYOFx.Extensions.DependencyInjection.Registration.Registration
 {
@@ -53,6 +54,16 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration.Registration
             }
 
             return AddSelector(assemblies.SelectMany(asm => asm.DefinedTypes.Select(x => x.AsType())));
+        }
+
+
+        public IImplementationTypeSelector FromRuntimeAssemblies(Func<AssemblyName, bool> predicate = null)
+        {
+            var assemblyNames = DependencyContext.Default.RuntimeLibraries.SelectMany(i => i.GetDefaultAssemblyNames(DependencyContext.Default));
+            if (predicate != null)
+                assemblyNames = assemblyNames.Where(predicate).ToArray();
+            var assemblies = assemblyNames.Select(i => Assembly.Load(new AssemblyName(i.Name))).ToArray();
+            return FromAssemblies( assemblies);
         }
 
         void ISelector.Populate(IServiceCollection services)
