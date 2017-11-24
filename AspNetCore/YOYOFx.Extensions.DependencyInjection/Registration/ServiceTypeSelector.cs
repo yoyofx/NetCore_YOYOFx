@@ -46,6 +46,11 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             return ImplementationTypeSelector.FromAssemblies(assemblies);
         }
 
+        public IImplementationTypeSelector FromRuntimeAssemblies(Func<AssemblyName, bool> predicate = null)
+        {
+            return ImplementationTypeSelector.FromRuntimeAssemblies(predicate);
+        }
+
         public void AddFromAttributes()
         {
             ImplementationTypeSelector.AddClasses().UsingAttributes();
@@ -193,5 +198,7 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
 
             return ImplementationTypeSelector;
         }
+
+        
     }
 }

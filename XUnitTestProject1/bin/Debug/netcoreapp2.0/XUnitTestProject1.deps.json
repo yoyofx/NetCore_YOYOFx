@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "46ee8bdc4fd62e4a2d596021fc1d18f154e1ad56"
+    "signature": "1bb15116ea09ba168027a1d12dd9be0ea2f6995c"
   },
   "compilationOptions": {},
   "targets": {
@@ -37,7 +37,7 @@
           "System.Threading": "4.3.0"
         }
       },
-      "Microsoft.DotNet.PlatformAbstractions/1.1.0": {
+      "Microsoft.DotNet.PlatformAbstractions/2.0.3": {
         "dependencies": {
           "System.AppContext": "4.1.0",
           "System.Collections": "4.3.0",
@@ -65,9 +65,9 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyModel/1.1.0": {
+      "Microsoft.Extensions.DependencyModel/2.0.3": {
         "dependencies": {
-          "Microsoft.DotNet.PlatformAbstractions": "1.1.0",
+          "Microsoft.DotNet.PlatformAbstractions": "2.0.3",
           "Newtonsoft.Json": "9.0.1",
           "System.Diagnostics.Debug": "4.3.0",
           "System.Dynamic.Runtime": "4.0.11",
@@ -187,7 +187,7 @@
       },
       "Microsoft.TestPlatform.TestHost/15.3.0-preview-20170628-02": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyModel": "1.1.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.3",
           "Microsoft.TestPlatform.ObjectModel": "15.3.0-preview-20170628-02",
           "Newtonsoft.Json": "9.0.1"
         },
@@ -1033,8 +1033,8 @@
       },
       "xunit.runner.visualstudio/2.2.0": {
         "dependencies": {
-          "Microsoft.DotNet.PlatformAbstractions": "1.1.0",
-          "Microsoft.Extensions.DependencyModel": "1.1.0",
+          "Microsoft.DotNet.PlatformAbstractions": "2.0.3",
+          "Microsoft.Extensions.DependencyModel": "2.0.3",
           "Microsoft.TestPlatform.ObjectModel": "15.3.0-preview-20170628-02",
           "System.Threading.ThreadPool": "4.3.0"
         }
@@ -1042,6 +1042,7 @@
       "YOYOFx.Extensions.DependencyInjection/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.3",
           "System.Reflection.DispatchProxy": "4.4.0",
           "YOYOFx.Extensions.Utils": "1.0.0"
         },
@@ -1069,12 +1070,12 @@
       "path": "microsoft.csharp/4.0.1",
       "hashPath": "microsoft.csharp.4.0.1.nupkg.sha512"
     },
-    "Microsoft.DotNet.PlatformAbstractions/1.1.0": {
+    "Microsoft.DotNet.PlatformAbstractions/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Bl6KYfbFSIW3QIRHAp931iR5h01qHjKghdpAtncwbzNUs0+IUZ+XfwkIU0sQsR33ufGvi3u4dZMIYYFysjpHAA==",
-      "path": "microsoft.dotnet.platformabstractions/1.1.0",
-      "hashPath": "microsoft.dotnet.platformabstractions.1.1.0.nupkg.sha512"
+      "sha512": "sha512-cXgVdJmW3fLwmSxsv0RlTe4BIKs6slVXV5xRvsO4CV4aUeY67GelaujxY/lP5yVlaMjMM22pXKbKtUY9x050Mw==",
+      "path": "microsoft.dotnet.platformabstractions/2.0.3",
+      "hashPath": "microsoft.dotnet.platformabstractions.2.0.3.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/2.0.0": {
       "type": "package",
@@ -1090,12 +1091,12 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyModel/1.1.0": {
+    "Microsoft.Extensions.DependencyModel/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TG7dJ8GY1Myz9lZ8DJL4i6D05ncJQBi5CjBMXMdJ4edKxaW+vP2DndDd1jJabdMdmVRdGrvybzqkB+A6Df7eDw==",
-      "path": "microsoft.extensions.dependencymodel/1.1.0",
-      "hashPath": "microsoft.extensions.dependencymodel.1.1.0.nupkg.sha512"
+      "sha512": "sha512-OiNYN/QeZLuYcn4CvYrOmYgODPB1Jpqft+cT4F3Hkq5poj+1DLfbIBftMI/Pn8J7DyHhYeBMLxJUuugjvk/Fuw==",
+      "path": "microsoft.extensions.dependencymodel/2.0.3",
+      "hashPath": "microsoft.extensions.dependencymodel.2.0.3.nupkg.sha512"
     },
     "Microsoft.NET.Test.Sdk/15.3.0-preview-20170628-02": {
       "type": "package",

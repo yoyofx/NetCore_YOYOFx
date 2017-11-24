@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace YOYOFx.Extensions.DependencyInjection.Registration
@@ -33,5 +36,32 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
 
             return services;
         }
+
+        public static IServiceCollection AddServiceExtensions(this IServiceCollection services)
+        {
+            var method = typeof(ServiceCollectionExtensions).GetMethod(nameof(GetServiceExtensions), BindingFlags.NonPublic | BindingFlags.Static);
+
+            foreach (var service in services.ToArray().GroupBy(i => i.ServiceType).Select(i => i.First()).Where(i => !i.ServiceType.ContainsGenericParameters))
+            {
+                var extensionsDescriptors = (IEnumerable<ServiceDescriptor>)method.MakeGenericMethod(service.ServiceType).Invoke(null, null);
+                foreach (var serviceDescriptor in extensionsDescriptors)
+                {
+                    services.Add(serviceDescriptor);
+                }
+            }
+
+            return services;
+        }
+
+        private static IEnumerable<ServiceDescriptor> GetServiceExtensions<T>()
+        {
+            yield return ServiceDescriptor.Transient(typeof(Lazy<T>), provider => new Lazy<T>(provider.GetRequiredService<T>));
+            yield return ServiceDescriptor.Transient(typeof(Lazy<IEnumerable<T>>), provider => new Lazy<IEnumerable<T>>(provider.GetRequiredService<IEnumerable<T>>));
+            yield return ServiceDescriptor.Singleton(typeof(Func<T>), provider => new Func<T>(provider.GetRequiredService<T>));
+            yield return ServiceDescriptor.Singleton(typeof(Func<IEnumerable<T>>), provider => new Func<IEnumerable<T>>(provider.GetRequiredService<IEnumerable<T>>));
+        }
+
+
+
     }
 }

@@ -46,6 +46,12 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             return AssemblySelector.FromAssemblies(assemblies);
         }
 
+
+        public IImplementationTypeSelector FromRuntimeAssemblies(Func<AssemblyName, bool> predicate = null)
+        {
+            return AssemblySelector.FromRuntimeAssemblies(predicate);
+        }
+
         public void AddFromAttributes()
         {
             AddFromAttributes(publicOnly: false);
@@ -132,5 +138,7 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
         {
             return Types.Where(t => t.IsNonAbstractClass(publicOnly));
         }
+
+       
     }
 }
