@@ -44,13 +44,14 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
-        public static IServiceCollection AddServiceExtensions(this IServiceCollection services)
+        public static IServiceCollection AddServiceExtensions(this IServiceCollection services,bool onlyInterface = true)
         {
             var method = typeof(ServiceCollectionExtensions).GetMethod(nameof(GetServiceExtensions), BindingFlags.NonPublic | BindingFlags.Static);
 
-            foreach (var service in services.ToArray()
-                .GroupBy(i => i.ImplementationType).Select(i => i.First())
-                .Where(i => !i.ServiceType.ContainsGenericParameters))
+            var query = services.ToArray().Where(i => !i.ServiceType.ContainsGenericParameters
+                        && i.ServiceType.IsInterface == onlyInterface);
+
+            foreach (var service in query)
             {
                 var extensionsDescriptors = (IEnumerable<ServiceDescriptor>)method
                     .MakeGenericMethod(service.ServiceType)
@@ -75,7 +76,8 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             yield return ServiceDescriptor.Transient(typeof(Lazy<T, ServiceTypeMetadata>), 
                 provider => 
                 new Lazy<T, ServiceTypeMetadata>(
-                    ()=> provider.GetRequiredService<T>(), 
+                    ()=> 
+                    (T)provider.GetRequiredService(ImplementationType), 
                     ServiceTypeMetadataExtensions.GetServiceTypeMetadata(ImplementationType)
                 ));
 

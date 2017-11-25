@@ -125,10 +125,13 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
         {
             return AsTypeInfo(t => {
                 var implementedInterfaces = t.ImplementedInterfaces;
-                if (implementedInterfaces != null && implementedInterfaces.Count() > 0)
-                    return implementedInterfaces;
+                if (implementedInterfaces != null && implementedInterfaces.Count() > 0) {
+                    var typeList = new List<Type>(implementedInterfaces);
+                    typeList.Add(t.AsType());
+                    return typeList;
+                }
                 else
-                    return  new Type[] { t.AsType() };
+                    return new Type[] { t.AsType() };
             });
         }
 

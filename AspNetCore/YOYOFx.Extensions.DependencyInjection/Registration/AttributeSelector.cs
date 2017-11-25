@@ -4,11 +4,16 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using YOYOFx.Extensions.DependencyInjection.Attributes;
+using System.FastReflection;
 
 namespace YOYOFx.Extensions.DependencyInjection.Registration
 {
     internal class AttributeSelector : ISelector
     {
+
+        static MethodInfo getMetadataServiceDescriptorMethodInfo = typeof(AttributeSelector).GetMethod(nameof(GetMetadataServiceDescriptor), BindingFlags.NonPublic | BindingFlags.Static);
+
+
         public AttributeSelector(IEnumerable<Type> types)
         {
             Types = types;
@@ -49,12 +54,38 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
 
                         services.Add(descriptor);
 
+                        if (serviceType.IsInterface)
+                        {
+                            var extensionDescriptor = (ServiceDescriptor)getMetadataServiceDescriptorMethodInfo
+                                                        .MakeGenericMethod(descriptor.ServiceType)
+                                                        .FastInvoke(null, new object[] { descriptor.ImplementationType });
 
-                        ServiceTypeMetadataExtensions.AddMetadata(descriptor.ImplementationType, attribute.Name );
+                            services.Add(extensionDescriptor);
+
+                            ServiceTypeMetadataExtensions.AddMetadata(descriptor.ImplementationType, attribute.Name);
+
+                        }
+
                     }
                 }
             }
         }
+
+
+        private static ServiceDescriptor GetMetadataServiceDescriptor<T>(Type ImplementationType)
+        {
+          
+             return ServiceDescriptor.Transient(typeof(Lazy<T, ServiceTypeMetadata>),
+                provider =>
+                new Lazy<T, ServiceTypeMetadata>(
+                    () =>
+                    (T)provider.GetRequiredService(ImplementationType),
+                    ServiceTypeMetadataExtensions.GetServiceTypeMetadata(ImplementationType)
+                ));
+
+        }
+
+
 
         private static IEnumerable<Type> GetServiceTypes(Type type, ServiceDescriptorAttribute attribute)
         {
@@ -87,6 +118,8 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             }
 
             yield return serviceType;
+            yield return type;
+
         }
     }
 }

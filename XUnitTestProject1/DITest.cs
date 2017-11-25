@@ -61,17 +61,21 @@ namespace XUnitTestProject1
         {
             Collection.Scan(scan => scan.FromAssemblyOf<ITransientService>()
               .AddClasses(t => t.AssignableTo<ITransientService>())
-                  .UsingAttributes());
-
-            Collection.AddServiceExtensions();
-
-            var sp1 = new InjectServiceProvider(Collection);
-
-            var ts =
-               (IEnumerable<Lazy<ITransientService, ServiceTypeMetadata>>)
-               sp1.GetService(typeof(IEnumerable<Lazy<ITransientService, ServiceTypeMetadata>>));
+              .UsingAttributes() );
 
 
+            var serviceProvider = new InjectServiceProvider(Collection);
+
+            
+            var ts = serviceProvider.GetServiceByMetadata<ITransientService>( 
+                            metadata =>  metadata.Name == "s1"
+                     );
+
+            Assert.Equal(ts?.GetType(), typeof(MyService1));
+
+            var query = serviceProvider.GetServicesByMetadata<ITransientService>();
+
+            Assert.Equal(query.Count(), 2);
 
 
         }
