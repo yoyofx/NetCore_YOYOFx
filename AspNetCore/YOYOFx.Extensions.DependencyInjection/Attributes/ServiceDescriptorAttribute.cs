@@ -16,7 +16,16 @@ namespace YOYOFx.Extensions.DependencyInjection.Attributes
             Lifetime = lifetime;
         }
 
+        public ServiceDescriptorAttribute(string name, Type serviceType , 
+            ServiceLifetime lifetime = ServiceLifetime.Transient) : this(serviceType, ServiceLifetime.Transient)
+        {
+            this.Name = name;
+        }
+
+
         public Type ServiceType { get; }
+
+        public string Name { set; get; }
 
         public ServiceLifetime Lifetime { get; }
     }

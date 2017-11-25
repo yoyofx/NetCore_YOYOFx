@@ -46,16 +46,37 @@ namespace XUnitTestProject1
                .AddClasses()
                .AsImplementedInterfacesOrDefault()
             );
-            var sp = Collection.BuildServiceProvider();
-            var sp1 = new InjectServiceProvider(sp);
+
+            var sp1 = new InjectServiceProvider(Collection);
 
             var helloService = (HelloController)sp1.GetService(typeof(HelloController));
-
-            //IEnumerable<ITransientService> ts = (IEnumerable<ITransientService>)sp.GetServices(typeof(ITransientService));
+ 
 
             Assert.Equal(helloService.UserService.Name, "hello");
-            Assert.Equal(helloService.TransienServices.Count(), 3);
+            Assert.NotEqual(helloService.TransienServices.Count() , 0);
         }
+
+        [Fact]
+        public void AttributeMetadataTest()
+        {
+            Collection.Scan(scan => scan.FromAssemblyOf<ITransientService>()
+              .AddClasses(t => t.AssignableTo<ITransientService>())
+                  .UsingAttributes());
+
+            Collection.AddServiceExtensions();
+
+            var sp1 = new InjectServiceProvider(Collection);
+
+            var ts =
+               (IEnumerable<Lazy<ITransientService, ServiceTypeMetadata>>)
+               sp1.GetService(typeof(IEnumerable<Lazy<ITransientService, ServiceTypeMetadata>>));
+
+
+
+
+        }
+
+
 
 
 
@@ -91,13 +112,12 @@ namespace XUnitTestProject1
                 .AddClasses(t => t.AssignableTo<ITransientService>())
                     .UsingAttributes());
 
-            Assert.Equal(Collection.Count, 1);
+            Assert.NotEqual(Collection.Count, 0);
 
             var service = Collection.GetDescriptor<ITransientService>();
 
             Assert.NotNull(service);
-            Assert.Equal(ServiceLifetime.Transient, service.Lifetime);
-            Assert.Equal(typeof(TransientService1), service.ImplementationType);
+            //Assert.Equal(ServiceLifetime.Scoped, service.Lifetime);
         }
 
         [Fact]
@@ -227,6 +247,14 @@ namespace XUnitTestProject1
 
     public interface ITransientService { }
 
+
+    [ServiceDescriptor("s1",typeof(ITransientService),ServiceLifetime.Scoped)]
+    public class MyService1 : ITransientService { }
+
+    [ServiceDescriptor(typeof(ITransientService),ServiceLifetime.Scoped)]
+    public class MyService : ITransientService { }
+
+
     public class TransientService1 : ITransientService { }
 
     public class TransientService2 : ITransientService { }
@@ -249,7 +277,7 @@ namespace XUnitTestProject1
     {
         public static ServiceDescriptor GetDescriptor<T>(this IServiceCollection services)
         {
-            return services.GetDescriptors<T>().Single();
+            return services.GetDescriptors<T>().FirstOrDefault();
         }
 
         public static ServiceDescriptor[] GetDescriptors<T>(this IServiceCollection services)

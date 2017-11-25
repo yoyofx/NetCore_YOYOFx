@@ -48,6 +48,9 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
                         var descriptor = new ServiceDescriptor(serviceType, type, attribute.Lifetime);
 
                         services.Add(descriptor);
+
+
+                        ServiceTypeMetadataExtensions.AddMetadata(descriptor.ImplementationType, attribute.Name );
                     }
                 }
             }
