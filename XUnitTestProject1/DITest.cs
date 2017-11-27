@@ -28,7 +28,7 @@ namespace XUnitTestProject1
 
             Collection.AddScoped<HttpInterceptor>();
 
-            var sp1 = new InjectServiceProvider(Collection);
+            var sp1 = Collection.BuildInjectServiceProvider();
 
             var invocation = sp1.GetService<IInvocation<IUserService, HttpInterceptor>>();
 
@@ -47,7 +47,7 @@ namespace XUnitTestProject1
                .AsImplementedInterfacesOrDefault()
             );
 
-            var sp1 = new InjectServiceProvider(Collection);
+            var sp1 = Collection.BuildInjectServiceProvider();
 
             var helloService = (HelloController)sp1.GetService(typeof(HelloController));
  
@@ -64,9 +64,10 @@ namespace XUnitTestProject1
               .UsingAttributes() );
 
 
-            var serviceProvider = new InjectServiceProvider(Collection);
+            var serviceProvider = Collection.BuildInjectServiceProvider();
 
-            
+
+
             var ts = serviceProvider.GetServiceByMetadata<ITransientService>( 
                             metadata =>  metadata.Name == "s1"
                      );

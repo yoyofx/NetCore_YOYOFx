@@ -3,13 +3,13 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.ServiceLookup;
-using YOYOFx.Extensions.Utils.Extensions;
 using YOYOFx.Extensions.DependencyInjection.Attributes;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.FastReflection;
 using YOYOFx.Extensions.DependencyInjection.AOP;
+using YOYOFx.Extensions.Internal;
+using YOYOFx.Extensions.DependencyInjection.Internal;
 
 namespace YOYOFx.Extensions.DependencyInjection
 {
@@ -19,25 +19,28 @@ namespace YOYOFx.Extensions.DependencyInjection
         private static ConcurrentDictionary<Type, List<PropertyInfo>> injectServiceTypes = 
                                                     new ConcurrentDictionary<Type, List<PropertyInfo>>();
 
+        private readonly Lazy<IServiceScopeFactory> _serviceScopeFactoryLazy;
+
+        private IServiceCollection _serviceCollection;
+
         private IServiceProvider serviceProvider = null;
 
 
-        public InjectServiceProvider(IServiceCollection serviceCollection)
-        {
-            this.serviceProvider = serviceCollection.BuildServiceProvider();
+        public InjectServiceProvider(IServiceProvider sp, IServiceCollection serviceCollection) {
+
+            serviceProvider = sp;
+            _serviceCollection = serviceCollection;
+            _serviceScopeFactoryLazy = new Lazy<IServiceScopeFactory>(
+                () => new InjectServiceScopeFactory(this, _serviceCollection));
+
         }
 
-        public InjectServiceProvider(IServiceProvider sp)
-        {
-            this.serviceProvider = sp;
-        }
-
+       
 
 
         public object GetService(Type serviceType)
         {
-
-            return this.ServiceFactory(new ServiceTypesContext(serviceType));
+            return GetServiceTypeOfFactory(new ServiceTypesContext(serviceType));
         }
 
 
@@ -47,7 +50,7 @@ namespace YOYOFx.Extensions.DependencyInjection
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        private object ServiceFactory(ServiceTypesContext context)
+        private object GetServiceTypeOfFactory(ServiceTypesContext context)
         {
             object result = null;
 
@@ -80,7 +83,7 @@ namespace YOYOFx.Extensions.DependencyInjection
         /// </summary>
         /// <param name="serviceInstance"></param>
         /// <param name="serviceType"></param>
-        private void GetInjectService(object serviceInstance,Type serviceType)
+        private void GetObjectAndInjectPropertyService(object serviceInstance,Type serviceType)
         {
             if(!injectServiceTypes.ContainsKey(serviceType))
             {
@@ -123,7 +126,7 @@ namespace YOYOFx.Extensions.DependencyInjection
         {
             var result = this.serviceProvider.GetRequiredService(serviceType);
             if (result != null)
-                this.GetInjectService(result, serviceType);
+                GetObjectAndInjectPropertyService(result, serviceType);
 
             return result;
         } 

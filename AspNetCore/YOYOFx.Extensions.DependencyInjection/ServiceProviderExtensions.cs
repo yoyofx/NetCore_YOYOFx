@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace YOYOFx.Extensions.DependencyInjection
 {
     public static class ServiceProviderExtensions
     {
+        public static IServiceProvider BuildInjectServiceProvider(this IServiceCollection services)
+        {
+            return new InjectServiceProvider(services.BuildServiceProvider(),services);
+        }
+
+
 
         public static TService GetServiceByMetadata<TService>(this IServiceProvider serviceProvider,
             Predicate<ServiceTypeMetadata> predicate)

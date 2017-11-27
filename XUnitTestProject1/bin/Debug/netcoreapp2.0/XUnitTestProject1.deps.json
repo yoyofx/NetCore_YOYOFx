@@ -1043,16 +1043,10 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
           "Microsoft.Extensions.DependencyModel": "2.0.3",
-          "System.Reflection.DispatchProxy": "4.4.0",
-          "YOYOFx.Extensions.Utils": "1.0.0"
+          "System.Reflection.DispatchProxy": "4.4.0"
         },
         "runtime": {
           "YOYOFx.Extensions.DependencyInjection.dll": {}
-        }
-      },
-      "YOYOFx.Extensions.Utils/1.0.0": {
-        "runtime": {
-          "YOYOFx.Extensions.Utils.dll": {}
         }
       }
     }
@@ -1610,11 +1604,6 @@
       "hashPath": "xunit.runner.visualstudio.2.2.0.nupkg.sha512"
     },
     "YOYOFx.Extensions.DependencyInjection/2.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "YOYOFx.Extensions.Utils/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

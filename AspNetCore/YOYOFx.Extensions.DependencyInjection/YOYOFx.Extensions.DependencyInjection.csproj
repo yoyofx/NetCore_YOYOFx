@@ -11,10 +11,6 @@
     <PackageReference Include="System.Reflection.DispatchProxy" Version="4.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\YOYOFx.Extensions.Utils\YOYOFx.Extensions.Utils.csproj" />
-  </ItemGroup>
-
 
  
 </Project>
