@@ -81,6 +81,30 @@ namespace XUnitTestProject1
 
         }
 
+        [Fact]
+        public void RegisterInstanceByMetadataTest()
+        {
+            var serviceProvider = Collection
+                .RegisterInstance<UserService>(new UserService { Name = "u1" }, "u1")
+                .RegisterInstance<UserService>(new UserService { Name = "u2" }, "u2")
+                .BuildInjectServiceProvider();
+
+            var u1 = serviceProvider.GetServiceByMetadata<UserService>(
+                           metadata => metadata.Name == "u1"
+                    );
+
+            var u2 = serviceProvider.GetServiceByMetadata<UserService>(
+                          metadata => metadata.Name == "u2"
+                   );
+
+            Assert.Equal(u1.Name, "u1");
+
+            Assert.Equal(u2.Name, "u2");
+
+
+        }
+
+
 
 
 

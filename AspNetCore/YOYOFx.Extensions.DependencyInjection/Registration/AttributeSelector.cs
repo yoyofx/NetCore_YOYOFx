@@ -11,7 +11,6 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
     internal class AttributeSelector : ISelector
     {
 
-        static MethodInfo getMetadataServiceDescriptorMethodInfo = typeof(AttributeSelector).GetMethod(nameof(GetMetadataServiceDescriptor), BindingFlags.NonPublic | BindingFlags.Static);
 
 
         public AttributeSelector(IEnumerable<Type> types)
@@ -56,9 +55,10 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
 
                         if (serviceType.IsInterface)
                         {
-                            var extensionDescriptor = (ServiceDescriptor)getMetadataServiceDescriptorMethodInfo
+                            var extensionDescriptor = (ServiceDescriptor)ServiceTypeMetadataExtensions
+                                                        .getMetadataServiceDescriptorMethodInfo
                                                         .MakeGenericMethod(descriptor.ServiceType)
-                                                        .FastInvoke(null, new object[] { descriptor.ImplementationType });
+                                                        .FastInvoke(null, new object[] { descriptor.ImplementationType,null });
 
                             services.Add(extensionDescriptor);
 
@@ -71,19 +71,6 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             }
         }
 
-
-        private static ServiceDescriptor GetMetadataServiceDescriptor<T>(Type ImplementationType)
-        {
-          
-             return ServiceDescriptor.Transient(typeof(Lazy<T, ServiceTypeMetadata>),
-                provider =>
-                new Lazy<T, ServiceTypeMetadata>(
-                    () =>
-                    (T)provider.GetRequiredService(ImplementationType),
-                    ServiceTypeMetadataExtensions.GetServiceTypeMetadata(ImplementationType)
-                ));
-
-        }
 
 
 

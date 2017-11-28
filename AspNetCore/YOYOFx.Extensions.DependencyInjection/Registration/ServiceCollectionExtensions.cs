@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.FastReflection;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +40,34 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
 
 
 
+        public static IServiceCollection RegisterInstance<TService>(this IServiceCollection services, object instance, string name)
+        {
+            var serviceType = typeof(TService);
+
+            var descriptor = new ServiceDescriptor(typeof(TService), instance);
+
+            services.Add(descriptor);
+
+
+            var extensionDescriptor = (ServiceDescriptor)ServiceTypeMetadataExtensions
+                                        .getMetadataServiceDescriptorMethodInfo
+                                        .MakeGenericMethod(descriptor.ServiceType)
+                                        .FastInvoke(null, new object[] { instance.GetType(), instance });
+
+            services.Add(extensionDescriptor);
+
+            int serviceKey = instance.GetHashCode();
+
+            ServiceTypeMetadataExtensions.AddMetadata(instance.GetType(), serviceKey, name);
+
+
+
+            return services;
+        }
+
+
+
+
         /// <summary>
         /// 为简单类型创建Lazy<T>，Lazy<IEnumerable<T>>，Func<T>，Func<IEnumerable<T>>等注入表达式。
         /// </summary>
@@ -73,13 +102,13 @@ namespace YOYOFx.Extensions.DependencyInjection.Registration
             yield return ServiceDescriptor.Singleton(typeof(Func<T>), provider => new Func<T>(provider.GetRequiredService<T>));
             yield return ServiceDescriptor.Singleton(typeof(Func<IEnumerable<T>>), provider => new Func<IEnumerable<T>>(provider.GetRequiredService<IEnumerable<T>>));
 
-            yield return ServiceDescriptor.Transient(typeof(Lazy<T, ServiceTypeMetadata>), 
-                provider => 
-                new Lazy<T, ServiceTypeMetadata>(
-                    ()=> 
-                    (T)provider.GetRequiredService(ImplementationType), 
-                    ServiceTypeMetadataExtensions.GetServiceTypeMetadata(ImplementationType)
-                ));
+            //yield return ServiceDescriptor.Transient(typeof(Lazy<T, ServiceTypeMetadata>), 
+            //    provider => 
+            //    new Lazy<T, ServiceTypeMetadata>(
+            //        ()=> 
+            //        (T)provider.GetRequiredService(ImplementationType), 
+            //        ServiceTypeMetadataExtensions.GetServiceTypeMetadata(ImplementationType)
+            //    ));
 
             //yield return ServiceDescriptor.Transient(typeof(IEnumerable<Lazy<T, ServiceTypeMetadata>>), 
             //    provider => provider.GetServices<Lazy<T, ServiceTypeMetadata>>());
